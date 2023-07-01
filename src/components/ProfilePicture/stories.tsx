@@ -1,9 +1,15 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
-import ProfilePicture from '.'
+import type { Meta, StoryObj } from '@storybook/react';
 
-export default {
-  title: 'ProfilePicture',
+import ProfilePicture from '.';
+
+const meta: Meta<typeof ProfilePicture> = {
   component: ProfilePicture,
-} as Meta
+};
 
-export const Basic: Story = (args) => <ProfilePicture {...args} />
+export default meta;
+
+type Story = StoryObj<typeof ProfilePicture>;
+
+export const SingleUser: Story = {
+  render: () => <ProfilePicture />,
+};
