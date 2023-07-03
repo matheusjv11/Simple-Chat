@@ -1,15 +1,21 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react'
 
-import ProfilePicture from '.';
+import ProfilePicture, { ProfilePictureProps } from '.'
+import AryaImage from '../../../public/img/profiles/arya.png'
 
 const meta: Meta<typeof ProfilePicture> = {
   component: ProfilePicture,
-};
+  args: {
+    online: true,
+    profile: AryaImage.src,
+    profileAlt: "Arya's profile picture"
+  }
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof ProfilePicture>;
+type Story = StoryObj<ProfilePictureProps>
 
 export const SingleUser: Story = {
-  render: () => <ProfilePicture />,
-};
+  render: (args) => <ProfilePicture {...args} />
+}
