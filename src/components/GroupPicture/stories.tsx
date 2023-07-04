@@ -1,14 +1,27 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react'
 
-import GroupPicture from '.';
+import GroupPicture from '.'
+
+import AryaImage from '../../../public/img/profiles/arya.png'
+import JonImage from '../../../public/img/profiles/jon.png'
+import SansaImage from '../../../public/img/profiles/sansa.png'
 
 const meta: Meta<typeof GroupPicture> = {
-  component: GroupPicture,
-};
+  component: GroupPicture
+}
 
-export default meta;
-type Story = StoryObj<typeof GroupPicture>;
+export default meta
 
-export const Primary: Story = {
-  render: () => <GroupPicture />,
-};
+type Story = StoryObj<typeof GroupPicture>
+
+const threePictures = [AryaImage.src, JonImage.src, SansaImage.src]
+
+export const ThreeMembers: Story = {
+  render: () => <GroupPicture membersProfile={threePictures} />
+}
+
+const twoPictures = [AryaImage.src, SansaImage.src]
+
+export const TwoMembers: Story = {
+  render: () => <GroupPicture membersProfile={twoPictures} />
+}

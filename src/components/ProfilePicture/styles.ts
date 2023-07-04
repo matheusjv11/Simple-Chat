@@ -6,8 +6,8 @@ type WrapperProps = Pick<ProfilePictureProps, 'profile'>
 export const Wrapper = styled.main<WrapperProps>`
   ${({ theme, profile }) => css`
     background-image: url(${profile});
-    height: 45px;
-    width: 45px;
+    height: ${theme.sizes.imageSize};
+    width: ${theme.sizes.imageSize};
     background-position: center;
     background-size: cover;
     border-radius: 100%;
