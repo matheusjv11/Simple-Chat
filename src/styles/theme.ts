@@ -20,7 +20,8 @@ export const MyTheme: DefaultTheme = {
     imageSize: '4.5rem'
   },
   colors: {
-    primary: 'red',
-    greyText: '#919093'
+    primary: '#7209b7',
+    greyText: '#919093',
+    lightGrey: '#cfcfcf'
   }
 }

@@ -1,8 +1,8 @@
 import * as S from './styles'
 import { useState } from 'react'
 import { StyledIcon } from '@styled-icons/styled-icon'
-import { Send } from '@styled-icons/bootstrap/Send'
-import { SendPlane } from '@styled-icons/remix-fill/SendPlane'
+import { SendPlane2 as SendFill } from '@styled-icons/remix-fill/SendPlane2'
+import { SendPlane2 as SendLine } from '@styled-icons/remix-line/SendPlane2'
 
 export type AvailabelIconsEnum = 'send'
 
@@ -13,8 +13,8 @@ type IconType = {
 
 const IconsRecord: Record<AvailabelIconsEnum, IconType> = {
   send: {
-    outlined: <Send />,
-    filled: <SendPlane />
+    outlined: <SendLine />,
+    filled: <SendFill />
   }
 }
 

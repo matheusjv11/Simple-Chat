@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.main`
   padding: 9px 12px;
@@ -18,8 +18,22 @@ export const EditableDiv = styled.div`
 `
 
 export const PlaceHolder = styled.div`
-  position: absolute;
-  top: 8px;
-  left: 15px;
-  pointer-events: none;
+  ${({ theme }) => css`
+    position: absolute;
+    top: 8px;
+    left: 15px;
+    pointer-events: none;
+    color: ${theme.colors.greyText};
+  `}
+`
+
+export const SendWrapper = styled.div`
+  ${({ theme }) => css`
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 1px solid ${theme.colors.lightGrey};
+    padding-left: 1.5rem;
+  `}
 `
