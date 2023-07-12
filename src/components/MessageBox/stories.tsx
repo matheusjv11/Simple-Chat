@@ -5,7 +5,10 @@ import MessageBox from '.'
 const meta: Meta<typeof MessageBox> = {
   component: MessageBox,
   argTypes: {
-    message: 'String'
+    message: 'string'
+  },
+  args: {
+    isCurrentUser: false
   }
 }
 
