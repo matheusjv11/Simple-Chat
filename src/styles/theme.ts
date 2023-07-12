@@ -1,6 +1,4 @@
-import { DefaultTheme } from 'styled-components'
-
-export const MyTheme: DefaultTheme = {
+export default {
   font: {
     family:
       "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
@@ -29,4 +27,4 @@ export const MyTheme: DefaultTheme = {
     primaryLight: 'white',
     secondaryLight: '#eeffde'
   }
-}
+} as const
