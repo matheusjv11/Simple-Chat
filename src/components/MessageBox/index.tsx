@@ -19,7 +19,7 @@ const MessageBox = ({ message, isCurrentUser }: MessageBoxProps) => (
     )}
 
     <S.MessageCard isCurrentUser={isCurrentUser}>
-      {!isCurrentUser && <S.Title>Matheus</S.Title>}
+      {!isCurrentUser && <S.Username>Matheus</S.Username>}
       <S.Box>{message}</S.Box>
       <S.SentHour>21:14</S.SentHour>
     </S.MessageCard>

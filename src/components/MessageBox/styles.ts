@@ -52,7 +52,7 @@ export const MessageCard = styled.div<MainProps>`
   `}
 `
 
-export const Title = styled.div`
+export const Username = styled.div`
   color: lightsteelblue;
   font-weight: 600;
 `
