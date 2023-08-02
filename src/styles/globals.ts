@@ -71,7 +71,3 @@ const GlobalStyles = createGlobalStyle`
     `}    
 `
 export default GlobalStyles
-
-/*     ${({ theme }) => css`
-      background-color: ${theme.};
-    `} */

@@ -1,7 +1,22 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.main``
 
 export const SearchBox = styled.div`
-    border-bottom: 1px solid black;
+  ${({ theme }) => css`
+    border-bottom: 1px solid ${theme.colors.border};
+    padding: 2rem;
+  `}
+`
+
+export const MessageWrapper = styled.div`
+  > main {
+    padding: 1rem;
+
+    &:not(:last-of-type) {
+      ${({ theme }) => css`
+        border-bottom: 1px solid ${theme.colors.border};
+      `}
+    }
+  }
 `

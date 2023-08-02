@@ -21,7 +21,8 @@ export default {
   colors: {
     primary: '#7209b7',
     greyText: '#919093',
-    lightGrey: '#cfcfcf'
+    lightGrey: '#cfcfcf',
+    border: '#ebebeb'
   },
   boxColors: {
     primaryLight: 'white',
