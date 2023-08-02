@@ -1,432 +1,331 @@
 import { QuoteType } from '@/types/QuoteType'
 
-export const Quotes: QuoteType[] = [
-  {
-    character: 'ned',
-    sentence: 'The man who passes the sentence should swing the sword.'
-  },
-  {
-    character: 'ned',
-    sentence: 'Winter is coming!'
-  },
-  {
-    character: 'ned',
-    sentence:
-      'I, Eddard of the house Stark, lord of Winterfell and warden of the North, sentence you to die.'
-  },
-  {
-    character: 'ned',
-    sentence: 'A madman sees what he sees.'
-  },
-  {
-    character: 'ned',
-    sentence: 'I grew up with soldiers. I learned how to die a long time ago.'
-  },
-  {
-    character: 'ned',
-    sentence:
-      'A ruler who hides behind paid executioners soon forgets what death is.'
-  },
-  {
-    character: 'ned',
-    sentence:
-      'When the snows fall and the white winds blow, the lone wolf dies but the pack survives'
-  },
-  {
-    character: 'jon',
-    sentence: "If I fall, don't bring me back."
-  },
-  {
-    character: 'jon',
-    sentence:
-      'There is only one war that matters. The Great War. And it is here.'
-  },
-  {
-    character: 'jon',
-    sentence: 'Love is the death of duty.'
-  },
-  {
-    character: 'jon',
-    sentence: 'Everything before the word "but" is horseshit.'
-  },
-  {
-    character: 'jon',
-    sentence:
-      "The war is not over. And I promise you, friend, the true enemy won't wait out the storm. He brings the storm."
-  },
-  {
-    character: 'sansa',
-    sentence: 'I hate the king more than any of them.'
-  },
-  {
-    character: 'sansa',
-    sentence:
-      "No need to seize the last word, Lord Baelish. I'll assume it was something clever."
-  },
-  {
-    character: 'arya',
-    sentence:
-      'When people ask you what happened here, tell them the North remembers. Tell them winter came for House Frey.'
-  },
-  {
-    character: 'arya',
-    sentence:
-      "Nothing isn't better or worse than anything. Nothing is just nothing."
-  },
-  {
-    character: 'arya',
-    sentence: 'Leave one wolf alive and the sheep are never safe.'
-  },
-  {
-    character: 'bran',
-    sentence:
-      "We don't have time for all this. The Night King has your dragon. He's one of them now. The Wall has fallen. The dead march south."
-  },
-  {
-    character: 'jaime',
-    sentence: 'The things I do for love.'
-  },
-  {
-    character: 'jaime',
-    sentence:
-      'Fighting bravely for a losing cause is admirable. Fighting for a winning cause is far more rewarding.'
-  },
-  {
-    character: 'jaime',
-    sentence: "Three victories don't make you a conqueror."
-  },
-  {
-    character: 'jaime',
-    sentence: 'By what right does the wolf judge the lion?'
-  },
-  {
-    character: 'tyrion',
-    sentence:
-      'I have a tender spot in my heart for cripples, bastards and broken things.'
-  },
-  {
-    character: 'tyrion',
-    sentence:
-      'Never forget what you are. The rest of the world will not. Wear it like armour, and it can never be used to hurt you.'
-  },
-  {
-    character: 'tyrion',
-    sentence:
-      'The day will come when you think you are safe and happy, and your joy will turn to ashes in your mouth.'
-  },
-  {
-    character: 'tyrion',
-    sentence: "That's what I do: I drink and I know things."
-  },
-  {
-    character: 'tyrion',
-    sentence: 'I am your son. I have always been your son.'
-  },
-  {
-    character: 'tyrion',
-    sentence:
-      "You love your children. It's your one redeeming quality. That and your cheekbones."
-  },
-  {
-    character: 'tyrion',
-    sentence: 'That bit of theatre will haunt our family for a generation.'
-  },
-  {
-    character: 'tyrion',
-    sentence: 'Love is more powerful than reason. We all know that.'
-  },
-  {
-    character: 'tyrion',
-    sentence: 'A Lannister always pays his debts.'
-  },
-  {
-    character: 'tyrion',
-    sentence:
-      'I know that our enemies hate each other almost as much as they hate us.'
-  },
-  {
-    character: 'tyrion',
-    sentence:
-      "Well, my brother has his sword, and I have my mind, and a mind needs books like a sword needs a whetstone, if it's to keep its edge."
-  },
-  {
-    character: 'tyrion',
-    sentence:
-      "It's not easy being drunk all the time. Everyone would do it, if it were easy."
-  },
-  {
-    character: 'tyrion',
-    sentence:
-      'A ruler who kills those devoted to her is not a ruler who inspires devotion.'
-  },
-  {
-    character: 'tyrion',
-    sentence:
-      'Never forget what you are. The rest of the world will not. Wear it like armor, and it can never be used to hurt you.'
-  },
-  {
-    character: 'tyrion',
-    sentence:
-      "Everyone who makes a joke about a dwarf's height thinks he's the only person ever to make a joke about a dwarf's height."
-  },
-  {
-    character: 'tyrion',
-    sentence:
-      "No matter who you are, no matter how strong you are, sooner or later, you'll face circumstances beyond your control."
-  },
-  {
-    character: 'tyrion',
-    sentence:
-      "I'm a constant disappointment to my own father, and I have learned to live with it."
-  },
-  {
-    character: 'tyrion',
-    sentence: 'Death is so terribly final, while life is full of possibilities.'
-  },
-  {
-    character: 'tyrion',
-    sentence:
-      "Why is it that when one man builds a wall, the next man immediately needs to know what's on the other side?"
-  },
-  {
-    character: 'tyrion',
-    sentence:
-      "People often claim to hunger for truth, but seldom like the taste when it's served up."
-  },
-  {
-    character: 'tyrion',
-    sentence:
-      "When you tear out a man's tongue, you are not proving him a liar, you're only telling the world that you fear what he might say"
-  },
-  {
-    character: 'tyrion',
-    sentence: 'Many underestimated you. Most of them are dead now.'
-  },
-  {
-    character: 'cersei',
-    sentence:
-      'When you play the game of thrones, you win or you die. There is no middle ground.'
-  },
-  {
-    character: 'cersei',
-    sentence:
-      "If you ever call me sister again, I'll have you strangled in your sleep."
-  },
-  {
-    character: 'cersei',
-    sentence: 'If you want a whore, buy one. If you want a Queen, earn her.'
-  },
-  {
-    character: 'cersei',
-    sentence:
-      "Tears aren't a woman's only weapon. The best one's between your legs."
-  },
-  {
-    character: 'cersei',
-    sentence:
-      'The only way to keep your people loyal is to make certain they fear you more than they do the enemy.'
-  },
-  {
-    character: 'cersei',
-    sentence:
-      "I want our baby to live. Don't let me die, Jaime. Please don't let me die."
-  },
-  {
-    character: 'cersei',
-    sentence:
-      "I don't care about checking my worst impulses. I don't care about making the world a better place. Hang the world."
-  },
-  {
-    character: 'tywin',
-    sentence: 'A lion does not concern himself with the opinion of sheep.'
-  },
-  {
-    character: 'tywin',
-    sentence: "Any man who must say 'I am the King' is no true King."
-  },
-  {
-    character: 'tywin',
-    sentence:
-      'Every day that he remains a prisoner, the less our name commands respect.'
-  },
-  {
-    character: 'tywin',
-    sentence:
-      'I need you to become the man you were always meant to be. Not next year, not tomorrow, now.'
-  },
-  {
-    character: 'joffrey',
-    sentence: 'Everyone is mine to torment.'
-  },
-  {
-    character: 'daenerys',
-    sentence:
-      "I am the dragon's daughter, and I swear to you that those who would harm you will die screaming."
-  },
-  {
-    character: 'daenerys',
-    sentence: 'He was no dragon. Fire cannot kill a dragon.'
-  },
-  {
-    character: 'daenerys',
-    sentence: 'All men must die, but we are not men.'
-  },
-  {
-    character: 'aemon',
-    sentence:
-      'We are only human, and the gods have fashioned us for love. That is our great glory, and our great tragedy.'
-  },
-  {
-    character: 'ramsay',
-    sentence:
-      "If you think this has a happy ending, you haven't been paying attention."
-  },
-  {
-    character: 'robert',
-    sentence:
-      "I'm the King, I get what I want. I never loved my brothers. Sad thing for a man to admit, but it's true. You were the brother I chose."
-  },
-  {
-    character: 'theon',
-    sentence:
-      'My sword is yours, in victory and defeat, from this day until my last day.'
-  },
-  {
-    character: 'theon',
-    sentence: "It's better to be cruel than weak."
-  },
-  {
-    character: 'samwell',
-    sentence:
-      "I was nothing at all. And when you're nothing at all, there's no reason to be afraid."
-  },
-  {
-    character: 'varys',
-    sentence:
-      'The storms come and go, the big fish eat the little fish and I keep on paddling.'
-  },
-  {
-    character: 'varys',
-    sentence:
-      "Power resides where men believe it resides. It's a trick, a shadow on the wall. And a very small man can cast a very large shadow."
-  },
-  {
-    character: 'brienne',
-    sentence:
-      'All I ever wanted was to fight for a lord I believed in. But the good lords are dead and the rest are monsters.'
-  },
-  {
-    character: 'aerys',
-    sentence: 'Burn them all!'
-  },
-  {
-    character: 'baelish',
-    sentence:
-      'A man with no motive is a man no one suspects. Always keep your foes confused.'
-  },
-  {
-    character: 'baelish',
-    sentence: "Chaos isn't a pit. Chaos is a ladder."
-  },
-  {
-    character: 'baelish',
-    sentence:
-      "It doesn't matter what we want. Once we get it, then we want something else."
-  },
-  {
-    character: 'baelish',
-    sentence:
-      'The fall breaks them. And some are given a chance to climb; they cling to the real or the gods or love.'
-  },
-  {
-    character: 'baelish',
-    sentence: 'I have always found revenge to be the purest of motivations.'
-  },
-  {
-    character: 'tormund',
-    sentence: "Gingers are beautiful. We've been kissed by fire."
-  },
-  {
-    character: 'melisandre',
-    sentence: 'The night is dark and full of terrors.'
-  },
-  {
-    character: 'arya',
-    sentence: 'Fear cuts deeper than swords.'
-  },
-  {
-    character: 'olenna',
-    sentence:
-      'The world is overflowing with horrible things, but they are all a tray of cakes next to death.'
-  },
-  {
-    character: 'mance',
-    sentence: 'The freedom to make my own mistakes was all I ever wanted.'
-  },
-  {
-    character: 'baelish',
-    sentence:
-      'It does not matter what we want. Once we get it, then we want something else.'
-  },
-  {
-    character: 'ygritte',
-    sentence: 'You know nothing, Jon Snow.'
-  },
-  {
-    character: 'ygritte',
-    sentence: 'Every man must die, Jon Snow. but first, he must live'
-  },
-  {
-    character: 'catelyn',
-    sentence: 'Laughter is poison to fear.'
-  },
-  {
-    character: 'tyrion',
-    sentence: 'I have a lot of experience in losing.'
-  },
-  {
-    character: 'catelyn',
-    sentence:
-      "All this horror that has come to my family, it's all because I couldn't love a motherless child."
-  },
-  {
-    character: 'sansa',
-    sentence:
-      "I am a Stark of Winterfell, this is my home. And you can't frighten me."
-  },
-  {
-    character: 'bran',
-    sentence:
-      "Can a man still be brave if he's afraid? That is the only time a man can be brave."
-  },
-  {
-    character: 'tyrion',
-    sentence: "I'm guilty of being a dwarf."
-  },
-  {
-    character: 'olenna',
-    sentence:
-      'I was told you were drunk, impertinent and thoroughly debauched. You can imagine my disappointment at finding nothing but a browbeaten bookkeeper.'
-  },
-  {
-    character: 'jaime',
-    sentence: 'There are no men like me. Only me.'
-  },
-  {
-    character: 'cersei',
-    sentence: "You love your children. It's why you'll never win."
-  },
-  {
-    character: 'cersei',
-    sentence: 'The more people you love, the weaker you are.'
-  },
-  {
-    character: 'cersei',
-    sentence:
-      'The only way to keep your people loyal is to make certain they fear you more than they do the enemy.'
-  },
-  {
-    character: 'cersei',
-    sentence: "I don't choose sides. I'm the queen of the Seven Kingdoms."
-  }
-]
+export const Quotes: Object = {
+  jon: [
+    'The man who passes the sentence should swing the sword.',
+    'The North remembers.',
+    'Winter is coming.',
+    "I don't want it.",
+    'I am the sword in the darkness. I am the watcher on the walls. I am the shield that guards the realms of men.',
+    "I'm not a Stark.",
+    "I've never been with a woman. Or a man.",
+    'I did what I thought was right, and I got murdered for it.',
+    "The Night's Watch is my family now.",
+    "I'm tired of fighting.",
+    "I'm not a leader.",
+    "I don't know how to do that. I thought I did, but I failed.",
+    "The wildlings can't march on an empty stomach.",
+    'I will never sit on the Iron Throne.',
+    'If you have to say you are a king, then you are no king.',
+    "I don't want anyone following me.",
+    'The things I do for love.',
+    "I'm not afraid of death. I've done it already.",
+    'Sometimes, a person has to choose.',
+    "I'm not asking you to forget your dead. I'll never forget mine.",
+    "I don't know how to pretend.",
+    "We're all just songs in the end. If we're lucky.",
+    "I've grown used to him.",
+    "I'm not your brother.",
+    "I'm not going to swear an oath I can't uphold.",
+    "I've never been much of a fighter.",
+    "I didn't know Ser Alliser's first name was 'F***.'",
+    "I didn't have much say in that.",
+    "I'm not a God.",
+    'I want to fight for the side that fights for the living.',
+    'I have to go home now.',
+    'The Long Night is coming, and the dead come with it.',
+    "I've never been a Stark.",
+    'I wish you good fortune in the wars to come.',
+    "I've seen what I can do. I've seen the future.",
+    'I never wanted a crown.',
+    "I don't know how to lead.",
+    "I'm not a lord.",
+    "I don't want anyone following me. I don't want anyone dying for me.",
+    "I don't want anyone's blood on my hands.",
+    "I'm tired of fighting.",
+    "We're here to say goodbye to our brothers and sisters. To our fathers and mothers. To our friends. Our fellow men and women who set aside their differences to fight together and die together so that others might live.",
+    "I will not punish a son for his father's sins, and I will not take a family home away from a family it has belonged to for centuries.",
+    'The king in the north!',
+    "I'm not a hero.",
+    "I don't deserve this.",
+    "They can't respect you if you're wearing a dress.",
+    "We're not children anymore.",
+    "I've made my choice.",
+    "I'm not going to stop the wheel. I'm going to break the wheel.",
+    "I'm not going to swear an oath I can't uphold.",
+    "I'm tired of fighting.",
+    'We are the watchers on the wall.',
+    "I'm sorry I never came to say goodbye.",
+    "I don't want anyone following me.",
+    "We'll go back to the way it was."
+  ],
+  ned: [
+    'The man who passes the sentence should swing the sword.',
+    'Winter is coming.',
+    'The lone wolf dies, but the pack survives.',
+    'The only time a man can be brave is when he is afraid.',
+    'The man who fears losing has already lost.',
+    'The man who never reads lives only one.',
+    'A ruler who hides behind paid executioners soon forgets what death is.',
+    'I, Eddard, the House Stark, Lord of Winterfell, and Warden of the North, sentence you to die.',
+    'The past remains the past. We can learn from it, but we cannot change it.',
+    'The only time a man can be brave is when he is afraid.',
+    'The Starks are always right eventually. Winter is coming!',
+    "He won't be a boy forever. And winter is coming.",
+    'A lord must learn that sometimes words can accomplish what swords cannot.',
+    'The man who passes the sentence should swing the sword.',
+    "I'm not a Stark.",
+    'When the snows fall and the white winds blow, the lone wolf dies, but the pack survives.',
+    "If you would take a man's life, you owe it to him to look into his eyes and hear his final words. And if you cannot bear to do that, then perhaps the man does not deserve to die.",
+    'You think my life is such a precious thing to me, that I would trade my honor for a few more years... of what?',
+    'A true man does what he will, not what he must.',
+    'You think my life is some precious thing to me? That I would trade my honor for a few more years? You grew up with actors. You learned their craft and you learnt it well. But I grew up with soldiers. I learned to die a long time ago.',
+    "I don't fight in tournaments because when I fight a man for real, I don't want him to know what I can do.",
+    'The Targaryens wed brothers and sisters for 300 years to keep the bloodline pure. Jaime and I are more than brother and sister. We shared a womb. We came into this world together, we belong together.',
+    'I promise you, I will go to the king and I will ask him to let you go back to the Wall. I swear it.',
+    'When you play the game of thrones, you win or you die.',
+    "The wolf and the lion will be at each other's throats. We will be at war soon, my friend.",
+    'We find our true friends on the battlefield.',
+    "The next time we see each other, we'll talk about your mother. I promise.",
+    'A lion does not concern himself with the opinion of sheep.',
+    'A man can only be brave when he is afraid.',
+    'If you lose, you will be killed. If you win, you will be executed as a traitor.',
+    'The day will come when you think you are safe and happy, and your joy will turn to ashes in your mouth.',
+    'I have no choice but to refuse you.',
+    'A mind needs books as a sword needs a whetstone if it is to keep its edge.',
+    'The more people you love, the weaker you are. Love no one but your children.',
+    'The man who passes the sentence should swing the sword.',
+    'You think my life is such a precious thing to me, that I would trade my honor for a few more years... of what?',
+    'I did not fight beside you on the field and I will regret that until my dying day. A man can only admit when he was wrong and ask forgiveness.',
+    'I did not want that woman within a hundred miles of our boys.',
+    'The winters are hard, but the Starks will endure. We always have.',
+    "I was never so alive as when I was winning this throne, or so dead as now that I've won it.",
+    'The man who passes the sentence should swing the sword.',
+    'Our way is the old way.',
+    'I plan to head north, I plan to find our men, then I plan to free them.',
+    'War was easier than daughters.',
+    'The only time a man can be brave is when he is afraid.',
+    'The direwolf is the sigil of your House. They were meant to have them.',
+    "I don't fight in tournaments because when I fight a man for real, I don't want him to know what I can do.",
+    "We are not going to die. - Just once, I would like to know what it's like to play without my life at stake.",
+    'No, now it ends.',
+    "I'm not a Stark.",
+    'The Targaryens wed brothers and sisters for 300 years to keep the bloodline pure. Jaime and I are more than brother and sister. We shared a womb. We came into this world together, we belong together.',
+    'I promise you, I will go to the king and I will ask him to let you go back to the Wall. I swear it.'
+  ],
+  sansa: [
+    "I am Sansa Stark of Winterfell. This is my home, and you can't frighten me.",
+    'I did what I had to do to survive, my lady. But I am a Stark, I will always be a Stark.',
+    "Arya, we're family. The four of us. The last of the Starks.",
+    "I've known him my whole life. He's nothing like that.",
+    "I'm a slow learner, it's true. But I learn.",
+    "I don't know how to be Lord of anything. I hardly know how to use a fork.",
+    'The past is the past. The North is the future.',
+    "I'm not a child. I'm the Lady of Winterfell, and I'm home.",
+    "I'm not what I want to be. Not yet.",
+    'The most heroic thing we can do now is look the truth in the face.',
+    "I'm not like my mother. I'm not like my father. I am Sansa Stark of Winterfell. This is my home, and you can't frighten me.",
+    'The North is as beautiful as your brother claimed. As are you.',
+    "I will never set foot in King's Landing again.",
+    "You're the Lady of Winterfell. The King in the North chose you to rule in his absence. And rule you have.",
+    "The smartest person I've ever met... is you.",
+    'I have to go home now.',
+    "I'll never forget what you did. I can never repay you.",
+    'I have so many names now, I can hardly keep them straight.',
+    'The lone wolf dies, but the pack survives.',
+    'The most beautiful woman in the world has come to take my place.',
+    'I did what I had to do to survive.',
+    "I'm not the one who's running, Ser Gregor. I'm not the one hiding.",
+    "I'm not a little bird anymore.",
+    'Jon needs to know the truth.',
+    "I don't know how to play.",
+    'I thought Arya was dead.',
+    'You freed me from the monsters who murdered my family, and you gave me to other monsters who murdered my family.',
+    "A girl is Arya Stark of Winterfell. And I'm going home.",
+    'Winterfell is yours, Your Grace.',
+    'The North will remain an independent kingdom, as it was for thousands of years.',
+    'I did what I had to do to survive, my lady. But I am a Stark, I will always be a Stark.',
+    "I'm Sansa Stark of Winterfell. This is my home, and you can't frighten me.",
+    'A true leader avails himself of the wisest counsel he can find.',
+    'I never should have left Winterfell.',
+    'When the snows fall and the white winds blow, the lone wolf dies, but the pack survives.',
+    'I have so many names, now. Lady Stark, the Widow, the Mother of the North. But I wish I could be who I was before.',
+    "I'm not a lady.",
+    "He's a monster, you do know that.",
+    'I have to go home now.',
+    "I don't want someone brave and gentle and strong. I want him.",
+    "Sometimes when I try to understand a person's motives, I play a little game. I assume the worst.",
+    "I'll never forget what you did. I can never repay you.",
+    "I'm not the one who's running, Ser Gregor. I'm not the one hiding.",
+    "I'm not a little bird anymore.",
+    'I thought Arya was dead.',
+    'I have so many names now, I can hardly keep them straight.',
+    'The lone wolf dies, but the pack survives.',
+    'I did what I had to do to survive.',
+    "I don't know how to play.",
+    'Jon needs to know the truth.',
+    'You freed me from the monsters who murdered my family, and you gave me to other monsters who murdered my family.'
+  ],
+  arya: [
+    'The man who passes the sentence should swing the sword.',
+    "A girl is Arya Stark of Winterfell. And I'm going home.",
+    'A girl is no one.',
+    'The North remembers.',
+    'Not today.',
+    'The night is dark and full of terrors.',
+    'When the snows fall and the white winds blow, the lone wolf dies, but the pack survives.',
+    'I am not a lady.',
+    'Leave one wolf alive, and the sheep are never safe.',
+    "Nothing isn't better or worse than anything. Nothing is just nothing.",
+    'The First Sword of Braavos does not run.',
+    'I can be your family.',
+    "I'm not a wolf, but I'm not a lion, either.",
+    'Fear cuts deeper than swords.',
+    "I'm not going to stop the wheel. I'm going to break the wheel.",
+    'The pack survives.',
+    "That's not you.",
+    'Death has many faces. I look forward to seeing this one.',
+    "The only one thing we say to death is 'not today.'",
+    'A bruise is a lesson... and each lesson makes us better.',
+    'Every hurt is a lesson, and every lesson makes you better.',
+    "Someday, I'm going to put a sword through your eye and out the back of your skull.",
+    "I can't sleep until I say the names.",
+    'You know who you sound like? A bloody woman.',
+    "The world doesn't just let girls decide what they're going to be.",
+    'When people ask you what happened here, tell them the North remembers. Tell them winter came for House Frey.',
+    "I don't need help to protect my family.",
+    "My name is Arya Stark. I want you to know that. The last thing you're ever going to see is a Stark smiling down at you as you die.",
+    "That's not the monster I was talking about. I'm looking for someone.",
+    "I don't plan on knitting by the fire while men fight for me.",
+    'Not my hair, Ned loves my hair.',
+    "I'm not a lady, I never have been. That's not me.",
+    "The world is built by killers... so you'd better get used to looking at them.",
+    "A girl is Arya Stark of Winterfell, and I'm going home.",
+    "I'm done with this. I want you to know that the last thing you're ever going to see is a Stark smiling down at you as you die.",
+    "We're going to die if we stay here.",
+    "Nothing isn't better or worse than anything. Nothing is just nothing.",
+    "I can't remember what she looked like. I only know she was the one thing I ever wanted... someone took her away from me, and seven kingdoms couldn't fill the hole she left behind.",
+    "I don't want to be a lady.",
+    'The North remembers.',
+    'The man who passes the sentence should swing the sword.',
+    'The night is dark and full of terrors.',
+    'When the snows fall and the white winds blow, the lone wolf dies, but the pack survives.',
+    'I am not a lady.',
+    'Leave one wolf alive, and the sheep are never safe.',
+    'Fear cuts deeper than swords.',
+    "I'm not going to stop the wheel. I'm going to break the wheel.",
+    "That's not you.",
+    'Death has many faces. I look forward to seeing this one.',
+    "The only one thing we say to death is 'not today.'",
+    'Every hurt is a lesson, and every lesson makes you better.',
+    "Someday, I'm going to put a sword through your eye and out the back of your skull.",
+    "I can't sleep until I say the names.",
+    'You know who you sound like? A bloody woman.',
+    "The world doesn't just let girls decide what they're going to be.",
+    'When people ask you what happened here, tell them the North remembers. Tell them winter came for House Frey.',
+    "I don't need help to protect my family.",
+    "My name is Arya Stark. I want you to know that. The last thing you're ever going to see is a Stark smiling down at you as you die.",
+    "I don't plan on knitting by the fire while men fight for me.",
+    'Not my hair, Ned loves my hair.',
+    "I'm not a lady, I never have been. That's not me.",
+    "The world is built by killers... so you'd better get used to looking at them."
+  ],
+  catelyn: [
+    'Family, duty, honor.',
+    'A mother should be with her children.',
+    'Show them how it feels to lose what they love.',
+    'I will not let him go.',
+    'War was easier than daughters.',
+    "All this horror that has come to my family, it's all because I couldn't love a motherless child.",
+    'We will kill them all.',
+    'Love me, love me, say that you love me.',
+    "Robb, if that's true, then Roose Bolton's blood is just as tainted. He's only a snow, no matter what his papers say.",
+    "You freed me from the darkness, Sam. You're my husband now.",
+    'My son Bran... how did he come to fall from that tower?',
+    "You know I love my children. You know it's true. Don't you think I'd be with them if I could? Don't you think I want to be with them?",
+    "I've lost them all. They're gone. I know I can't get them back.",
+    'When you play the game of thrones, you win or you die.',
+    "I don't want your love. I want you to support me.",
+    'There are three men I trust. The first is you. The second is your brother, Bran.',
+    "I'll send you back to Robb Stark with a flea in your ear.",
+    "You're not half as clever as you think you are.",
+    "He wasn't a very large man, I think. He just got very fat.",
+    "All this horror that has come to my family, it's all because I couldn't love a motherless child.",
+    'The Lannisters send their regards.',
+    'Jaime Lannister sends his regards.',
+    "I'm sorry, I can't stay here. I have to find my daughters.",
+    'My sister is alienating our most important allies.',
+    "Please, it's not safe here.",
+    'I have no wish to kill you, ser.',
+    "His real father lost his head at King's Landing.",
+    "I want to scream. I want to tear my face off. But I don't scream, and I don't tear my face off.",
+    'I want them dead, mother. I want them dead, all of them.',
+    "It's called the Hand's tourney, and every able-bodied man in the Seven Kingdoms is welcome to compete for the greatest prize in history.",
+    'He prayed anyway. Every day.'
+  ],
+  jaime: [
+    'The things I do for love.',
+    'The last time I was in the North, I killed my king.',
+    'By what right does the wolf judge the lion?',
+    'I learned from Ser Arthur Dayne, the Sword of the Morning, who could have slain all five of you with his left hand while he was taking a piss with the right.',
+    "We don't get to choose whom we love.",
+    'I think it passing odd that I am loved by one for a kindness I never did, and reviled by so many for my finest act.',
+    'Kingslayer is our king now.',
+    "I don't believe that insults are a good way to start a marriage.",
+    "I've never been with any woman but Cersei. So in my own way, I have more honor than poor old dead Ned.",
+    "She's hateful, and so am I.",
+    "We don't choose whom we love.",
+    'By what right does the wolf judge the lion?',
+    'I was sleeping with my sister, and you had one friend in the world, who was sleeping with his sister.',
+    "If you have to say 'I am the king', you are no true king.",
+    'The Kingslayer, yes. And such a king he was!',
+    "You're a hateful woman. Why have the gods made me love a hateful woman?",
+    "It's a neat little trick you do. You move your lips, and your father's voice comes out.",
+    "I'm not ashamed of loving you. Only of the things I've done to hide it.",
+    "He really was a cunt, wasn't he?",
+    "I'll leave the king's guard before I let him harm you.",
+    "We don't get to choose whom we love.",
+    'The last time I was in the North, I killed my king.',
+    'When you play the game of thrones, you win or you die.',
+    'There are no men like me. Only me.',
+    'I learned from Ser Arthur Dayne, the Sword of the Morning, who could have slain all five of you with his left hand while he was taking a piss with the right.',
+    "I don't believe that insults are a good way to start a marriage.",
+    "I don't plan on knitting by the fire while men fight for me.",
+    "I've never been with any woman but Cersei. So in my own way, I have more honor than poor old dead Ned.",
+    "She's hateful, and so am I.",
+    "We don't choose whom we love."
+  ],
+  tyrion: [
+    'A mind needs books as a sword needs a whetstone, if it is to keep its edge.',
+    'Never forget what you are. The rest of the world will not. Wear it like armor, and it can never be used to hurt you.',
+    "The powerful have always preyed on the powerless. That's how they became powerful in the first place.",
+    'Death is so final, whereas life is full of possibilities.',
+    "It's not easy being drunk all the time. Everyone would do it if it were easy.",
+    "It's not enough to be clever. You have to be wise.",
+    'The scar tissue is stronger than the original flesh.',
+    "I try to know as many people as I can. You never know which one you'll need.",
+    'A lion does not concern himself with the opinion of sheep.',
+    'The mind needs a book as a sword needs a whetstone, if it is to keep its edge.',
+    'A wise man once said a true history of the world is a history of great conversations in elegant rooms.',
+    "It's hard to put a leash on a dog once you've put a crown on its head.",
+    'A very small man can cast a very large shadow.',
+    'A day will come when you think you are safe and happy, and your joy will turn to ashes in your mouth.',
+    'The world is overflowing with horrible things, but they’re all a tray of cakes next to death.',
+    "A girl is Arya Stark of Winterfell, and I'm going home.",
+    "I'm not questioning your honor, Lord Janos. I'm denying its existence.",
+    "It's not what I do, it's what I do that defines me.",
+    'Every time we deal with an enemy, we create two more.',
+    "The king is a lost cause. It's the rest of us I'm worried about now.",
+    'The future is shit, just like the past.',
+    'I drink and I know things.',
+    'My brother has his sword, and I have my mind. And a mind needs books like a sword needs a whetstone.',
+    'The best lies are seasoned with a bit of truth.',
+    'The greatest fools are ofttimes more clever than the men who laugh at them.',
+    'The world is a big and scary place, and sometimes you need to lie to keep the people you love safe.',
+    'A lion does not concern himself with the opinion of sheep.',
+    'A mind needs books as a sword needs a whetstone, if it is to keep its edge.',
+    "A man who fights for gold can't afford to lose to a girl.",
+    'Schemes are like fruit. They require a certain ripening.',
+    'The future is shit, just like the past.'
+  ]
+}

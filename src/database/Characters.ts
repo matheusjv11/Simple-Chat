@@ -33,14 +33,6 @@ export const Characters: Record<string, UserType> = {
     name: 'Joffrey Baratheon',
     house: 'baratheon'
   },
-  aerys: {
-    name: 'Aerys II Targaryen',
-    house: 'targaryen'
-  },
-  aemon: {
-    name: 'Aemon Targaryen',
-    house: 'targaryen'
-  },
   daenerys: {
     name: 'Daenerys Targaryen',
     house: 'targaryen'
@@ -49,17 +41,9 @@ export const Characters: Record<string, UserType> = {
     name: 'Tywin Lannister',
     house: 'lannister'
   },
-  ramsay: {
-    name: 'Ramsay Bolton',
-    house: 'bolton'
-  },
   arya: {
     name: 'Arya Stark',
     house: 'stark'
-  },
-  robert: {
-    name: 'Robert Baratheon',
-    house: 'baratheon'
   },
   theon: {
     name: 'Theon Greyjoy',
@@ -77,17 +61,9 @@ export const Characters: Record<string, UserType> = {
     name: 'Bran Stark',
     house: 'stark'
   },
-  brienne: {
-    name: 'Brienne of Tharth',
-    house: 'tarth'
-  },
   baelish: {
     name: 'Petyr Baelish',
     house: 'baelish'
-  },
-  tormund: {
-    name: 'Tormund',
-    house: null
   },
   melisandre: {
     name: 'Melisandre',
@@ -96,14 +72,6 @@ export const Characters: Record<string, UserType> = {
   olenna: {
     name: 'Olenna Tyrell',
     house: 'tyrell'
-  },
-  mance: {
-    name: 'Mance Rayder',
-    house: null
-  },
-  ygritte: {
-    name: 'Ygritte',
-    house: null
   }
 } as const
 

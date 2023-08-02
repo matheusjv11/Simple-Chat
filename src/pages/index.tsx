@@ -1,7 +1,9 @@
-export default function Home() {
+import SideMessages from '@/templates/SideMessages'
+
+export default function Index() {
   return (
     <>
-      <p> First Page </p>
+      <SideMessages />
     </>
   )
 }

@@ -3,8 +3,9 @@ import { useState } from 'react'
 import { StyledIcon } from '@styled-icons/styled-icon'
 import { SendPlane2 as SendFill } from '@styled-icons/remix-fill/SendPlane2'
 import { SendPlane2 as SendLine } from '@styled-icons/remix-line/SendPlane2'
+import { Search as SearchIcon } from '@styled-icons/bootstrap/Search'
 
-export type AvailabelIconsEnum = 'send'
+export type AvailabelIconsEnum = 'send' | 'search'
 
 type IconType = {
   outlined: React.ReactElement<{}, StyledIcon>
@@ -15,14 +16,19 @@ const IconsRecord: Record<AvailabelIconsEnum, IconType> = {
   send: {
     outlined: <SendLine />,
     filled: <SendFill />
+  },
+  search: {
+    outlined: <SearchIcon />,
+    filled: <SearchIcon />
   }
 }
 
-type IconButtonProps = {
+export type IconButtonProps = {
   icon: AvailabelIconsEnum
+  color?: 'primary' | 'default'
 }
 
-const IconButton = ({ icon }: IconButtonProps) => {
+const IconButton = ({ icon, color = 'default' }: IconButtonProps) => {
   const [isHovering, setIsHovering] = useState(false)
 
   return (
