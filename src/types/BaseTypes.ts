@@ -1,4 +1,4 @@
-import { MessageType } from "./MessageType"
+import { MessageType } from './MessageType'
 
 export type EntityType = {
   name: string
@@ -8,4 +8,5 @@ export type EntityType = {
 export type ChatType = {
   messages: MessageType[]
   pinned: boolean
+  lastMessage?: MessageType
 }

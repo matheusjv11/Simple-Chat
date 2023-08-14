@@ -1,6 +1,12 @@
 import { UserType } from '@/types/UserType'
 
-export const Characters: Record<string, UserType> = {
+export enum ExistingCharacters {
+  JON = 'jon',
+  SANSA = 'sansa',
+  NED = 'ned'
+}
+
+export const Characters: Record<ExistingCharacters, UserType> = {
   jon: {
     name: 'Jon Snow',
     house: 'stark'
@@ -12,8 +18,8 @@ export const Characters: Record<string, UserType> = {
   ned: {
     name: 'Eddard "Ned" Stark',
     house: 'stark'
-  },
-  catelyn: {
+  }
+  /*   catelyn: {
     name: 'Catelyn Stark',
     house: 'stark'
   },
@@ -72,7 +78,5 @@ export const Characters: Record<string, UserType> = {
   olenna: {
     name: 'Olenna Tyrell',
     house: 'tyrell'
-  }
-} as const
-
-export type ExistingCharacters = keyof typeof Characters
+  } */
+}

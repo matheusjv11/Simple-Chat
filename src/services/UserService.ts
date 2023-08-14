@@ -1,7 +1,7 @@
 import { UserType } from '@/types/UserType'
 import { Characters, ExistingCharacters } from '@/database/Characters'
 
-export default class UserService {
+export class UserService {
   public static getAllUsers(): UserType[] {
     return Object.values(Characters)
   }
