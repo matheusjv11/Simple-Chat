@@ -1,7 +1,7 @@
 import styled, { DefaultTheme, css } from 'styled-components'
 import { ProfilePictureProps } from '.'
 
-type WrapperProps = Pick<ProfilePictureProps, 'profile' | 'size'>
+type WrapperProps = Pick<ProfilePictureProps, 'size'> & { profile: string }
 
 /* Do modifiers to smaller picture */
 /* height: 3rem;

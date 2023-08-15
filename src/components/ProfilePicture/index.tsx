@@ -1,26 +1,26 @@
+import { ExistingCharacters } from '@/database/Characters'
 import * as S from './styles'
+import { UserService } from '@/services/UserService'
 
 export type ProfilePictureProps = {
-  profile: string
-  profileAlt: string
-  online: boolean
+  userKey: ExistingCharacters
   size?: 'small' | 'normal'
 }
 
-const ProfilePicture = ({
-  profile,
-  online,
-  profileAlt,
-  size = 'normal'
-}: ProfilePictureProps) => (
-  <S.Wrapper
-    profile={profile}
-    title={profileAlt}
-    aria-label={profileAlt}
-    size={size}
-  >
-    {online && <S.OnlineStatus />}
-  </S.Wrapper>
-)
+const ProfilePicture = ({ userKey, size = 'normal' }: ProfilePictureProps) => {
+  const user = UserService.getUser(userKey)
+  const profileAlt = `'s profile image`
+
+  return (
+    <S.Wrapper
+      profile={user.profile}
+      title={profileAlt}
+      aria-label={profileAlt}
+      size={size}
+    >
+      {/* online */ false && <S.OnlineStatus />}
+    </S.Wrapper>
+  )
+}
 
 export default ProfilePicture

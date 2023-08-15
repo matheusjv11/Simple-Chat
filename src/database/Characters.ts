@@ -9,15 +9,18 @@ export enum ExistingCharacters {
 export const Characters: Record<ExistingCharacters, UserType> = {
   jon: {
     name: 'Jon Snow',
-    house: 'stark'
+    house: 'stark',
+    profile: 'img/profiles/arya.png'
   },
   sansa: {
     name: 'Sansa Stark',
-    house: 'stark'
+    house: 'stark',
+    profile: 'img/profiles/arya.png'
   },
   ned: {
     name: 'Eddard "Ned" Stark',
-    house: 'stark'
+    house: 'stark',
+    profile: 'img/profiles/arya.png'
   }
   /*   catelyn: {
     name: 'Catelyn Stark',
