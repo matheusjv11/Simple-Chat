@@ -1,33 +1,26 @@
-import ProfilePicture from '../ProfilePicture'
-import AryaImage from '../../../public/img/profiles/arya.png'
 import * as S from './styles'
 
 import { Username } from '../MessageBox/styles'
-import { SingleChatType } from '@/types/SingleChatType'
-import { GroupChatType } from '@/types/GroupChatType'
-import { TypeUtils } from '@/utils/TypeUtils'
-import GroupPicture from '../GroupPicture'
+import { MessageType } from '@/types/MessageType'
 
 type MessagePreviewProps = {
-  chat: SingleChatType | GroupChatType
+  name: string
+  lastMessage?: MessageType
+  children: React.ReactNode
 }
 
-const MessagePreview = ({ chat }: MessagePreviewProps) => {
-  const isSingleChat = TypeUtils.isSingleChatType(chat)
-  const chatName = isSingleChat ? chat.lastMessage?.user
-
+const MessagePreview = ({
+  name,
+  lastMessage,
+  children
+}: MessagePreviewProps) => {
   return (
     <S.Wrapper>
-      {isSingleChat ? (
-        <ProfilePicture userKey={chat.member} size="normal" />
-      ) : (
-        <GroupPicture />
-      )}
-
+      {children}
       <S.MessageContent>
         <S.FlexColumn>
-          <Username>Arya Stark</Username>
-          <p>{chat.lastMessage?.content}</p>
+          <Username>{name}</Username>
+          <p>{lastMessage?.content}</p>
         </S.FlexColumn>
         <S.FlexColumn>
           <p>1h</p>

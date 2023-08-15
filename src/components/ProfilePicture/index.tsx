@@ -3,17 +3,19 @@ import * as S from './styles'
 import { UserService } from '@/services/UserService'
 
 export type ProfilePictureProps = {
-  userKey: ExistingCharacters
+  profile: string
+  profileAlt: string
   size?: 'small' | 'normal'
 }
 
-const ProfilePicture = ({ userKey, size = 'normal' }: ProfilePictureProps) => {
-  const user = UserService.getUser(userKey)
-  const profileAlt = `'s profile image`
-
+const ProfilePicture = ({
+  profile,
+  profileAlt,
+  size = 'normal'
+}: ProfilePictureProps) => {
   return (
     <S.Wrapper
-      profile={user.profile}
+      profile={profile}
       title={profileAlt}
       aria-label={profileAlt}
       size={size}
