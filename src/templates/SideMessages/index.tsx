@@ -24,7 +24,7 @@ const SideMessages = () => {
           TypeUtils.isSingleChatType(chat) ? (
             <SingleChatPreview chat={chat} key={i} />
           ) : (
-            <div>call group component</div>
+            <GroupChatPreview chat={chat} key={`${i}_group`} />
           )
         )}
       </S.ChatWrapper>

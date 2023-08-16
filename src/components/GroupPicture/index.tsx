@@ -12,6 +12,7 @@ const GroupPicture = ({ membersProfile = [] }: GroupPictureProps) => (
           src={profile}
           imageSize={membersProfile.length}
           currentIndex={i}
+          key={i}
         />
       )
     })}

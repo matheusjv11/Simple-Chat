@@ -2,6 +2,7 @@ import * as S from './styles'
 
 import { Username } from '../MessageBox/styles'
 import { MessageType } from '@/types/MessageType'
+import { DateUtils } from '@/utils/DateUtils'
 
 type MessagePreviewProps = {
   name: string
@@ -14,6 +15,8 @@ const MessagePreview = ({
   lastMessage,
   children
 }: MessagePreviewProps) => {
+  const date = new DateUtils(lastMessage?.dtSend || '').chatPreviewDate()
+
   return (
     <S.Wrapper>
       {children}
@@ -23,7 +26,7 @@ const MessagePreview = ({
           <p>{lastMessage?.content}</p>
         </S.FlexColumn>
         <S.FlexColumn>
-          <p>1h</p>
+          <p>{date}</p>
           <p>vv</p>
         </S.FlexColumn>
       </S.MessageContent>

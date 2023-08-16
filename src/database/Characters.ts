@@ -3,17 +3,23 @@ import { UserType } from '@/types/UserType'
 export enum ExistingCharacters {
   JON = 'jon',
   SANSA = 'sansa',
-  NED = 'ned'
+  NED = 'ned',
+  ARYA = 'arya'
 }
 
 export const Characters: Record<ExistingCharacters, UserType> = {
   jon: {
     name: 'Jon Snow',
     house: 'stark',
-    profile: 'img/profiles/arya.png'
+    profile: 'img/profiles/jon.png'
   },
   sansa: {
     name: 'Sansa Stark',
+    house: 'stark',
+    profile: 'img/profiles/sansa.png'
+  },
+  arya: {
+    name: 'Arya Stark',
     house: 'stark',
     profile: 'img/profiles/arya.png'
   },
