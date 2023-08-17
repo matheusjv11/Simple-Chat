@@ -1,9 +1,9 @@
-import SideMessages from '@/templates/SideMessages'
+import Home from '@/templates/Home'
 
 export default function Index() {
   return (
     <>
-      <SideMessages />
+      <Home />
     </>
   )
 }

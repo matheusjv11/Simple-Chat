@@ -1,8 +1,10 @@
 import { ExistingCharacters } from '@/database/Characters'
 import { GroupChatType } from '@/types/GroupChatType'
+import { v4 as uuidv4 } from 'uuid';
 
 export const InitialGroupChats: GroupChatType[] = [
   {
+    id: uuidv4(),
     members: [
       ExistingCharacters.JON,
       ExistingCharacters.SANSA,

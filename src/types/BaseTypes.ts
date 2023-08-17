@@ -5,6 +5,7 @@ export type EntityType = {
 }
 
 export type ChatType = {
+  id: string,
   messages: MessageType[]
   pinned: boolean
   lastMessage?: MessageType

@@ -26,9 +26,11 @@
     "prettier": "^2.8.8",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-redux": "^8.1.2",
     "styled-components": "^6.0.0",
     "styled-icons": "^10.47.0",
-    "typescript": "5.1.5"
+    "typescript": "5.1.5",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",
@@ -42,6 +44,7 @@
     "@storybook/testing-library": "^0.0.14-next.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@types/jest": "^29.5.2",
+    "@types/uuid": "^9.0.2",
     "babel-loader": "^9.1.2",
     "babel-plugin-styled-components": "^2.1.4",
     "eslint-plugin-storybook": "^0.6.12",
