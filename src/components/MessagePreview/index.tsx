@@ -25,7 +25,7 @@ const MessagePreview = ({
           <Username>{name}</Username>
           <p>{lastMessage?.content}</p>
         </S.FlexColumn>
-        <S.FlexColumn>
+        <S.FlexColumn end={true}>
           <p>{date}</p>
           <p>vv</p>
         </S.FlexColumn>

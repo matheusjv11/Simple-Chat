@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.main`
   display: flex;
@@ -12,8 +12,11 @@ export const MessageContent = styled.div`
   flex-grow: 1;
 `
 
-export const FlexColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+export const FlexColumn = styled.div<{ end?: true }>`
+  ${({ end }) => css`
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: ${end ? 'end' : 'start'};
+  `}
 `

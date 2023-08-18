@@ -6,12 +6,14 @@ export type ProfilePictureProps = {
   profile: string
   profileAlt: string
   size?: 'small' | 'normal'
+  online?: boolean
 }
 
 const ProfilePicture = ({
   profile,
   profileAlt,
-  size = 'normal'
+  size = 'normal',
+  online = false
 }: ProfilePictureProps) => {
   return (
     <S.Wrapper
@@ -20,7 +22,7 @@ const ProfilePicture = ({
       aria-label={profileAlt}
       size={size}
     >
-      {/* online */ false && <S.OnlineStatus />}
+      {online && <S.OnlineStatus />}
     </S.Wrapper>
   )
 }

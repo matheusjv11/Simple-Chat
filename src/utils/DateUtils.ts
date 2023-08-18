@@ -7,6 +7,11 @@ export class DateUtils {
     this.momentDate = moment(date)
   }
 
+  public lessThanFiveMinutesAgo(): boolean {
+    const minutesDiff = moment().diff(this.momentDate, 'minutes')
+    return minutesDiff < 5
+  }
+
   public chatPreviewDate(): string {
     if (this.isToday()) {
       return this.getHoursAndMinutes()
