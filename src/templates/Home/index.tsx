@@ -1,14 +1,17 @@
 import SideMessages from '@/templates/SideMessages'
-import MainChat from '@/templates/MainChat'
 import * as S from './styles'
 import { store } from '@/store'
 import { Provider } from 'react-redux'
 
-const Home = () => (
+type HomeProps = {
+  children: React.ReactElement
+}
+
+const Home = ({ children }: HomeProps) => (
   <Provider store={store}>
     <S.Wrapper>
       <SideMessages />
-      <MainChat />
+      {children}
     </S.Wrapper>
   </Provider>
 )

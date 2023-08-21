@@ -4,12 +4,13 @@ import ChatBody from '@/components/ChatBody'
 import { ChatService } from '@/services/ChatService'
 import { TypeUtils } from '@/utils/TypeUtils'
 import SingleChatHeader from '@/components/SingleChatHeader'
+import GroupChatHeader from '@/components/GroupChatHeader'
 
 type MainChatProps = {
   chatId: string
 }
 
-const MainChat = ({ chatId = 'batata' }: MainChatProps) => {
+const MainChat = ({ chatId }: MainChatProps) => {
   const chat = ChatService.getChatById(chatId)
 
   if (!chat) {
@@ -21,7 +22,7 @@ const MainChat = ({ chatId = 'batata' }: MainChatProps) => {
       {TypeUtils.isSingleChatType(chat) ? (
         <SingleChatHeader chat={chat} />
       ) : (
-        <></>
+        <GroupChatHeader chat={chat} />
       )}
       <ChatBody />
       <MessageInput />

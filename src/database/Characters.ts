@@ -11,22 +11,22 @@ export const Characters: Record<ExistingCharacters, UserType> = {
   jon: {
     name: 'Jon Snow',
     house: 'stark',
-    profile: 'img/profiles/jon.png'
+    profile: '/img/profiles/jon.png'
   },
   sansa: {
     name: 'Sansa Stark',
     house: 'stark',
-    profile: 'img/profiles/sansa.png'
+    profile: '/img/profiles/sansa.png'
   },
   arya: {
     name: 'Arya Stark',
     house: 'stark',
-    profile: 'img/profiles/arya.png'
+    profile: '/img/profiles/arya.png'
   },
   ned: {
     name: 'Eddard "Ned" Stark',
     house: 'stark',
-    profile: 'img/profiles/arya.png'
+    profile: '/img/profiles/arya.png'
   }
   /*   catelyn: {
     name: 'Catelyn Stark',

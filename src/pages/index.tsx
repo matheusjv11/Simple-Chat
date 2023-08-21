@@ -3,7 +3,9 @@ import Home from '@/templates/Home'
 export default function Index() {
   return (
     <>
-      <Home />
+      <Home>
+        <p>no Chat page</p>
+      </Home>
     </>
   )
 }

@@ -1,10 +1,10 @@
 import { ExistingCharacters } from '@/database/Characters'
 import { SingleChatType } from '@/types/SingleChatType'
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
 
 export const InitialSingleChats: SingleChatType[] = [
   {
-    id: 'batata' /* uuidv4() */,
+    id: uuidv4(),
     member: ExistingCharacters.JON,
     messages: [
       {

@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux'
+import Link from 'next/link'
 import * as S from './styles'
 import SearchInput from '@/components/SearchInput'
 import { ChatService } from '@/services/ChatService'
@@ -21,13 +22,15 @@ const SideMessages = () => {
         <SearchInput />
       </S.SearchBox>
       <S.ChatWrapper>
-        {chats.map((chat, i) =>
-          TypeUtils.isSingleChatType(chat) ? (
-            <SingleChatPreview chat={chat} key={i} />
-          ) : (
-            <GroupChatPreview chat={chat} key={`${i}_group`} />
-          )
-        )}
+        {chats.map((chat, i) => (
+          <Link href={`/chat/${chat.id}`} key={i}>
+            {TypeUtils.isSingleChatType(chat) ? (
+              <SingleChatPreview chat={chat} />
+            ) : (
+              <GroupChatPreview chat={chat} />
+            )}
+          </Link>
+        ))}
       </S.ChatWrapper>
     </S.Wrapper>
   )

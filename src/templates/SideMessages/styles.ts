@@ -19,4 +19,9 @@ export const ChatWrapper = styled.div`
       `}
     }
   }
+
+  > a {
+    text-decoration: none;
+    color: unset;
+  }
 `
