@@ -24,7 +24,7 @@ const MainChat = ({ chatId }: MainChatProps) => {
       ) : (
         <GroupChatHeader chat={chat} />
       )}
-      <ChatBody />
+      <ChatBody messages={chat.messages} />
       <MessageInput />
     </S.Wrapper>
   )

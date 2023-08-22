@@ -1,28 +1,39 @@
 import ProfilePicture from '../ProfilePicture'
 import * as S from './styles'
-import AryaImage from '../../../public/img/profiles/arya.png'
+import { MessageType } from '@/types/MessageType'
+import { UserService } from '@/services/UserService'
+import { UserType } from '@/types/UserType'
+import { DateUtils } from '@/utils/DateUtils'
 
 export type MessageBoxProps = {
-  message: string
-  isCurrentUser: boolean
+  message: MessageType
 }
 
-const MessageBox = ({ message, isCurrentUser }: MessageBoxProps) => (
-  <S.Wrapper isCurrentUser={isCurrentUser}>
-    {!isCurrentUser && (
-      <ProfilePicture
-        profile={AryaImage.src}
-        online={false}
-        profileAlt="Arya`s profile"
-        size="small"
-      />
-    )}
+const MessageBox = ({ message }: MessageBoxProps) => {
+  const date = new DateUtils(message.dtSend).getHoursAndMinutes()
+  let user: UserType | undefined
 
-    <S.MessageCard isCurrentUser={isCurrentUser}>
-      {!isCurrentUser && <S.Username>Matheus</S.Username>}
-      <S.Box>{message}</S.Box>
-      <S.SentHour>21:14</S.SentHour>
-    </S.MessageCard>
-  </S.Wrapper>
-)
+  if (message.user !== 'currentUser') {
+    user = UserService.getUser(message.user)
+  }
+
+  return (
+    <S.Wrapper isCurrentUser={!user}>
+      {user && (
+        <ProfilePicture
+          profile={user?.profile || ''}
+          online={false}
+          profileAlt={`${user?.name}'s profile`}
+          size="small"
+        />
+      )}
+
+      <S.MessageCard isCurrentUser={!user}>
+        {!!user && <S.Username>{user?.name}</S.Username>}
+        <S.Box>{message.content}</S.Box>
+        <S.SentHour>{date}</S.SentHour>
+      </S.MessageCard>
+    </S.Wrapper>
+  )
+}
 export default MessageBox

@@ -1,14 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import MessageBox from '.'
+import { ExistingCharacters } from '@/database/Characters'
 
 const meta: Meta<typeof MessageBox> = {
   component: MessageBox,
-  argTypes: {
-    message: 'string'
-  },
   args: {
-    isCurrentUser: false
+    message: {
+      content: "Let's defeat the lannisters!",
+      dtSend: '2023-08-13 14:25:20',
+      user: ExistingCharacters.ARYA
+    }
   }
 }
 

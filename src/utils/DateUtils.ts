@@ -28,6 +28,15 @@ export class DateUtils {
     return this.getYearDate()
   }
 
+  public static orderDates(dateA: string, dateB: string): number {
+    // @ts-ignore
+    return moment(dateB).format('X') - moment(dateA).format('X')
+  }
+
+  public getHoursAndMinutes(): string {
+    return this.momentDate.format('HH:mm')
+  }
+
   private isToday(): boolean {
     return this.momentDate.isSame(moment(), 'day')
   }
@@ -38,10 +47,6 @@ export class DateUtils {
 
   private isYesterday(): boolean {
     return this.momentDate.isSame(moment().subtract(1, 'day'), 'day')
-  }
-
-  private getHoursAndMinutes(): string {
-    return this.momentDate.format('HH:mm')
   }
 
   private getWeekDay(): string {

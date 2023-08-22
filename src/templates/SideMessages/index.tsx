@@ -9,7 +9,9 @@ import GroupChatPreview from '@/components/GroupChatPreview'
 import { RootState } from '@/store'
 
 const SideMessages = () => {
-  const chats = useSelector((state: RootState) => state.chats.userChats)
+  const chats = useSelector((state: RootState) => {
+    return ChatService.orderChats(state.chats.userChats)
+  })
 
   /*   const chats = useMemo()
   // returns memorized ordered an pinned chats
