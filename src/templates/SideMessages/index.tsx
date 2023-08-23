@@ -10,7 +10,7 @@ import { RootState } from '@/store'
 
 const SideMessages = () => {
   const chats = useSelector((state: RootState) => {
-    return ChatService.orderChats(state.chats.userChats)
+    return ChatService.orderChats(Object.values(state.chats.userChats))
   })
 
   /*   const chats = useMemo()

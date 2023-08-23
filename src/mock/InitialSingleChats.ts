@@ -1,10 +1,13 @@
 import { ExistingCharacters } from '@/database/Characters'
 import { SingleChatType } from '@/types/SingleChatType'
+import { UserChatsType } from '@/types/UserChatsType'
 import { v4 as uuidv4 } from 'uuid'
 
-export const InitialSingleChats: SingleChatType[] = [
-  {
-    id: uuidv4(),
+const chatId1 = uuidv4()
+
+export const InitialSingleChats: UserChatsType = {
+  [chatId1]: {
+    id: chatId1,
     member: ExistingCharacters.JON,
     messages: [
       {
@@ -19,5 +22,5 @@ export const InitialSingleChats: SingleChatType[] = [
       dtSend: '2023-08-18 08:42:20',
       user: ExistingCharacters.JON
     }
-  }
-]
+  } as SingleChatType
+}

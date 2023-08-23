@@ -1,5 +1,5 @@
 import * as S from './styles'
-import { useState } from 'react'
+import { useState, MouseEventHandler } from 'react'
 import { StyledIcon } from '@styled-icons/styled-icon'
 import { SendPlane2 as SendFill } from '@styled-icons/remix-fill/SendPlane2'
 import { SendPlane2 as SendLine } from '@styled-icons/remix-line/SendPlane2'
@@ -26,15 +26,17 @@ const IconsRecord: Record<AvailabelIconsEnum, IconType> = {
 export type IconButtonProps = {
   icon: AvailabelIconsEnum
   color?: 'primary' | 'default'
+  onClick?: MouseEventHandler<HTMLButtonElement> | undefined
 }
 
-const IconButton = ({ icon, color = 'default' }: IconButtonProps) => {
+const IconButton = ({ icon, onClick, color = 'default' }: IconButtonProps) => {
   const [isHovering, setIsHovering] = useState(false)
 
   return (
     <S.Wrapper
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
+      onClick={onClick}
     >
       {isHovering ? IconsRecord[icon].filled : IconsRecord[icon].outlined}
     </S.Wrapper>

@@ -1,9 +1,11 @@
 import { useSelector } from 'react-redux'
+import { store } from '@/store'
 import { RootState } from '@/store'
 import { GroupChatType } from '@/types/GroupChatType'
 import { SingleChatType } from '@/types/SingleChatType'
-import moment from 'moment'
 import { DateUtils } from '@/utils/DateUtils'
+import moment from 'moment'
+import { addMessageIntoChat } from '@/store/reducers/chatsReducer'
 
 export class ChatService {
   public static orderChats(chats: (SingleChatType | GroupChatType)[]) {
@@ -20,6 +22,19 @@ export class ChatService {
   ): SingleChatType | GroupChatType | undefined {
     const chats = useSelector((state: RootState) => state.chats.userChats)
 
-    return chats.find((chat) => chat.id === id)
+    return chats[id]
+  }
+
+  public static insertMessageIntoChat(content: string, chatId: string): void {
+    store.dispatch(
+      addMessageIntoChat({
+        id: chatId,
+        message: {
+          content: content,
+          dtSend: moment().format(),
+          user: 'currentUser'
+        }
+      })
+    )
   }
 }
