@@ -1,0 +1,3 @@
+- Make input element work correctly
+- Fix chat scroll when there is more messages than the screen can show
+- After sending messages, make chat members start chating
