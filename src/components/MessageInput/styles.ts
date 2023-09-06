@@ -5,12 +5,15 @@ export const Wrapper = styled.form`
   background-color: #f0f2f5;
   border-radius: 8px;
   position: relative;
+  max-width: 75vw;
+  overflow-x: hidden;
 `
 
 export const EditableDiv = styled.div`
   max-height: 7.35em;
   min-height: 1.47em;
   overflow-y: auto;
+  width: 95%;
 
   &:focus-visible {
     outline: none;

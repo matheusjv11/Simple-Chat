@@ -1,3 +1,2 @@
-- Make input element work correctly
-- Fix chat scroll when there is more messages than the screen can show
+- Make chat scroll always stick to bottom when new messages arrives
 - After sending messages, make chat members start chating

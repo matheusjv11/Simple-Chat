@@ -16,7 +16,9 @@ const MessageInput = () => {
   const inputAsHtml = useRef<HTMLDivElement | null>(null)
 
   const inputMessage = (inputResponse: React.ChangeEvent<HTMLDivElement>) => {
-    setMessage(inputResponse.target.innerText)
+    if (!inputResponse.target.innerText.includes('\n')) {
+      setMessage(inputResponse.target.innerText)
+    }
   }
 
   const sendMessage = () => {
@@ -36,8 +38,22 @@ const MessageInput = () => {
   const handleEnterKeyPress = (
     e: KeyboardEvent<HTMLDivElement> | undefined
   ) => {
-    if (e && e.keyCode === 13) {
-      sendMessage()
+    if (!e) {
+      return
+    }
+
+    const keyCode = e.keyCode || e.which
+    const target = e.target || e.srcElement
+
+    if (keyCode === 13 && !e?.shiftKey) {
+      if (e?.preventDefault) {
+        e.preventDefault()
+        sendMessage()
+      } else {
+        e.returnValue = false
+      }
+
+      target.innerHTML = ''
     }
   }
 
@@ -54,7 +70,7 @@ const MessageInput = () => {
         onInput={(e: React.ChangeEvent<HTMLDivElement>) => inputMessage(e)}
         suppressContentEditableWarning={true}
         title={inputTitle}
-        onKeyDown={handleEnterKeyPress}
+        onKeyPress={handleEnterKeyPress}
       ></S.EditableDiv>
       {!message && <S.PlaceHolder>{inputTitle}</S.PlaceHolder>}
       {!!message && (
