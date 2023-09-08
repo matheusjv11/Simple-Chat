@@ -26,6 +26,7 @@ export const chatsSlice = createSlice({
       action: PayloadAction<{ id: string; message: MessageType }>
     ) => {
       if (action.payload.id in state.userChats) {
+        state.userChats[action.payload.id].lastMessage = action.payload.message
         state.userChats[action.payload.id].messages.push(action.payload.message)
       }
     }

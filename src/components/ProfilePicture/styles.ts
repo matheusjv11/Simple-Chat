@@ -11,11 +11,13 @@ const imageSizeModifiers = {
   small: (theme: DefaultTheme) => css`
     height: ${theme.sizes.smallImageSize};
     width: ${theme.sizes.smallImageSize};
+    min-width: ${theme.sizes.smallImageSize};
   `,
 
   normal: (theme: DefaultTheme) => css`
     height: ${theme.sizes.imageSize};
     width: ${theme.sizes.imageSize};
+    min-width: ${theme.sizes.imageSize};
   `
 }
 

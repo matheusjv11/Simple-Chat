@@ -1,6 +1,6 @@
-import { QuoteType } from '@/types/QuoteType'
+import { ExistingCharacters } from './Characters'
 
-export const Quotes: Object = {
+export const Quotes: Record<ExistingCharacters, string[]> = {
   jon: [
     'The man who passes the sentence should swing the sword.',
     'The North remembers.',
@@ -229,8 +229,8 @@ export const Quotes: Object = {
     'Not my hair, Ned loves my hair.',
     "I'm not a lady, I never have been. That's not me.",
     "The world is built by killers... so you'd better get used to looking at them."
-  ],
-  catelyn: [
+  ]
+  /*   catelyn: [
     'Family, duty, honor.',
     'A mother should be with her children.',
     'Show them how it feels to lose what they love.',
@@ -327,5 +327,5 @@ export const Quotes: Object = {
     "A man who fights for gold can't afford to lose to a girl.",
     'Schemes are like fruit. They require a certain ripening.',
     'The future is shit, just like the past.'
-  ]
+  ] */
 }

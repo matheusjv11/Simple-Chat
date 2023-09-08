@@ -1,2 +1,2 @@
-- Make chat scroll always stick to bottom when new messages arrives
-- After sending messages, make chat members start chating
+- After sending messages, make group chat members start chating
+- After reaching 100 messages, make the first ones be deleted

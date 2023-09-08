@@ -13,6 +13,7 @@ export const Wrapper = styled.main<WrapperProps>`
   ${({ theme, imageSize }) => css`
     height: ${theme.sizes.imageSize};
     width: ${theme.sizes.imageSize};
+    min-width: ${theme.sizes.imageSize};
     border-radius: 50%;
     overflow: hidden;
     position: relative;

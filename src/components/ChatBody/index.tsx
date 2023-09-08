@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { MessageType } from '@/types/MessageType'
 import * as S from './styles'
 import MessageBox from '../MessageBox'
@@ -7,8 +8,16 @@ type ChatBodyType = {
 }
 
 const ChatBody = ({ messages }: ChatBodyType) => {
+  const chatBodyAsHtml = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    if (chatBodyAsHtml.current) {
+      chatBodyAsHtml.current.scrollTop = chatBodyAsHtml.current.scrollHeight
+    }
+  }, [messages])
+
   return (
-    <S.Wrapper>
+    <S.Wrapper ref={chatBodyAsHtml}>
       {messages.map((message) => {
         return <MessageBox message={message} />
       })}

@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import * as S from './styles'
 import MessageInput from '@/components/MessageInput'
 import ChatBody from '@/components/ChatBody'
@@ -17,9 +18,21 @@ const MainChat = ({ chatId }: MainChatProps) => {
     return <></>
   }
 
+  const isSingleChatType = TypeUtils.isSingleChatType(chat)
+
+  useEffect(() => {
+    if (isSingleChatType) {
+      ChatService.singleChatObserver(chat)
+    }
+  }, [chat.messages])
+
+  if (!isSingleChatType) {
+    ChatService.startGroupChatMessaging(chat)
+  }
+
   return (
     <S.Wrapper>
-      {TypeUtils.isSingleChatType(chat) ? (
+      {isSingleChatType ? (
         <SingleChatHeader chat={chat} />
       ) : (
         <GroupChatHeader chat={chat} />
