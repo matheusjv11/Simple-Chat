@@ -26,9 +26,17 @@ const MainChat = ({ chatId }: MainChatProps) => {
     }
   }, [chat.messages])
 
-  if (!isSingleChatType) {
-    ChatService.startGroupChatMessaging(chat)
-  }
+  useEffect(() => {
+    let intervalId: any
+
+    if (!isSingleChatType) {
+      intervalId = setInterval(() => {
+        ChatService.groupChatObserver(chat)
+      }, 3500)
+    }
+
+    return () => clearInterval(intervalId)
+  }, [])
 
   return (
     <S.Wrapper>

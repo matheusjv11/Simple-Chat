@@ -4,11 +4,11 @@ import { RootState } from '@/store'
 import { GroupChatType } from '@/types/GroupChatType'
 import { SingleChatType } from '@/types/SingleChatType'
 import { DateUtils } from '@/utils/DateUtils'
-import { TypeUtils } from '@/utils/TypeUtils'
 import moment from 'moment'
 import { addMessageIntoChat } from '@/store/reducers/chatsReducer'
 import { UserService } from './UserService'
 import { ExistingCharacters } from '@/database/Characters'
+import { ArrayUtils } from '@/utils/ArrayUtils'
 
 export class ChatService {
   /**
@@ -70,9 +70,9 @@ export class ChatService {
     }
   }
 
-  public static startGroupChatMessaging(chat: GroupChatType): void {
-    if (TypeUtils.isSingleChatType(chat)) {
-      return
-    }
+  public static groupChatObserver(chat: GroupChatType): void {
+    const randomMember = ArrayUtils.randomItem(chat.members)
+    const randomQuote = UserService.randomQuote(randomMember)
+    this.insertMessageIntoChat(randomQuote, chat.id, randomMember)
   }
 }
