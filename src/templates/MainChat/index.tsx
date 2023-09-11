@@ -6,6 +6,8 @@ import { ChatService } from '@/services/ChatService'
 import { TypeUtils } from '@/utils/TypeUtils'
 import SingleChatHeader from '@/components/SingleChatHeader'
 import GroupChatHeader from '@/components/GroupChatHeader'
+import { store } from '@/store'
+import { cleanUnreadMessages } from '@/store/reducers/chatsReducer'
 
 type MainChatProps = {
   chatId: string
@@ -17,6 +19,8 @@ const MainChat = ({ chatId }: MainChatProps) => {
   if (!chat) {
     return <></>
   }
+
+  store.dispatch(cleanUnreadMessages({ id: chatId }))
 
   const isSingleChatType = TypeUtils.isSingleChatType(chat)
 

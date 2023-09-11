@@ -13,7 +13,11 @@ const SingleChatPreview = ({ chat }: SingleChatPreviewProps) => {
 
   return (
     <S.Wrapper>
-      <MessagePreview name={user.name} lastMessage={chat.lastMessage}>
+      <MessagePreview
+        name={user.name}
+        lastMessage={chat.lastMessage}
+        unreadMessages={chat.unreadMessages}
+      >
         <ProfilePicture
           profile={user.profile}
           profileAlt={`${user.name}'s profile picure`}

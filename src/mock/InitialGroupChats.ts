@@ -32,6 +32,7 @@ export const InitialGroupChats: UserChatsType = {
       content: 'Hello Brother! Long time no see',
       dtSend: '2023-08-13 14:30:20',
       user: ExistingCharacters.ARYA
-    }
+    },
+    unreadMessages: 0
   } as GroupChatType
 }

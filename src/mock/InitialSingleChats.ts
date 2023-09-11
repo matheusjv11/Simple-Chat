@@ -21,6 +21,7 @@ export const InitialSingleChats: UserChatsType = {
       content: 'Hey! How are you doing?',
       dtSend: '2023-08-18 08:42:20',
       user: ExistingCharacters.JON
-    }
+    },
+    unreadMessages: 0
   } as SingleChatType
 }

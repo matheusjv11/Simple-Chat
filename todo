@@ -1,4 +1,4 @@
-- After reaching 100 messages, make the first ones be deleted
 - style better message preview (hover effect, selected effect, line clamp)
 - Make search input searches for chats
 - Style better the chatbody (max width, message popup effect)
+- Add Dark Mode switch

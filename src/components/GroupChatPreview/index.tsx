@@ -15,7 +15,11 @@ const GroupChatPreview = ({ chat }: GroupChatPreviewProps) => {
 
   return (
     <S.Wrapper>
-      <MessagePreview name={chat.name} lastMessage={chat.lastMessage}>
+      <MessagePreview
+        name={chat.name}
+        lastMessage={chat.lastMessage}
+        unreadMessages={chat.unreadMessages}
+      >
         <GroupPicture membersProfile={membersProfile} />
       </MessagePreview>
     </S.Wrapper>
