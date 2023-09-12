@@ -1,18 +1,33 @@
 import styled, { css } from 'styled-components'
+import { Username } from '../MessageBox/styles'
 
-export const Wrapper = styled.main`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.7rem 1.2rem;
-  border-radius: 10px;
-  transition: background-color 0.1s ease-in;
+type WrapperProps = {
+  selectedChat: boolean
+}
 
-  &:hover {
-    ${({ theme }) => css`
-      background-color: ${theme.colors.chatHover};
+export const Wrapper = styled.main<WrapperProps>`
+  ${({ theme, selectedChat }) => css`
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 10px;
+    transition: background-color 0.07s ease-in;
+    background-color: ${selectedChat ? theme.boxColors.selectedChat : 'white'};
+
+    &:hover {
+      background-color: ${selectedChat
+        ? theme.boxColors.selectedChat
+        : theme.colors.chatHover};
+    }
+
+    ${selectedChat &&
+    css`
+      ${SentDate}, ${Message}, ${Username} {
+        color: white;
+      }
     `}
-  }
+  `}
 `
 
 export const MessageContent = styled.div`

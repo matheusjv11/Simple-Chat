@@ -28,6 +28,7 @@ export default {
   },
   boxColors: {
     primaryLight: 'white',
-    secondaryLight: '#eeffde'
+    secondaryLight: '#eeffde',
+    selectedChat: '#3390ec'
   }
 } as const

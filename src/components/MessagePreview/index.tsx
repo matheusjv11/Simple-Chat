@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import * as S from './styles'
 
 import { Username } from '../MessageBox/styles'
@@ -7,6 +8,7 @@ import { DateUtils } from '@/utils/DateUtils'
 
 type MessagePreviewProps = {
   name: string
+  chatId: string
   lastMessage?: MessageType
   children: React.ReactNode
   unreadMessages: number
@@ -14,11 +16,17 @@ type MessagePreviewProps = {
 
 const MessagePreview = ({
   name,
+  chatId,
   lastMessage,
   children,
   unreadMessages
 }: MessagePreviewProps) => {
+  const router = useRouter()
+
   const date = new DateUtils(lastMessage?.dtSend || '').chatPreviewDate()
+
+  const [selectedChat, setSelectedChat] = useState(false)
+
   const [countUnreadMessage, setCountUnreadMessage] =
     useState<number>(unreadMessages)
 
@@ -26,8 +34,12 @@ const MessagePreview = ({
     setCountUnreadMessage(unreadMessages)
   }, [unreadMessages])
 
+  useEffect(() => {
+    setSelectedChat(router.query.id === chatId)
+  }, [router])
+
   return (
-    <S.Wrapper>
+    <S.Wrapper selectedChat={selectedChat}>
       {children}
       <S.MessageContent>
         <S.FlexColumn>

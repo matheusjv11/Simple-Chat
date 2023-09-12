@@ -15,6 +15,7 @@ const SingleChatPreview = ({ chat }: SingleChatPreviewProps) => {
     <S.Wrapper>
       <MessagePreview
         name={user.name}
+        chatId={chat.id}
         lastMessage={chat.lastMessage}
         unreadMessages={chat.unreadMessages}
       >

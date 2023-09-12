@@ -17,6 +17,7 @@ const GroupChatPreview = ({ chat }: GroupChatPreviewProps) => {
     <S.Wrapper>
       <MessagePreview
         name={chat.name}
+        chatId={chat.id}
         lastMessage={chat.lastMessage}
         unreadMessages={chat.unreadMessages}
       >
