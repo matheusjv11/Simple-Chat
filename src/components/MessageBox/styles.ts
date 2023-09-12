@@ -53,8 +53,10 @@ export const MessageCard = styled.div<MainProps>`
 `
 
 export const Username = styled.div`
-  color: lightsteelblue;
-  font-weight: 600;
+  ${({ theme }) => css`
+    font-weight: 600;
+    font-size: ${theme.sizes.small};
+  `}
 `
 
 export const Box = styled.div``

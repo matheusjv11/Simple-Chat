@@ -32,11 +32,13 @@ const MessagePreview = ({
       <S.MessageContent>
         <S.FlexColumn>
           <Username>{name}</Username>
-          <p>{lastMessage?.content}</p>
+          <S.Message>{lastMessage?.content}</S.Message>
         </S.FlexColumn>
         <S.FlexColumn end={true}>
-          <p>{date}</p>
-          {!!countUnreadMessage && <p>{countUnreadMessage}</p>}
+          <S.SentDate>{date}</S.SentDate>
+          {!!countUnreadMessage && (
+            <S.UnreadMessage>{countUnreadMessage}</S.UnreadMessage>
+          )}
         </S.FlexColumn>
       </S.MessageContent>
     </S.Wrapper>

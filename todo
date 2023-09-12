@@ -1,4 +1,7 @@
-- style better message preview (hover effect, selected effect, line clamp)
+- style better message preview
+  - selected chat effect
+  - make it resize as telegram
 - Make search input searches for chats
 - Style better the chatbody (max width, message popup effect)
 - Add Dark Mode switch
+- Create a pretty home page

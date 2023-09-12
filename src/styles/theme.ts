@@ -22,7 +22,9 @@ export default {
     primary: '#7209b7',
     greyText: '#919093',
     lightGrey: '#cfcfcf',
-    border: '#ebebeb'
+    border: '#ebebeb',
+    chatHover: '#f4f4f5',
+    secondaryText: '#707579'
   },
   boxColors: {
     primaryLight: 'white',

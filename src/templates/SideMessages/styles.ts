@@ -10,6 +10,8 @@ export const SearchBox = styled.div`
 `
 
 export const ChatWrapper = styled.div`
+  padding: 0.4rem;
+
   > main {
     padding: 1rem;
 
