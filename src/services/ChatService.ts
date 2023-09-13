@@ -7,8 +7,9 @@ import { DateUtils } from '@/utils/DateUtils'
 import moment from 'moment'
 import { addMessageIntoChat } from '@/store/reducers/chatsReducer'
 import { UserService } from './UserService'
-import { ExistingCharacters } from '@/database/Characters'
+import { Characters, ExistingCharacters } from '@/database/Characters'
 import { ArrayUtils } from '@/utils/ArrayUtils'
+import { TypeUtils } from '@/utils/TypeUtils'
 
 export class ChatService {
   /**
@@ -23,6 +24,27 @@ export class ChatService {
         a.lastMessage?.dtSend || '',
         b.lastMessage?.dtSend || ''
       )
+    })
+  }
+
+  /**
+   * Given a target string, searches for compatible chats
+   *
+   * @param chats Given list of chats
+   * @param filter String the chat must contain in its name
+   * @returns Filtered list of chats
+   */
+  public static filterChats(
+    chats: (SingleChatType | GroupChatType)[],
+    filter: string
+  ) {
+    return [...chats].filter((chat) => {
+      if (TypeUtils.isSingleChatType(chat)) {
+        const member = Characters[chat.member]
+        return member.name.toLowerCase().includes(filter.toLocaleLowerCase())
+      }
+
+      return chat.name.toLowerCase().includes(filter.toLocaleLowerCase())
     })
   }
 

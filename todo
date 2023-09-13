@@ -1,9 +1,10 @@
-- Make search input searches for chats
 - Be able to shrink the side message as telegram does
 - Style better the chatbody (max width, message popup effect)
   - Max width in large screens
   - Message popup effect
   - Usernames have different color to better distinction
+- Change moment.js for a lighter date library
 - Add Dark Mode switch
 - When clicking with mouse right button, opens a popup that display de pin option and delete chat
+- Add some testing on files
 - Create a pretty home page

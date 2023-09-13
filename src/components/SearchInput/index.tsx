@@ -1,14 +1,19 @@
+import { RootState, store } from '@/store'
+import { useSelector } from 'react-redux'
+import { updateChatFilter } from '@/store/reducers/chatsReducer'
+
 import * as S from './styles'
 import IconButton from '../IconButton'
-import { useState } from 'react'
 
 const SearchInput = () => {
-  const [message, setMessage] = useState('')
+  const message = useSelector((state: RootState) => {
+    return state.chats.chatFilter
+  })
 
-  const inputTitle = 'Search someone'
+  const inputTitle = 'Search for a chat'
 
   const inputMessage = (inputResponse: React.ChangeEvent<HTMLDivElement>) => {
-    setMessage(inputResponse.target.innerText)
+    store.dispatch(updateChatFilter(inputResponse.target.innerText))
   }
 
   return (

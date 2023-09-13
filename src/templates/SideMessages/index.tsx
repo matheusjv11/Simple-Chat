@@ -10,12 +10,14 @@ import { RootState } from '@/store'
 
 const SideMessages = () => {
   const chats = useSelector((state: RootState) => {
-    return ChatService.orderChats(Object.values(state.chats.userChats))
-  })
+    const chatsValues = Object.values(state.chats.userChats)
+    const filteredChats = ChatService.filterChats(
+      chatsValues,
+      state.chats.chatFilter
+    )
 
-  /*   const chats = useMemo()
-  // returns memorized ordered an pinned chats
- */
+    return ChatService.orderChats(filteredChats)
+  })
 
   return (
     <S.Wrapper>

@@ -9,10 +9,12 @@ import { MessageType } from '@/types/MessageType'
 
 export interface ChatsInitialState {
   userChats: UserChatsType
+  chatFilter: string
 }
 
 const initialState: ChatsInitialState = {
-  userChats: { ...InitialGroupChats, ...InitialSingleChats }
+  userChats: { ...InitialGroupChats, ...InitialSingleChats },
+  chatFilter: ''
 }
 
 export const chatsSlice = createSlice({
@@ -49,11 +51,18 @@ export const chatsSlice = createSlice({
       if (action.payload.id in state.userChats) {
         state.userChats[action.payload.id].unreadMessages = 0
       }
+    },
+    updateChatFilter: (state, action: PayloadAction<string>) => {
+      state.chatFilter = action.payload
     }
   }
 })
 
-export const { addChat, addMessageIntoChat, cleanUnreadMessages } =
-  chatsSlice.actions
+export const {
+  addChat,
+  addMessageIntoChat,
+  cleanUnreadMessages,
+  updateChatFilter
+} = chatsSlice.actions
 
 export default chatsSlice.reducer
