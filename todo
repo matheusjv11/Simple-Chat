@@ -1,7 +1,3 @@
-- Style better the chatbody (max width, message popup effect)
-  - Max width in large screens (Still doing it)
-  - Usernames have different color to better distinction
-  - Background image
 - Change moment.js for a lighter date library
 - Add Dark Mode switch
 - Be able to shrink the side message as telegram does

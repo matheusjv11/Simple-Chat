@@ -29,7 +29,9 @@ const MessageBox = ({ message }: MessageBoxProps) => {
       )}
 
       <S.MessageCard isCurrentUser={!user}>
-        {!!user && <S.Username>{user?.name}</S.Username>}
+        {!!user && (
+          <S.Username nameColor={user?.color}>{user?.name}</S.Username>
+        )}
         <S.Box>{message.content}</S.Box>
         <S.SentHour>{date}</S.SentHour>
       </S.MessageCard>
