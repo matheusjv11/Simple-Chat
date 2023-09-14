@@ -7,6 +7,7 @@ export const Wrapper = styled.form`
   position: relative;
   max-width: 75vw;
   overflow-x: hidden;
+  margin-bottom: 1rem;
 `
 
 export const EditableDiv = styled.div`

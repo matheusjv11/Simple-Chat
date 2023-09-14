@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.main``
+export const Wrapper = styled.main`
+  min-width: 50rem;
+`
 
 export const SearchBox = styled.div`
   ${({ theme }) => css`

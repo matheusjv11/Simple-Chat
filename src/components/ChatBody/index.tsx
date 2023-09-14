@@ -17,7 +17,7 @@ const ChatBody = ({ messages }: ChatBodyType) => {
   }, [messages])
 
   return (
-    <S.Wrapper ref={chatBodyAsHtml}>
+    <S.Wrapper ref={chatBodyAsHtml} className="custom-scroll">
       {messages.map((message) => {
         return <MessageBox message={message} />
       })}

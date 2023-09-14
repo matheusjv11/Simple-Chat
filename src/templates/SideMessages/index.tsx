@@ -22,7 +22,7 @@ const SideMessages = () => {
   return (
     <S.Wrapper>
       <S.SearchBox>
-        <h2>Messages</h2>
+        <h2>Chats</h2>
         <SearchInput />
       </S.SearchBox>
       <S.ChatWrapper>

@@ -68,6 +68,24 @@ const GlobalStyles = createGlobalStyle`
         font-family: ${theme.font.family};
         font-size: ${theme.sizes.medium};
       }
-    `}    
+    `}
+    
+    .custom-scroll::-webkit-scrollbar {
+        width: 10px;
+    }
+        
+    .custom-scroll::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+    
+    .custom-scroll::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        border: 2px solid transparent;
+        background-clip: content-box;
+
+        ${({ theme }) => css`
+          background-color: ${theme.boxColors.scroll};
+        `}
+    }
 `
 export default GlobalStyles

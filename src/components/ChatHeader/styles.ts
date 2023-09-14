@@ -4,6 +4,9 @@ export const Wrapper = styled.main`
   display: flex;
   justify-content: space-between;
   padding: 0.35rem 1rem;
+  background-color: white;
+  position: absolute;
+  z-index: 2;
 `
 
 export const InformationWrapper = styled.div`

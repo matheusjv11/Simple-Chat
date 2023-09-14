@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.main`
-  background-color: pink;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
@@ -10,4 +9,5 @@ export const Wrapper = styled.main`
   justify-content: flex-end;
   overflow: auto;
   overflow-x: hidden;
+  padding-top: 65px;
 `
