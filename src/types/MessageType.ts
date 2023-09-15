@@ -2,6 +2,6 @@ import { ExistingCharacters } from '@/database/Characters'
 
 export type MessageType = {
   content: string
-  dtSend: string
+  dtSend: Date
   user: ExistingCharacters | 'currentUser'
 }

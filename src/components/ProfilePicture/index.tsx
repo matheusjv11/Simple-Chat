@@ -1,20 +1,22 @@
-import { ExistingCharacters } from '@/database/Characters'
 import * as S from './styles'
-import { UserService } from '@/services/UserService'
+import { DateUtils } from '@/utils/DateUtils'
 
 export type ProfilePictureProps = {
   profile: string
   profileAlt: string
   size?: 'small' | 'normal'
-  online?: boolean
+  lastMessageDate?: Date
 }
 
 const ProfilePicture = ({
   profile,
   profileAlt,
   size = 'normal',
-  online = false
+  lastMessageDate
 }: ProfilePictureProps) => {
+  const isOnline =
+    lastMessageDate && new DateUtils(lastMessageDate).lessThanFiveMinutesAgo()
+
   return (
     <S.Wrapper
       profile={profile}
@@ -22,7 +24,7 @@ const ProfilePicture = ({
       aria-label={profileAlt}
       size={size}
     >
-      {online && <S.OnlineStatus />}
+      {isOnline && <S.OnlineStatus />}
     </S.Wrapper>
   )
 }

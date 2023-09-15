@@ -5,3 +5,5 @@
 - Add an option side screen. That will contain chat's information
 - Add some testing on files
 - Create a pretty home page
+- Fix errors when start chating with a single person. After that, we're not able to use group chat
+- put today and the other day flag

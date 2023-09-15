@@ -29,7 +29,7 @@ export default {
   boxColors: {
     primaryLight: 'white',
     secondaryLight: '#eeffde',
-    selectedChat: '#3390ec',
+    selectedChat: '#a16bfe',
     scroll: '#c4c9cc'
   }
 } as const

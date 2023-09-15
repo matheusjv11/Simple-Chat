@@ -23,7 +23,8 @@ const MessagePreview = ({
 }: MessagePreviewProps) => {
   const router = useRouter()
 
-  const date = new DateUtils(lastMessage?.dtSend || '').chatPreviewDate()
+  const date =
+    lastMessage && new DateUtils(lastMessage?.dtSend).chatPreviewDate()
 
   const [selectedChat, setSelectedChat] = useState(false)
 

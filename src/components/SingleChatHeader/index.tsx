@@ -11,9 +11,9 @@ type SingleChatHeaderProps = {
 
 const SingleChatHeader = ({ chat }: SingleChatHeaderProps) => {
   const user = UserService.getUser(chat.member)
-  const isOnline = new DateUtils(
-    chat.lastMessage?.dtSend || ''
-  ).lessThanFiveMinutesAgo()
+  const isOnline =
+    chat.lastMessage &&
+    new DateUtils(chat.lastMessage?.dtSend).lessThanFiveMinutesAgo()
 
   return (
     <ChatHeader
@@ -23,7 +23,7 @@ const SingleChatHeader = ({ chat }: SingleChatHeaderProps) => {
       <ProfilePicture
         profile={user.profile}
         profileAlt={`${user.name}'s profile picure`}
-        online={isOnline}
+        lastMessageDate={chat.lastMessage?.dtSend}
       />
     </ChatHeader>
   )

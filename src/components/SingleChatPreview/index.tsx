@@ -22,6 +22,7 @@ const SingleChatPreview = ({ chat }: SingleChatPreviewProps) => {
         <ProfilePicture
           profile={user.profile}
           profileAlt={`${user.name}'s profile picure`}
+          lastMessageDate={chat.lastMessage?.dtSend}
         />
       </MessagePreview>
     </S.Wrapper>

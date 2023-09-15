@@ -1,14 +1,20 @@
-import moment, { Moment } from 'moment'
+import {
+  format,
+  isSameWeek,
+  isToday,
+  differenceInMinutes,
+  isYesterday
+} from 'date-fns'
 
 export class DateUtils {
-  private momentDate: Moment
+  private currentDate: Date
 
-  public constructor(date: string) {
-    this.momentDate = moment(date)
+  public constructor(currentDate: Date) {
+    this.currentDate = currentDate
   }
 
   public lessThanFiveMinutesAgo(): boolean {
-    const minutesDiff = moment().diff(this.momentDate, 'minutes')
+    const minutesDiff = differenceInMinutes(new Date(), this.currentDate)
     return minutesDiff < 5
   }
 
@@ -28,32 +34,31 @@ export class DateUtils {
     return this.getYearDate()
   }
 
-  public static orderDates(dateA: string, dateB: string): number {
-    // @ts-ignore
-    return moment(dateB).format('X') - moment(dateA).format('X')
+  public static orderDates(dateA: Date, dateB: Date): number {
+    return dateA.getDate() - dateB.getDate()
   }
 
   public getHoursAndMinutes(): string {
-    return this.momentDate.format('HH:mm')
+    return format(this.currentDate, 'HH:mm')
   }
 
   private isToday(): boolean {
-    return this.momentDate.isSame(moment(), 'day')
+    return isToday(this.currentDate)
   }
 
   private isSameWeek(): boolean {
-    return this.momentDate.isSame(moment(), 'week')
+    return isSameWeek(this.currentDate, new Date())
   }
 
   private isYesterday(): boolean {
-    return this.momentDate.isSame(moment().subtract(1, 'day'), 'day')
+    return isYesterday(this.currentDate)
   }
 
   private getWeekDay(): string {
-    return this.momentDate.format('dddd')
+    return format(this.currentDate, 'dddd')
   }
 
   private getYearDate(): string {
-    return this.momentDate.format('MMM D, YYYY')
+    return format(this.currentDate, 'MMM d, yyyy')
   }
 }
