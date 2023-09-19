@@ -7,6 +7,7 @@ import { TypeUtils } from '@/utils/TypeUtils'
 import SingleChatPreview from '@/components/SingleChatPreview'
 import GroupChatPreview from '@/components/GroupChatPreview'
 import { RootState } from '@/store'
+import DarkModeSwitch from '@/components/DarkModeSwitch'
 
 const SideMessages = () => {
   const chats = useSelector((state: RootState) => {
@@ -22,7 +23,10 @@ const SideMessages = () => {
   return (
     <S.Wrapper>
       <S.SearchBox>
-        <h2>Chats</h2>
+        <div>
+          <h2>Chats</h2>
+          <DarkModeSwitch />
+        </div>
         <SearchInput />
       </S.SearchBox>
       <S.ChatWrapper>
@@ -36,6 +40,14 @@ const SideMessages = () => {
           </Link>
         ))}
       </S.ChatWrapper>
+      <S.Author>
+        <p>
+          Made by{' '}
+          <a href="https://matheusaf.com/" target="blank">
+            Matheus Almeida
+          </a>
+        </p>
+      </S.Author>
     </S.Wrapper>
   )
 }
