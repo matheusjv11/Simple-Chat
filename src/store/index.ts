@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import ChatsReducer from './reducers/chatsReducer'
+import CustomizationReducer from './reducers/customizationReducer'
 
 export const store = configureStore({
   reducer: {
-    chats: ChatsReducer
+    chats: ChatsReducer,
+    customization: CustomizationReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -1,10 +1,12 @@
 import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.main`
-  padding: 9px 18px 9px 40px;
-  background-color: #f0f2f5;
-  border-radius: 8px;
-  position: relative;
+  ${({ theme }) => css`
+    padding: 9px 18px 9px 40px;
+    background-color: ${theme.boxColors.secondaryBackground};
+    border-radius: 8px;
+    position: relative;
+  `}
 `
 
 export const EditableDiv = styled.div`

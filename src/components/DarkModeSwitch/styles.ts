@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.main`
   display: inline-flex;
@@ -49,7 +49,9 @@ export const Checkbox = styled.input`
   height: 0;
 
   &:checked + ${Slider} {
-    background-color: #2196f3;
+    ${({ theme }) => css`
+      background-color: ${theme.boxColors.selectedChat};
+    `}
   }
 
   &:checked + ${Slider}:before {

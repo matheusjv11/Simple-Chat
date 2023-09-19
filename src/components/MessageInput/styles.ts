@@ -1,13 +1,16 @@
 import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.form`
-  padding: 9px 12px;
-  background-color: #f0f2f5;
-  border-radius: 8px;
-  position: relative;
-  max-width: 75vw;
-  overflow-x: hidden;
-  margin-bottom: 1rem;
+  ${({ theme }) => css`
+    padding: 9px 12px;
+    background-color: #f0f2f5;
+    border-radius: 8px;
+    position: relative;
+    max-width: 75vw;
+    overflow-x: hidden;
+    margin-bottom: 1rem;
+    background-color: ${theme.boxColors.primaryBackground};
+  `}
 `
 
 export const EditableDiv = styled.div`
@@ -19,6 +22,18 @@ export const EditableDiv = styled.div`
   &:focus-visible {
     outline: none;
   }
+
+  ${({ theme }) => css`
+    max-height: 7.35em;
+    min-height: 1.47em;
+    overflow-y: auto;
+    width: 95%;
+    color: ${theme.colors.heading};
+
+    &:focus-visible {
+      outline: none;
+    }
+  `}
 `
 
 export const PlaceHolder = styled.div`

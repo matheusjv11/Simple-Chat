@@ -22,7 +22,6 @@ const MessageBox = ({ message }: MessageBoxProps) => {
       {user && (
         <ProfilePicture
           profile={user?.profile || ''}
-          online={false}
           profileAlt={`${user?.name}'s profile`}
           size="small"
         />

@@ -24,7 +24,7 @@ export const MessageCard = styled.div<MainProps>`
     border-radius: 8px;
     background-color: ${isCurrentUser
       ? theme.boxColors.secondaryLight
-      : theme.boxColors.primaryLight};
+      : theme.boxColors.primaryBackground};
     padding: 0.8rem;
     width: fit-content;
     padding-right: 3.5rem;
@@ -36,7 +36,7 @@ export const MessageCard = styled.div<MainProps>`
       border-bottom: 15px solid
         ${isCurrentUser
           ? theme.boxColors.secondaryLight
-          : theme.boxColors.primaryLight};
+          : theme.boxColors.primaryBackground};
       clear: both;
       position: absolute;
       bottom: 0px;
@@ -56,11 +56,15 @@ export const Username = styled.div<{ nameColor?: string }>`
   ${({ theme, nameColor }) => css`
     font-weight: 600;
     font-size: ${theme.sizes.small};
-    color: ${nameColor};
+    color: ${!!nameColor ? nameColor : theme.colors.heading};
   `}
 `
 
-export const Box = styled.div``
+export const Box = styled.div`
+  ${({ theme }) => css`
+    color: ${theme.colors.heading};
+  `}
+`
 
 export const SentHour = styled.div`
   ${({ theme }) => css`

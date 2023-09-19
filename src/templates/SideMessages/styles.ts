@@ -1,15 +1,20 @@
 import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.main`
-  min-width: 50rem;
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => css`
+    min-width: 50rem;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid ${theme.colors.border};
+  `}
 `
 
 export const SearchBox = styled.div`
   ${({ theme }) => css`
     border-bottom: 1px solid ${theme.colors.border};
     padding: 0rem 2rem 2rem 2rem;
+    color: ${theme.colors.heading};
+
     > div {
       display: inline-flex;
       justify-content: space-between;

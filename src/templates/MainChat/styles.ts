@@ -7,7 +7,7 @@ export const Wrapper = styled.main`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
-    background: linear-gradient(33deg, #a16bfe, #deb0df);
+    background: ${theme.boxColors.chatBackground};
     align-items: center;
     position: relative;
     padding: 0 1rem;

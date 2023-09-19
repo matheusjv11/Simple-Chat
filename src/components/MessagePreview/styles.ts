@@ -13,12 +13,14 @@ export const Wrapper = styled.main<WrapperProps>`
     padding: 0.7rem 1.2rem;
     border-radius: 10px;
     transition: background-color 0.07s ease-in;
-    background-color: ${selectedChat ? theme.boxColors.selectedChat : 'white'};
+    background-color: ${selectedChat
+      ? theme.boxColors.selectedChat
+      : theme.boxColors.primaryBackground};
 
     &:hover {
       background-color: ${selectedChat
         ? theme.boxColors.selectedChat
-        : theme.colors.chatHover};
+        : theme.boxColors.secondaryBackground};
     }
 
     ${selectedChat &&
@@ -53,6 +55,7 @@ export const Message = styled.p`
     max-width: 18vw;
     font-size: ${theme.sizes.small};
     color: ${theme.colors.secondaryText};
+    font-weight: 600;
   `}
 `
 export const SentDate = styled.p`

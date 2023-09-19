@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { store } from '@/store'
+import { updateThemeMode } from '@/store/reducers/customizationReducer'
 import * as S from './styles'
 import Lottie from 'react-lottie'
 import LightDarkAnimation from '@/styles/lotties/LightDarkAnimation.json'
@@ -34,6 +36,7 @@ const DarkModeSwitch = () => {
           : normalAnimation
     })
     setIsChecked(() => !isChecked)
+    store.dispatch(updateThemeMode(isChecked ? 'light' : 'dark'))
   }
 
   return (
@@ -43,7 +46,7 @@ const DarkModeSwitch = () => {
         direction={animationState.direction}
         isPaused={animationState.isPaused}
         isStopped={animationState.isStopped}
-        speed={2}
+        speed={3}
       />
       <S.Switch>
         <S.Checkbox
