@@ -9,7 +9,6 @@ export const Wrapper = styled.main`
     grid-template-rows: 100%;
     height: 100vh;
     background-color: ${theme.boxColors.primaryBackground};
-    transition: background-color 0.07s ease-in;
   `}
 
   ${SideMessagesStyles.Wrapper} {

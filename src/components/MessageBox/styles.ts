@@ -23,7 +23,7 @@ export const MessageCard = styled.div<MainProps>`
     position: relative;
     border-radius: 8px;
     background-color: ${isCurrentUser
-      ? theme.boxColors.secondaryLight
+      ? theme.boxColors.currentMessageBackground
       : theme.boxColors.primaryBackground};
     padding: 0.8rem;
     width: fit-content;
@@ -35,19 +35,20 @@ export const MessageCard = styled.div<MainProps>`
       border: 13px solid transparent;
       border-bottom: 15px solid
         ${isCurrentUser
-          ? theme.boxColors.secondaryLight
+          ? theme.boxColors.currentMessageBackground
           : theme.boxColors.primaryBackground};
       clear: both;
       position: absolute;
       bottom: 0px;
       left: -11px;
       border-radius: 8px;
-
+      display: block;
+      transition: all 0.07s ease-in-out;
       ${!!isCurrentUser &&
       css`
         left: unset;
         right: -11px;
-      `}
+      `};
     }
   `}
 `
@@ -57,6 +58,7 @@ export const Username = styled.div<{ nameColor?: string }>`
     font-weight: 600;
     font-size: ${theme.sizes.small};
     color: ${!!nameColor ? nameColor : theme.colors.heading};
+    margin-bottom: 0.2rem;
   `}
 `
 

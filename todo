@@ -1,7 +1,5 @@
-- Change moment.js for a lighter date library
-- Add Dark Mode switch
-- Be able to shrink the side message as telegram does
 - When clicking with mouse right button, opens a popup that display de pin option and delete chat
+- When hover side messages, appers add chat button
 - Add an option side screen. That will contain chat's information
 - Add some testing on files
 - Create a pretty home page

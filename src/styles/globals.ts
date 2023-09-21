@@ -52,7 +52,7 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        transition: background-color 0.05s ease, color 0.05s ease;
+        transition: background-color 0.07s ease-in-out, color 0.07s ease-in-out;
         
         &::before,
         &::after {
@@ -71,6 +71,10 @@ const GlobalStyles = createGlobalStyle`
       }
     `}
     
+    p {
+        font-weight: 500;
+    }
+
     .custom-scroll::-webkit-scrollbar {
         width: 10px;
     }

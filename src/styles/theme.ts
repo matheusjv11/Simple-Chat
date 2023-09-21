@@ -30,7 +30,7 @@ interface Theme {
     primaryBackground: string
     secondaryBackground: string
     chatBackground: string
-    secondaryLight: string
+    currentMessageBackground: string
     selectedChat: string
     scroll: string
   }
@@ -69,7 +69,7 @@ export const ThemeLight: Theme = {
     primaryBackground: 'white',
     secondaryBackground: '#f0f2f5',
     chatBackground: 'linear-gradient(33deg, #a16bfe, #deb0df)',
-    secondaryLight: '#eeffde',
+    currentMessageBackground: '#eeffde',
     selectedChat: '#a16bfe',
     scroll: '#c4c9cc'
   }
@@ -90,7 +90,7 @@ export const ThemeDark: Theme = {
     primaryBackground: '#212121',
     secondaryBackground: '#2c2c2c',
     chatBackground: '#030303',
-    secondaryLight: '#eeffde',
+    currentMessageBackground: '#a16bfe',
     selectedChat: '#a16bfe',
     scroll: '#c4c9cc'
   }

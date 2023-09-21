@@ -12,7 +12,6 @@ export const Wrapper = styled.main<WrapperProps>`
     gap: 1rem;
     padding: 0.7rem 1.2rem;
     border-radius: 10px;
-    transition: background-color 0.07s ease-in;
     background-color: ${selectedChat
       ? theme.boxColors.selectedChat
       : theme.boxColors.primaryBackground};
