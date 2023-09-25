@@ -2,7 +2,7 @@ import React from 'react'
 import type { Preview } from '@storybook/react'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from '../src/styles/globals'
-import MyTheme from '../src/styles/theme'
+import { ThemeLight } from '../src/styles/theme'
 
 const preview: Preview = {
   parameters: {
@@ -16,7 +16,7 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <ThemeProvider theme={MyTheme}>
+      <ThemeProvider theme={ThemeLight}>
         <GlobalStyles />
         <Story />
       </ThemeProvider>

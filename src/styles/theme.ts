@@ -33,6 +33,8 @@ interface Theme {
     currentMessageBackground: string
     selectedChat: string
     scroll: string
+    optionsBackground: string
+    optionsShadow: string
   }
 }
 
@@ -71,7 +73,9 @@ export const ThemeLight: Theme = {
     chatBackground: 'linear-gradient(33deg, #a16bfe, #deb0df)',
     currentMessageBackground: '#eeffde',
     selectedChat: '#a16bfe',
-    scroll: '#c4c9cc'
+    scroll: '#c4c9cc',
+    optionsBackground: 'rgba(255, 255, 255, 0.25)',
+    optionsShadow: 'rgba(114, 114, 114, 0.25)'
   }
 }
 
@@ -92,6 +96,8 @@ export const ThemeDark: Theme = {
     chatBackground: '#030303',
     currentMessageBackground: '#a16bfe',
     selectedChat: '#a16bfe',
-    scroll: '#c4c9cc'
+    scroll: '#c4c9cc',
+    optionsBackground: 'rgba(33, 33, 33, 0.25)',
+    optionsShadow: 'rgba(16, 16, 16, 0.6)'
   }
 } as const
