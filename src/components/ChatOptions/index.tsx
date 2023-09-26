@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import Modal from '../Modal'
 import { DeleteOutline as DeleteOutlineIcon } from '@styled-icons/material-rounded/DeleteOutline'
 import { PinAngle as PinIcon } from '@styled-icons/bootstrap/PinAngle'
@@ -5,21 +6,41 @@ import { PinOff as UnpinIcon } from '@styled-icons/fluentui-system-regular/PinOf
 
 import * as S from './styles'
 
-const ChatOptions = () => {
+export type ChatOptionsProps = {
+  openState: (state: boolean) => void
+  position: {
+    top: number
+    left: number
+  }
+}
+
+const ChatOptions = ({ openState, position }: ChatOptionsProps) => {
   const handleDeleteChat = () => {}
 
   const handlePinChat = () => {}
 
   const handleUnPinChat = () => {}
 
+  const stopClickPropagation = (e: MouseEvent) => {
+    if (e) {
+      e.stopPropagation()
+    }
+  }
+
+  console.log(position)
+
   return (
-    <Modal>
-      <S.Wrapper>
-        <S.Option>
+    <Modal onClickOutside={() => openState(false)}>
+      <S.Wrapper
+        onClick={stopClickPropagation}
+        top={position.top}
+        left={position.left}
+      >
+        <S.Option onClick={handlePinChat}>
           <PinIcon />
           <p>Pin Chat</p>
         </S.Option>
-        <S.Option>
+        <S.Option onClick={handleUnPinChat}>
           <UnpinIcon />
           <p>UnPin Chat</p>
         </S.Option>

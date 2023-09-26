@@ -1,4 +1,10 @@
-import { useEffect, useState, KeyboardEvent, MouseEvent } from 'react'
+import {
+  useEffect,
+  useState,
+  KeyboardEvent,
+  MouseEvent,
+  MouseEventHandler
+} from 'react'
 import { useRouter } from 'next/router'
 import * as S from './styles'
 
@@ -26,6 +32,10 @@ const MessagePreview = ({
 
   const [selectedChat, setSelectedChat] = useState(false)
   const [optionsIsOpen, setOptionsIsOpen] = useState(false)
+  const [optionsPosition, setOptionsPosition] = useState({
+    top: 158.41250610351562,
+    left: 71
+  })
   const [countUnreadMessage, setCountUnreadMessage] =
     useState<number>(unreadMessages)
 
@@ -40,15 +50,32 @@ const MessagePreview = ({
     setSelectedChat(router.query.id === chatId)
   }, [router])
 
-  const handleContextMenu = (event: MouseEvent<HTMLDivElement> | undefined) => {
-    if (event) {
-      event.preventDefault()
-      setOptionsIsOpen(true)
+  const openOptions = (
+    open: boolean,
+    topPosition: number,
+    leftPosition: number
+  ) => {
+    setOptionsPosition(() => {
+      return { top: topPosition, left: leftPosition }
+    })
+    console.log(topPosition, leftPosition, optionsPosition)
+    setOptionsIsOpen(open)
+  }
+
+  const handleContextMenu = (
+    e: MouseEventHandler<HTMLDivElement> | undefined
+  ) => {
+    if (e) {
+      e.preventDefault()
+      e.stopPropagation()
+      const { top, left, right, bottom } = e.target.getBoundingClientRect()
+      openOptions(true, top, left)
     }
   }
 
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement> | undefined) => {
     if (e) {
+      console.log(e)
       if (e.key == ' ' || e.code == 'Space') {
         setOptionsIsOpen(true)
       }
@@ -75,7 +102,9 @@ const MessagePreview = ({
           )}
         </S.FlexColumn>
       </S.MessageContent>
-      {optionsIsOpen && <ChatOptions />}
+      {optionsIsOpen && (
+        <ChatOptions openState={setOptionsIsOpen} position={optionsPosition} />
+      )}
     </S.Wrapper>
   )
 }
