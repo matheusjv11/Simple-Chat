@@ -27,6 +27,11 @@ export const Wrapper = styled.main<WrapperProps>`
       ${SentDate}, ${Message}, ${Username} {
         color: white;
       }
+
+      ${Button} {
+        border: 1px solid white;
+        color: white;
+      }
     `}
   `}
 `
@@ -71,5 +76,34 @@ export const UnreadMessage = styled.p`
     background-color: #00c73e;
     border-radius: 30px;
     padding: 2px 8px;
+  `}
+`
+
+export const Button = styled.button`
+  ${({ theme }) => css`
+    background: none;
+    cursor: pointer;
+    border: 1px solid ${theme.colors.secondaryText};
+    color: ${theme.colors.secondaryText};
+    border-radius: 100%;
+    width: 16px;
+    height: 16px;
+    margin-top: -2px;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    > svg {
+      height: 10px;
+      margin-top: -6px;
+    }
+  `}
+`
+
+export const RightSide = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    gap: 0.8rem;
   `}
 `

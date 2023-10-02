@@ -52,7 +52,7 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        transition: background-color 0.07s ease-in-out, color 0.07s ease-in-out;
+        transition: background-color 0.04s ease-in-out, color 0.04s ease-in-out;
         
         &::before,
         &::after {

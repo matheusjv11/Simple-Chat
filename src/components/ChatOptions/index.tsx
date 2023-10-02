@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+'use client'
 import Modal from '../Modal'
 import { DeleteOutline as DeleteOutlineIcon } from '@styled-icons/material-rounded/DeleteOutline'
 import { PinAngle as PinIcon } from '@styled-icons/bootstrap/PinAngle'
@@ -24,18 +24,13 @@ const ChatOptions = ({ openState, position }: ChatOptionsProps) => {
   const stopClickPropagation = (e: MouseEvent) => {
     if (e) {
       e.stopPropagation()
+      e.stopPropagation()
     }
   }
 
-  console.log(position)
-
   return (
     <Modal onClickOutside={() => openState(false)}>
-      <S.Wrapper
-        onClick={stopClickPropagation}
-        top={position.top}
-        left={position.left}
-      >
+      <S.Wrapper onClick={stopClickPropagation} position={position}>
         <S.Option onClick={handlePinChat}>
           <PinIcon />
           <p>Pin Chat</p>

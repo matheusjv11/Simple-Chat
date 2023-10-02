@@ -1,20 +1,20 @@
 import styled, { css } from 'styled-components'
 import { ChatOptionsProps } from '.'
 
-type WrapperProps = Pick<ChatOptionsProps, 'top' | 'left'>
+type WrapperProps = Pick<ChatOptionsProps, 'position'>
 
 export const Wrapper = styled.main<WrapperProps>`
-  ${({ theme, top, left }) => css`
-    backdrop-filter: blur(10px);
+  ${({ theme, position }) => css`
+    backdrop-filter: blur(30px);
     font-size: 13px;
     width: 140px;
     border-radius: 15px;
     background-color: ${theme.boxColors.optionsBackground};
-    color: ${theme.colors.heading};
+    color: ${theme.colors.secondaryText};
     box-shadow: 0 0.25rem 0.5rem 0.125rem ${theme.boxColors.optionsShadow};
     position: absolute;
-    top: ${`${top}px`};
-    left: ${`${left}px`};
+    top: ${`${position.top}px`};
+    left: ${`${position.left}px`};
 
     :first-child {
       border-radius: 10px 10px 0 0;
@@ -36,6 +36,7 @@ export const Option = styled.button`
     border: none;
     width: 100%;
     background: unset;
+    color: ${theme.colors.heading};
 
     &.danger {
       color: #d81818;

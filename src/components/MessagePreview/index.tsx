@@ -12,6 +12,7 @@ import { Username } from '../MessageBox/styles'
 import { MessageType } from '@/types/MessageType'
 import { DateUtils } from '@/utils/DateUtils'
 import ChatOptions from '../ChatOptions'
+import { ThreeDotsVertical as ThreeDotsVerticalIcon } from '@styled-icons/bootstrap/ThreeDotsVertical'
 
 type MessagePreviewProps = {
   name: string
@@ -58,12 +59,11 @@ const MessagePreview = ({
     setOptionsPosition(() => {
       return { top: topPosition, left: leftPosition }
     })
-    console.log(topPosition, leftPosition, optionsPosition)
     setOptionsIsOpen(open)
   }
 
-  const handleContextMenu = (
-    e: MouseEventHandler<HTMLDivElement> | undefined
+  const handleOptionsClick = (
+    e: MouseEventHandler<HTMLButtonElement> | undefined
   ) => {
     if (e) {
       e.preventDefault()
@@ -73,34 +73,27 @@ const MessagePreview = ({
     }
   }
 
-  const handleKeyDown = (e: KeyboardEvent<HTMLDivElement> | undefined) => {
-    if (e) {
-      console.log(e)
-      if (e.key == ' ' || e.code == 'Space') {
-        setOptionsIsOpen(true)
-      }
-    }
-  }
-
   return (
-    <S.Wrapper
-      selectedChat={selectedChat}
-      onContextMenu={handleContextMenu}
-      tabIndex={0}
-      onKeyPress={handleKeyDown}
-    >
+    <S.Wrapper selectedChat={selectedChat} tabIndex={0}>
       {children}
       <S.MessageContent>
         <S.FlexColumn>
           <Username>{name}</Username>
           <S.Message>{lastMessage?.content}</S.Message>
         </S.FlexColumn>
-        <S.FlexColumn end={true}>
-          <S.SentDate>{date}</S.SentDate>
-          {!!countUnreadMessage && (
-            <S.UnreadMessage>{countUnreadMessage}</S.UnreadMessage>
-          )}
-        </S.FlexColumn>
+        <S.RightSide>
+          <S.FlexColumn end={true}>
+            <S.SentDate>{date}</S.SentDate>
+            {!!countUnreadMessage && (
+              <S.UnreadMessage>{countUnreadMessage}</S.UnreadMessage>
+            )}
+          </S.FlexColumn>
+          <S.FlexColumn>
+            <S.Button onClick={handleOptionsClick}>
+              <ThreeDotsVerticalIcon />
+            </S.Button>
+          </S.FlexColumn>
+        </S.RightSide>
       </S.MessageContent>
       {optionsIsOpen && (
         <ChatOptions openState={setOptionsIsOpen} position={optionsPosition} />
