@@ -1,13 +1,10 @@
 import { useSelector } from 'react-redux'
-import Link from 'next/link'
 import * as S from './styles'
 import SearchInput from '@/components/SearchInput'
 import { ChatService } from '@/services/ChatService'
-import { TypeUtils } from '@/utils/TypeUtils'
-import SingleChatPreview from '@/components/SingleChatPreview'
-import GroupChatPreview from '@/components/GroupChatPreview'
 import { RootState } from '@/store'
 import DarkModeSwitch from '@/components/DarkModeSwitch'
+import ChatWrapper from './components/ChatWrapper'
 
 const SideMessages = () => {
   const chats = useSelector((state: RootState) => {
@@ -29,17 +26,7 @@ const SideMessages = () => {
         </div>
         <SearchInput />
       </S.SearchBox>
-      <S.ChatWrapper>
-        {chats.map((chat, i) => (
-          <Link href={`/chat/${chat.id}`} key={i}>
-            {TypeUtils.isSingleChatType(chat) ? (
-              <SingleChatPreview chat={chat} />
-            ) : (
-              <GroupChatPreview chat={chat} />
-            )}
-          </Link>
-        ))}
-      </S.ChatWrapper>
+      <ChatWrapper chats={chats} />
       <S.Author>
         <p>
           Made by{' '}

@@ -89,6 +89,9 @@ export const Button = styled.button`
     width: 16px;
     height: 16px;
     margin-top: -2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:hover {
       opacity: 0.6;
@@ -96,7 +99,6 @@ export const Button = styled.button`
 
     > svg {
       height: 10px;
-      margin-top: -6px;
     }
   `}
 `

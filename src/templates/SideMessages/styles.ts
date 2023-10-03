@@ -24,26 +24,6 @@ export const SearchBox = styled.div`
   `}
 `
 
-export const ChatWrapper = styled.div`
-  padding: 0.4rem;
-  flex: 1;
-
-  > main {
-    padding: 1rem;
-
-    &:not(:last-of-type) {
-      ${({ theme }) => css`
-        border-bottom: 1px solid ${theme.colors.border};
-      `}
-    }
-  }
-
-  > a {
-    text-decoration: none;
-    color: unset;
-  }
-`
-
 export const Author = styled.div`
   ${({ theme }) => css`
     border-top: 1px solid ${theme.colors.border};
