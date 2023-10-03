@@ -96,7 +96,11 @@ const MessagePreview = ({
         </S.RightSide>
       </S.MessageContent>
       {optionsIsOpen && (
-        <ChatOptions openState={setOptionsIsOpen} position={optionsPosition} />
+        <ChatOptions
+          closeModal={() => setOptionsIsOpen(false)}
+          chatId={chatId}
+          position={optionsPosition}
+        />
       )}
     </S.Wrapper>
   )

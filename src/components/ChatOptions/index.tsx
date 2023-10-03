@@ -5,17 +5,21 @@ import { PinAngle as PinIcon } from '@styled-icons/bootstrap/PinAngle'
 import { PinOff as UnpinIcon } from '@styled-icons/fluentui-system-regular/PinOff'
 
 import * as S from './styles'
+import { ChatService } from '@/services/ChatService'
 
 export type ChatOptionsProps = {
-  openState: (state: boolean) => void
+  closeModal: () => void
+  chatId: string
   position: {
     top: number
     left: number
   }
 }
 
-const ChatOptions = ({ openState, position }: ChatOptionsProps) => {
-  const handleDeleteChat = () => {}
+const ChatOptions = ({ closeModal, chatId, position }: ChatOptionsProps) => {
+  const handleRemoveChat = () => {
+    ChatService.removeChat(chatId)
+  }
 
   const handlePinChat = () => {}
 
@@ -29,7 +33,7 @@ const ChatOptions = ({ openState, position }: ChatOptionsProps) => {
   }
 
   return (
-    <Modal onClickOutside={() => openState(false)}>
+    <Modal onClickOutside={() => closeModal()}>
       <S.Wrapper onClick={stopClickPropagation} position={position}>
         <S.Option onClick={handlePinChat}>
           <PinIcon />
@@ -39,7 +43,7 @@ const ChatOptions = ({ openState, position }: ChatOptionsProps) => {
           <UnpinIcon />
           <p>UnPin Chat</p>
         </S.Option>
-        <S.Option className="danger">
+        <S.Option className="danger" onClick={handleRemoveChat}>
           <DeleteOutlineIcon />
           <p>Delete Chat</p>
         </S.Option>

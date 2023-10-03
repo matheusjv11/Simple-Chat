@@ -4,7 +4,7 @@ import { RootState } from '@/store'
 import { GroupChatType } from '@/types/GroupChatType'
 import { SingleChatType } from '@/types/SingleChatType'
 import { DateUtils } from '@/utils/DateUtils'
-import { addMessageIntoChat } from '@/store/reducers/chatsReducer'
+import { addMessageIntoChat, removeChat } from '@/store/reducers/chatsReducer'
 import { UserService } from './UserService'
 import { Characters, ExistingCharacters } from '@/database/Characters'
 import { ArrayUtils } from '@/utils/ArrayUtils'
@@ -80,6 +80,10 @@ export class ChatService {
         }
       })
     )
+  }
+
+  public static removeChat(id: string): void {
+    store.dispatch(removeChat({ id }))
   }
 
   public static singleChatObserver(chat: SingleChatType): void {

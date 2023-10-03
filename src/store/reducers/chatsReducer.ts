@@ -54,6 +54,11 @@ export const chatsSlice = createSlice({
     },
     updateChatFilter: (state, action: PayloadAction<string>) => {
       state.chatFilter = action.payload
+    },
+    removeChat: (state, action: PayloadAction<{ id: string }>) => {
+      if (action.payload.id in state.userChats) {
+        delete state.userChats[action.payload.id]
+      }
     }
   }
 })
@@ -62,7 +67,8 @@ export const {
   addChat,
   addMessageIntoChat,
   cleanUnreadMessages,
-  updateChatFilter
+  updateChatFilter,
+  removeChat
 } = chatsSlice.actions
 
 export default chatsSlice.reducer
