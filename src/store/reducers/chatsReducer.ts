@@ -59,6 +59,18 @@ export const chatsSlice = createSlice({
       if (action.payload.id in state.userChats) {
         delete state.userChats[action.payload.id]
       }
+    },
+    pinChat: (state, action: PayloadAction<{ id: string }>) => {
+      if (action.payload.id in state.userChats) {
+        console.log(state.userChats[action.payload.id])
+        state.userChats[action.payload.id].pinned = true
+        console.log(state.userChats[action.payload.id])
+      }
+    },
+    unPinChat: (state, action: PayloadAction<{ id: string }>) => {
+      if (action.payload.id in state.userChats) {
+        state.userChats[action.payload.id].pinned = false
+      }
     }
   }
 })
@@ -68,7 +80,9 @@ export const {
   addMessageIntoChat,
   cleanUnreadMessages,
   updateChatFilter,
-  removeChat
+  removeChat,
+  pinChat,
+  unPinChat
 } = chatsSlice.actions
 
 export default chatsSlice.reducer

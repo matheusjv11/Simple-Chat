@@ -6,6 +6,8 @@ import { PinOff as UnpinIcon } from '@styled-icons/fluentui-system-regular/PinOf
 
 import * as S from './styles'
 import { ChatService } from '@/services/ChatService'
+import { RootState } from '@/store'
+import { useSelector } from 'react-redux'
 
 export type ChatOptionsProps = {
   closeModal: () => void
@@ -17,13 +19,23 @@ export type ChatOptionsProps = {
 }
 
 const ChatOptions = ({ closeModal, chatId, position }: ChatOptionsProps) => {
+  const isChatPinned = useSelector((state: RootState) => {
+    return state.chats.userChats[chatId].pinned
+  })
+
   const handleRemoveChat = () => {
     ChatService.removeChat(chatId)
   }
 
-  const handlePinChat = () => {}
+  const handlePinChat = () => {
+    ChatService.pinChat(chatId)
+    closeModal()
+  }
 
-  const handleUnPinChat = () => {}
+  const handleUnPinChat = () => {
+    ChatService.pinChat(chatId)
+    closeModal()
+  }
 
   const stopClickPropagation = (e: MouseEvent) => {
     if (e) {
@@ -33,16 +45,19 @@ const ChatOptions = ({ closeModal, chatId, position }: ChatOptionsProps) => {
   }
 
   return (
-    <Modal onClickOutside={() => closeModal()}>
+    <Modal onClickOutside={closeModal}>
       <S.Wrapper onClick={stopClickPropagation} position={position}>
-        <S.Option onClick={handlePinChat}>
-          <PinIcon />
-          <p>Pin Chat</p>
-        </S.Option>
-        <S.Option onClick={handleUnPinChat}>
-          <UnpinIcon />
-          <p>UnPin Chat</p>
-        </S.Option>
+        {isChatPinned ? (
+          <S.Option onClick={handleUnPinChat}>
+            <UnpinIcon />
+            <p>UnPin Chat</p>
+          </S.Option>
+        ) : (
+          <S.Option onClick={handlePinChat}>
+            <PinIcon />
+            <p>Pin Chat</p>
+          </S.Option>
+        )}
         <S.Option className="danger" onClick={handleRemoveChat}>
           <DeleteOutlineIcon />
           <p>Delete Chat</p>

@@ -5,13 +5,13 @@ type GroupPictureProps = {
 }
 
 const GroupPicture = ({ membersProfile = [] }: GroupPictureProps) => (
-  <S.Wrapper imageSize={membersProfile.length}>
+  <S.Wrapper imagesize={membersProfile.length}>
     {membersProfile.map((profile, i) => {
       return (
         <S.GroupImageSlice
           src={profile}
-          imageSize={membersProfile.length}
-          currentIndex={i}
+          imagesize={membersProfile.length}
+          currentindex={i}
           key={i}
         />
       )

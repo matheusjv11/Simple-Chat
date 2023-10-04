@@ -10,8 +10,8 @@ const Modal = ({ children, onClickOutside }: ModalProps) => {
   return (
     <>
       {createPortal(
-        <S.Wrapper onClick={onClickOutside}>
-          <S.ModalMain>{children}</S.ModalMain>
+        <S.Wrapper>
+          <S.ModalMain onClick={onClickOutside}>{children}</S.ModalMain>
         </S.Wrapper>,
         document.body
       )}

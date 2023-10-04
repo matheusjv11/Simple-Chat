@@ -2,29 +2,29 @@ import styled, { css } from 'styled-components'
 import { Username } from '../MessageBox/styles'
 
 type WrapperProps = {
-  selectedChat: boolean
+  selectedchat: number
 }
 
 export const Wrapper = styled.main<WrapperProps>`
-  ${({ theme, selectedChat }) => css`
+  ${({ theme, selectedchat }) => css`
     display: flex;
     align-items: center;
     gap: 1rem;
     padding: 0.7rem 1.2rem;
     border-radius: 10px;
-    background-color: ${selectedChat
+    background-color: ${selectedchat
       ? theme.boxColors.selectedChat
       : theme.boxColors.primaryBackground};
 
     &:hover {
-      background-color: ${selectedChat
+      background-color: ${selectedchat
         ? theme.boxColors.selectedChat
         : theme.boxColors.secondaryBackground};
     }
 
-    ${selectedChat &&
+    ${selectedchat &&
     css`
-      ${SentDate}, ${Message}, ${Username} {
+      ${SentDate}, ${Message}, ${Username}, ${Pinned} {
         color: white;
       }
 
@@ -42,12 +42,15 @@ export const MessageContent = styled.div`
   flex-grow: 1;
 `
 
-export const FlexColumn = styled.div<{ end?: true }>`
+export const FlexColumn = styled.div<{ end?: boolean }>`
   ${({ end }) => css`
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
     align-items: ${end ? 'end' : 'start'};
+
+    &.preview-buttons {
+    }
   `}
 `
 
@@ -107,5 +110,13 @@ export const RightSide = styled.div`
   ${({ theme }) => css`
     display: flex;
     gap: 0.8rem;
+  `}
+`
+
+export const Pinned = styled.div`
+  ${({ theme }) => css`
+    color: ${theme.colors.secondaryText};
+    width: 13px;
+    height: 13px;
   `}
 `

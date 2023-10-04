@@ -8,4 +8,7 @@ export const Wrapper = styled.main`
   z-index: 2;
 `
 
-export const ModalMain = styled.div``
+export const ModalMain = styled.div`
+  height: 100%;
+  width: 100%;
+`

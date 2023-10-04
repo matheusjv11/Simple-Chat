@@ -15,6 +15,7 @@ export const Wrapper = styled.main<WrapperProps>`
     position: absolute;
     top: ${`${position.top}px`};
     left: ${`${position.left}px`};
+    animation: chat-options-popup 0.15s ease-in-out;
 
     :first-child {
       border-radius: 10px 10px 0 0;
@@ -22,6 +23,17 @@ export const Wrapper = styled.main<WrapperProps>`
 
     :last-child {
       border-radius: 0 0 10px 10px;
+    }
+
+    @keyframes chat-options-popup {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
   `}
 `

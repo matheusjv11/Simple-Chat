@@ -4,7 +4,12 @@ import { RootState } from '@/store'
 import { GroupChatType } from '@/types/GroupChatType'
 import { SingleChatType } from '@/types/SingleChatType'
 import { DateUtils } from '@/utils/DateUtils'
-import { addMessageIntoChat, removeChat } from '@/store/reducers/chatsReducer'
+import {
+  addMessageIntoChat,
+  removeChat,
+  pinChat,
+  unPinChat
+} from '@/store/reducers/chatsReducer'
 import { UserService } from './UserService'
 import { Characters, ExistingCharacters } from '@/database/Characters'
 import { ArrayUtils } from '@/utils/ArrayUtils'
@@ -19,6 +24,10 @@ export class ChatService {
    */
   public static orderChats(chats: (SingleChatType | GroupChatType)[]) {
     return [...chats].sort((a, b) => {
+      if (a.pinned) {
+        return -1
+      }
+
       if (a.lastMessage && b.lastMessage) {
         return DateUtils.orderDates(
           a.lastMessage?.dtSend || '',
@@ -84,6 +93,14 @@ export class ChatService {
 
   public static removeChat(id: string): void {
     store.dispatch(removeChat({ id }))
+  }
+
+  public static pinChat(id: string): void {
+    store.dispatch(pinChat({ id }))
+  }
+
+  public static unPinChat(id: string): void {
+    store.dispatch(unPinChat({ id }))
   }
 
   public static singleChatObserver(chat: SingleChatType): void {

@@ -13,6 +13,7 @@ import { MessageType } from '@/types/MessageType'
 import { DateUtils } from '@/utils/DateUtils'
 import ChatOptions from '../ChatOptions'
 import { ThreeDotsVertical as ThreeDotsVerticalIcon } from '@styled-icons/bootstrap/ThreeDotsVertical'
+import { PinAngle as PinAngleIcon } from '@styled-icons/bootstrap/PinAngle'
 
 type MessagePreviewProps = {
   name: string
@@ -34,9 +35,10 @@ const MessagePreview = ({
   const [selectedChat, setSelectedChat] = useState(false)
   const [optionsIsOpen, setOptionsIsOpen] = useState(false)
   const [optionsPosition, setOptionsPosition] = useState({
-    top: 158.41250610351562,
-    left: 71
+    top: 0,
+    left: 0
   })
+
   const [countUnreadMessage, setCountUnreadMessage] =
     useState<number>(unreadMessages)
 
@@ -74,7 +76,7 @@ const MessagePreview = ({
   }
 
   return (
-    <S.Wrapper selectedChat={selectedChat} tabIndex={0}>
+    <S.Wrapper selectedchat={Number(selectedChat)} tabIndex={0}>
       {children}
       <S.MessageContent>
         <S.FlexColumn>
@@ -82,16 +84,19 @@ const MessagePreview = ({
           <S.Message>{lastMessage?.content}</S.Message>
         </S.FlexColumn>
         <S.RightSide>
-          <S.FlexColumn end={true}>
+          <S.FlexColumn end={'true'}>
             <S.SentDate>{date}</S.SentDate>
             {!!countUnreadMessage && (
               <S.UnreadMessage>{countUnreadMessage}</S.UnreadMessage>
             )}
           </S.FlexColumn>
-          <S.FlexColumn>
+          <S.FlexColumn className="preview-buttons">
             <S.Button onClick={handleOptionsClick}>
               <ThreeDotsVerticalIcon />
             </S.Button>
+            <S.Pinned>
+              <PinAngleIcon />
+            </S.Pinned>
           </S.FlexColumn>
         </S.RightSide>
       </S.MessageContent>
