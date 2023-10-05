@@ -6,23 +6,23 @@ import { PinOff as UnpinIcon } from '@styled-icons/fluentui-system-regular/PinOf
 
 import * as S from './styles'
 import { ChatService } from '@/services/ChatService'
-import { RootState } from '@/store'
-import { useSelector } from 'react-redux'
 
 export type ChatOptionsProps = {
   closeModal: () => void
   chatId: string
+  isChatPinned: boolean
   position: {
     top: number
     left: number
   }
 }
 
-const ChatOptions = ({ closeModal, chatId, position }: ChatOptionsProps) => {
-  const isChatPinned = useSelector((state: RootState) => {
-    return state.chats.userChats[chatId].pinned
-  })
-
+const ChatOptions = ({
+  closeModal,
+  isChatPinned,
+  chatId,
+  position
+}: ChatOptionsProps) => {
   const handleRemoveChat = () => {
     ChatService.removeChat(chatId)
   }
@@ -33,7 +33,7 @@ const ChatOptions = ({ closeModal, chatId, position }: ChatOptionsProps) => {
   }
 
   const handleUnPinChat = () => {
-    ChatService.pinChat(chatId)
+    ChatService.unPinChat(chatId)
     closeModal()
   }
 

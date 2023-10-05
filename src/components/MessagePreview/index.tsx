@@ -6,6 +6,8 @@ import {
   MouseEventHandler
 } from 'react'
 import { useRouter } from 'next/router'
+import { RootState } from '@/store'
+import { useSelector } from 'react-redux'
 import * as S from './styles'
 
 import { Username } from '../MessageBox/styles'
@@ -32,26 +34,13 @@ const MessagePreview = ({
 }: MessagePreviewProps) => {
   const router = useRouter()
 
+  /** State variables */
   const [selectedChat, setSelectedChat] = useState(false)
   const [optionsIsOpen, setOptionsIsOpen] = useState(false)
   const [optionsPosition, setOptionsPosition] = useState({
     top: 0,
     left: 0
   })
-
-  const [countUnreadMessage, setCountUnreadMessage] =
-    useState<number>(unreadMessages)
-
-  const date =
-    lastMessage && new DateUtils(lastMessage?.dtSend).chatPreviewDate()
-
-  useEffect(() => {
-    setCountUnreadMessage(unreadMessages)
-  }, [unreadMessages])
-
-  useEffect(() => {
-    setSelectedChat(router.query.id === chatId)
-  }, [router])
 
   const openOptions = (
     open: boolean,
@@ -64,6 +53,26 @@ const MessagePreview = ({
     setOptionsIsOpen(open)
   }
 
+  const [countUnreadMessage, setCountUnreadMessage] =
+    useState<number>(unreadMessages)
+
+  const date =
+    lastMessage && new DateUtils(lastMessage?.dtSend).chatPreviewDate()
+
+  const isChatPinned = useSelector((state: RootState) => {
+    return state.chats.userChats[chatId].pinned
+  })
+
+  /** Hooks */
+  useEffect(() => {
+    setCountUnreadMessage(unreadMessages)
+  }, [unreadMessages])
+
+  useEffect(() => {
+    setSelectedChat(router.query.id === chatId)
+  }, [router])
+
+  /** Method responsible for opening options modal */
   const handleOptionsClick = (
     e: MouseEventHandler<HTMLButtonElement> | undefined
   ) => {
@@ -94,9 +103,7 @@ const MessagePreview = ({
             <S.Button onClick={handleOptionsClick}>
               <ThreeDotsVerticalIcon />
             </S.Button>
-            <S.Pinned>
-              <PinAngleIcon />
-            </S.Pinned>
+            <S.Pinned>{isChatPinned && <PinAngleIcon />}</S.Pinned>
           </S.FlexColumn>
         </S.RightSide>
       </S.MessageContent>
@@ -104,6 +111,7 @@ const MessagePreview = ({
         <ChatOptions
           closeModal={() => setOptionsIsOpen(false)}
           chatId={chatId}
+          isChatPinned={isChatPinned}
           position={optionsPosition}
         />
       )}
