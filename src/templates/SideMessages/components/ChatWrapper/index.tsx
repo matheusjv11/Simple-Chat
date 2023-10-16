@@ -6,6 +6,7 @@ import { SingleChatType } from '@/types/SingleChatType'
 import { GroupChatType } from '@/types/GroupChatType'
 import SingleChatPreview from '@/components/SingleChatPreview'
 import GroupChatPreview from '@/components/GroupChatPreview'
+import CreateChat from '@/templates/CreateChat'
 import { Add as AddIcon } from '@styled-icons/fluentui-system-filled/Add'
 
 type ChatWrapperProps = {
@@ -13,12 +14,13 @@ type ChatWrapperProps = {
 }
 
 const ChatWrapper = ({ chats }: ChatWrapperProps) => {
-  const [isAddButtonOpen, setIsAddButtonOpen] = useState(false)
+  const [showAddButton, setShowAddButton] = useState(false)
+  const [showCreateChat, setShowCreateChat] = useState(false)
 
   return (
     <S.Wrapper
-      onMouseEnter={() => setIsAddButtonOpen(true)}
-      onMouseLeave={() => setIsAddButtonOpen(false)}
+      onMouseEnter={() => setShowAddButton(true)}
+      onMouseLeave={() => setShowAddButton(false)}
     >
       {chats.map((chat, i) => (
         <Link href={`/chat/${chat.id}`} key={i}>
@@ -29,9 +31,15 @@ const ChatWrapper = ({ chats }: ChatWrapperProps) => {
           )}
         </Link>
       ))}
-      <S.FloatingButton open={isAddButtonOpen}>
+      <S.FloatingButton
+        show={showAddButton}
+        onClick={() => setShowCreateChat(true)}
+      >
         <AddIcon />
       </S.FloatingButton>
+      {showCreateChat && (
+        <CreateChat closeModal={() => setShowCreateChat(false)} />
+      )}
     </S.Wrapper>
   )
 }

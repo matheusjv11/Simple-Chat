@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.main`
   position: absolute;
@@ -8,7 +8,10 @@ export const Wrapper = styled.main`
   z-index: 2;
 `
 
-export const ModalMain = styled.div`
-  height: 100%;
-  width: 100%;
+export const ModalMain = styled.div<{ darkBackground: boolean }>`
+  ${({ theme, darkBackground }) => css`
+    height: 100%;
+    width: 100%;
+    background-color: ${darkBackground ? '#3b3b3b9e' : 'none'};
+  `}
 `

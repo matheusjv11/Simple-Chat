@@ -21,9 +21,9 @@ export const Wrapper = styled.div`
   }
 `
 
-export const FloatingButton = styled.button<{ open: boolean }>`
-  ${({ theme, open }) => css`
-    display: ${open ? 'flex' : 'none'};
+export const FloatingButton = styled.button<{ show: boolean }>`
+  ${({ theme, show }) => css`
+    display: ${show ? 'flex' : 'none'};
     position: absolute;
     border: none;
     background-color: ${theme.colors.primary};
