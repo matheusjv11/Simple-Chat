@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux'
+import { v4 as uuidv4 } from 'uuid'
 import { store } from '@/store'
 import { RootState } from '@/store'
 import { GroupChatType } from '@/types/GroupChatType'
@@ -8,12 +9,14 @@ import {
   addMessageIntoChat,
   removeChat,
   pinChat,
-  unPinChat
+  unPinChat,
+  addChat
 } from '@/store/reducers/chatsReducer'
 import { UserService } from './UserService'
 import { Characters, ExistingCharacters } from '@/database/Characters'
 import { ArrayUtils } from '@/utils/ArrayUtils'
 import { TypeUtils } from '@/utils/TypeUtils'
+import { MessageType } from '@/types/MessageType'
 
 export class ChatService {
   /**
@@ -89,6 +92,53 @@ export class ChatService {
         }
       })
     )
+  }
+
+  public static createSingleChat(member: string, initialMessage: string) {
+    const chatId = uuidv4()
+    const firstMessage: MessageType = {
+      content: initialMessage,
+      dtSend: new Date(),
+      user: 'currentUser'
+    }
+
+    const singleChat: SingleChatType = {
+      id: chatId,
+      member,
+      messages: [firstMessage],
+      pinned: false,
+      lastMessage: firstMessage,
+      unreadMessages: 0
+    }
+
+    store.dispatch(addChat(singleChat))
+  }
+
+  public static createGroupChat(
+    members: string[],
+    initialMessage: string,
+    groupName: string,
+    groupDescription: string
+  ) {
+    const chatId = uuidv4()
+    const firstMessage: MessageType = {
+      content: initialMessage,
+      dtSend: new Date(),
+      user: 'currentUser'
+    }
+
+    const singleChat: GroupChatType = {
+      id: chatId,
+      members,
+      name: groupName,
+      description: groupDescription,
+      messages: [firstMessage],
+      pinned: false,
+      lastMessage: firstMessage,
+      unreadMessages: 0
+    }
+
+    store.dispatch(addChat(singleChat))
   }
 
   public static removeChat(id: string): void {

@@ -1,4 +1,5 @@
 import { createPortal } from 'react-dom'
+import { MouseEventHandler } from 'react'
 import * as S from './styles'
 
 type ModalProps = {
@@ -12,11 +13,23 @@ const Modal = ({
   onClickOutside,
   darkBackground = false
 }: ModalProps) => {
+  const clickOutside = (e: MouseEventHandler<HTMLDivElement> | undefined) => {
+    if (e) {
+      if (e.target.id === 'modal-main') {
+        onClickOutside()
+      }
+    }
+  }
+
   return (
     <>
       {createPortal(
         <S.Wrapper>
-          <S.ModalMain darkBackground={darkBackground} onClick={onClickOutside}>
+          <S.ModalMain
+            id="modal-main"
+            darkBackground={darkBackground}
+            onClick={clickOutside}
+          >
             {children}
           </S.ModalMain>
         </S.Wrapper>,

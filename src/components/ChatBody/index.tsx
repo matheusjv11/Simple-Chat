@@ -18,8 +18,8 @@ const ChatBody = ({ messages }: ChatBodyType) => {
 
   return (
     <S.Wrapper ref={chatBodyAsHtml} className="custom-scroll">
-      {messages.map((message) => {
-        return <MessageBox message={message} />
+      {messages.map((message, i) => {
+        return <MessageBox message={message} key={i} />
       })}
     </S.Wrapper>
   )

@@ -78,7 +78,6 @@ const MessagePreview = ({
   ) => {
     if (e) {
       e.preventDefault()
-      e.stopPropagation()
       const { top, left, right, bottom } = e.target.getBoundingClientRect()
       openOptions(true, top, left)
     }
