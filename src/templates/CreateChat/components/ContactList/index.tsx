@@ -36,7 +36,9 @@ const ContactList = ({ userList, updateUserList }: ContactListProps) => {
             <Username>{user.name}</Username>
             <S.House>{user.house}</S.House>
           </S.NameWrapper>
-          <S.CheckCircle checked={userList.includes(id)} />
+          <S.CheckCircle checked={userList.includes(id)}>
+            {userList.includes(id) && <span>&#10003;</span>}
+          </S.CheckCircle>
         </S.UserOption>
       ))}
     </S.Wrapper>

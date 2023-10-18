@@ -12,10 +12,16 @@ export const UserOption = styled.button`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
-    gap: 0.3rem;
-    padding: 0.5rem;
+    gap: 0.6rem;
+    padding: 0.8rem;
     cursor: pointer;
     border: none;
+    background-color: transparent;
+    border-bottom: 1px solid ${theme.colors.border};
+
+    &:hover {
+      background-color: ${theme.boxColors.secondaryBackground};
+    }
   `}
 `
 
@@ -30,8 +36,9 @@ export const NameWrapper = styled.div`
 
 export const House = styled.p`
   ${({ theme }) => css`
-    font-size: ${theme.sizes.small};
+    font-size: ${theme.sizes.xsmall};
     text-transform: capitalize;
+    color: ${theme.colors.heading};
   `}
 `
 
@@ -39,22 +46,18 @@ export const CheckCircle = styled.div<{ checked: boolean }>`
   ${({ theme, checked }) => css`
     height: 20px;
     width: 20px;
-    background-color: red;
+    border: 2px solid ${theme.colors.border};
     border-radius: 50%;
     position: relative;
+    color: white;
 
-    &::after {
-      content: '';
-      display: ${checked ? 'block' : 'none'};
-      position: absolute;
-      height: 60%;
-      width: 60%;
-      border-radius: 50%;
-      background-color: blue;
-      top: 50%;
-      left: 50%;
-      transform: translateX(-50%) translateY(-50%);
-      z-index: 1;
+    ${checked &&
+    css`
+      background-color: ${theme.colors.primary};
+    `}
+
+    span {
+      font-size: 80%;
     }
   `}
 `

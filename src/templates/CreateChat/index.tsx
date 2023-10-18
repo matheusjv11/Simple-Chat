@@ -1,19 +1,29 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import * as S from './styles'
 import Modal from '@/components/Modal'
 import IconButton from '@/components/IconButton'
 import ContactList from './components/ContactList'
+import InformationForm from './components/InformationForm'
 import { ChatService } from '@/services/ChatService'
 
 export type ChatOptionsProps = {
   closeModal: () => void
 }
 
+export type ChatSettingsType = {
+  message: string
+  groupName: string
+  groupDescription: string
+}
+
 const CreateChat = ({ closeModal }: ChatOptionsProps) => {
   const [selectedUsers, setSelectedUsers] = useState<string[]>([])
-  const [firstMessage, setfirstMessage] = useState('')
-  const [groupName, setGroupName] = useState('')
-  const [groupDescription, setGroupDescription] = useState('')
+  const [createDisabled, setCreateDisabled] = useState(true)
+  const [chatSettings, setChatSettings] = useState<ChatSettingsType>({
+    message: '',
+    groupName: '',
+    groupDescription: ''
+  })
 
   const updateUserList = (id: string) => {
     if (selectedUsers.includes(id)) {
@@ -26,18 +36,45 @@ const CreateChat = ({ closeModal }: ChatOptionsProps) => {
 
   const createNewChat = () => {
     if (selectedUsers.length === 1) {
-      ChatService.createSingleChat(selectedUsers[0], firstMessage)
+      ChatService.createSingleChat(selectedUsers[0], chatSettings.message)
     } else {
       ChatService.createGroupChat(
         selectedUsers,
-        firstMessage,
-        groupName,
-        groupDescription
+        chatSettings.message,
+        chatSettings.groupName,
+        chatSettings.groupDescription
       )
     }
 
     closeModal()
   }
+
+  const canCreateSingleChat = () => {
+    return selectedUsers.length === 1 && !!chatSettings.message
+  }
+
+  const canCreateGroupChat = () => {
+    return (
+      selectedUsers.length > 1 &&
+      !!chatSettings.message &&
+      !!chatSettings.groupName &&
+      !!chatSettings.groupDescription
+    )
+  }
+
+  useEffect(() => {
+    if (canCreateSingleChat()) {
+      setCreateDisabled(false)
+      return
+    }
+
+    if (canCreateGroupChat()) {
+      setCreateDisabled(false)
+      return
+    }
+
+    setCreateDisabled(true)
+  }, [chatSettings, selectedUsers])
 
   return (
     <Modal onClickOutside={closeModal} darkBackground={true}>
@@ -47,28 +84,14 @@ const CreateChat = ({ closeModal }: ChatOptionsProps) => {
           <IconButton icon={'close'} onClick={closeModal} />
         </S.Header>
         <ContactList updateUserList={updateUserList} userList={selectedUsers} />
-        <S.InfomationForm>
-          <label>
-            First Message
-            <input
-              type="text"
-              onChange={(e) => setfirstMessage(e.target.value)}
-            />
-          </label>
-          <label>
-            Group name
-            <input type="text" onChange={(e) => setGroupName(e.target.value)} />
-          </label>
-          <label>
-            Group description
-            <input
-              type="text"
-              onChange={(e) => setGroupDescription(e.target.value)}
-            />
-          </label>
-        </S.InfomationForm>
+        <InformationForm
+          setChatSettings={setChatSettings}
+          membersSize={selectedUsers.length}
+        />
         <S.Footer>
-          <S.CreateButton onClick={createNewChat}>Create</S.CreateButton>
+          <S.CreateButton onClick={createNewChat} disabled={createDisabled}>
+            Create
+          </S.CreateButton>
         </S.Footer>
       </S.Wrapper>
     </Modal>
