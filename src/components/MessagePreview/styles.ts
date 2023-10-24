@@ -15,6 +15,7 @@ export const Wrapper = styled.main<WrapperProps>`
     background-color: ${selectedchat
       ? theme.boxColors.selectedChat
       : theme.boxColors.primaryBackground};
+    transition: background-color 0.1s ease-in-out;
 
     &:hover {
       background-color: ${selectedchat

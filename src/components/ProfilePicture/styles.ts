@@ -3,10 +3,6 @@ import { ProfilePictureProps } from '.'
 
 type WrapperProps = Pick<ProfilePictureProps, 'size'> & { profile: string }
 
-/* Do modifiers to smaller picture */
-/* height: 3rem;
-width: 3rem; */
-
 const imageSizeModifiers = {
   small: (theme: DefaultTheme) => css`
     height: ${theme.sizes.smallImageSize};
@@ -18,6 +14,12 @@ const imageSizeModifiers = {
     height: ${theme.sizes.imageSize};
     width: ${theme.sizes.imageSize};
     min-width: ${theme.sizes.imageSize};
+  `,
+
+  large: (theme: DefaultTheme) => css`
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
   `
 }
 

@@ -43,7 +43,7 @@ export const MessageCard = styled.div<MainProps>`
       left: -11px;
       border-radius: 8px;
       display: block;
-      transition: all 0.04s ease-in-out;
+      transition: all 0.02s ease-in-out;
       ${!!isCurrentUser &&
       css`
         left: unset;

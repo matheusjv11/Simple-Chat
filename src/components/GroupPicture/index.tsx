@@ -2,10 +2,14 @@ import * as S from './styles'
 
 type GroupPictureProps = {
   membersProfile: string[]
+  large?: boolean
 }
 
-const GroupPicture = ({ membersProfile = [] }: GroupPictureProps) => (
-  <S.Wrapper imagesize={membersProfile.length}>
+const GroupPicture = ({
+  membersProfile = [],
+  large = false
+}: GroupPictureProps) => (
+  <S.Wrapper imagesize={membersProfile.length} large={large}>
     {membersProfile.map((profile, i) => {
       return (
         <S.GroupImageSlice

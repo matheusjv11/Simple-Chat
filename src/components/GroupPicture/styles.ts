@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 
 type WrapperProps = {
   imagesize: number
+  large: boolean
 }
 
 type GroupImageSliceProps = {
@@ -10,7 +11,7 @@ type GroupImageSliceProps = {
 }
 
 export const Wrapper = styled.main<WrapperProps>`
-  ${({ theme, imagesize }) => css`
+  ${({ theme, imagesize, large }) => css`
     height: ${theme.sizes.imageSize};
     width: ${theme.sizes.imageSize};
     min-width: ${theme.sizes.imageSize};
@@ -24,12 +25,17 @@ export const Wrapper = styled.main<WrapperProps>`
     css`
       grid-template-rows: 1fr 1fr;
     `}
+
+    ${large &&
+    css`
+      border-radius: 0;
+      width: 100%;
+      height: 100%;
+    `}
   `}
 `
 
 export const GroupImageSlice = styled.img<GroupImageSliceProps>`
-  width: 100%;
-  height: 100%;
   width: 100%;
   height: 100%;
   object-fit: cover;

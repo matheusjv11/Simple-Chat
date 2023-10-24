@@ -4,7 +4,7 @@ import { DateUtils } from '@/utils/DateUtils'
 export type ProfilePictureProps = {
   profile: string
   profileAlt: string
-  size?: 'small' | 'normal'
+  size?: 'small' | 'normal' | 'large'
   lastMessageDate?: Date
 }
 

@@ -40,5 +40,3 @@ const SideMessages = () => {
 }
 
 export default SideMessages
-
-/* To enter a chat, we could do it by routing */
