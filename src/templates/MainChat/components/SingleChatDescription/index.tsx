@@ -10,6 +10,7 @@ type SingleChatDescriptionProps = {
 
 const SingleChatDescription = ({ chat }: SingleChatDescriptionProps) => {
   const user = UserService.getUser(chat.member)
+  const house = UserService.getHouseDescription(user.house || '')
 
   return (
     <ChatDescription
@@ -20,6 +21,9 @@ const SingleChatDescription = ({ chat }: SingleChatDescriptionProps) => {
           size="large"
         />
       }
+      title={user.name}
+      subtitle={house}
+      pinned={chat.pinned}
     ></ChatDescription>
   )
 }

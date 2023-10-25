@@ -51,7 +51,7 @@ export const Option = styled.button`
     color: ${theme.colors.heading};
 
     &.danger {
-      color: #d81818;
+      color: ${theme.colors.danger};
     }
 
     &:hover {

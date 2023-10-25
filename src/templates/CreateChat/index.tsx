@@ -5,6 +5,7 @@ import IconButton from '@/components/IconButton'
 import ContactList from './components/ContactList'
 import InformationForm from './components/InformationForm'
 import { ChatService } from '@/services/ChatService'
+import TextButton from '@/components/TextButton'
 
 export type ChatOptionsProps = {
   closeModal: () => void
@@ -89,9 +90,11 @@ const CreateChat = ({ closeModal }: ChatOptionsProps) => {
           membersSize={selectedUsers.length}
         />
         <S.Footer>
-          <S.CreateButton onClick={createNewChat} disabled={createDisabled}>
-            Create
-          </S.CreateButton>
+          <TextButton
+            label="Create"
+            disabled={createDisabled}
+            color="primary"
+          />
         </S.Footer>
       </S.Wrapper>
     </Modal>

@@ -25,6 +25,7 @@ interface Theme {
     chatHover: string
     secondaryText: string
     heading: string
+    danger: string
   }
   boxColors: {
     primaryBackground: string
@@ -65,7 +66,8 @@ export const ThemeLight: Theme = {
     lightGrey: '#cfcfcf',
     border: '#ebebeb',
     chatHover: '#f4f4f5',
-    secondaryText: '#707579'
+    secondaryText: '#707579',
+    danger: '#d81818'
   },
   boxColors: {
     primaryBackground: 'white',
@@ -88,7 +90,8 @@ export const ThemeDark: Theme = {
     lightGrey: '#cfcfcf',
     border: '#3f3f3f',
     chatHover: '#f4f4f5',
-    secondaryText: '#707579'
+    secondaryText: '#707579',
+    danger: '#d81818'
   },
   boxColors: {
     primaryBackground: '#212121',

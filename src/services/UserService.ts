@@ -2,6 +2,7 @@ import { UserType } from '@/types/UserType'
 import { Characters, ExistingCharacters } from '@/database/Characters'
 import { Quotes } from '@/database/Quotes'
 import { ArrayUtils } from '@/utils/ArrayUtils'
+import { Houses } from '@/database/Houses'
 
 export class UserService {
   public static getAllUsers(): UserType[] {
@@ -16,5 +17,9 @@ export class UserService {
     const userQuotes = Quotes[username]
 
     return ArrayUtils.randomItem<string>(userQuotes)
+  }
+
+  public static getHouseDescription(house: string): string {
+    return Houses[house].name || 'No house'
   }
 }

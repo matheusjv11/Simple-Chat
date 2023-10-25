@@ -1,5 +1,7 @@
 import * as S from './styles'
 import GroupPicture from '@/components/GroupPicture'
+import { Username } from '@/components/MessageBox/styles'
+import ProfilePicture from '@/components/ProfilePicture'
 import { UserService } from '@/services/UserService'
 import { GroupChatType } from '@/types/GroupChatType'
 import ChatDescription from '../ChatDescription'
@@ -9,16 +11,38 @@ type GroupChatDescriptionProps = {
 }
 
 const GroupChatDescription = ({ chat }: GroupChatDescriptionProps) => {
-  const membersProfile = chat.members.map((member) => {
-    return UserService.getUser(member).profile
+  const users = chat.members.map((member) => {
+    return UserService.getUser(member)
   })
+
+  const usersProfile = users.map((user) => user.profile)
 
   return (
     <ChatDescription
-      coverPicture={
-        <GroupPicture membersProfile={membersProfile} large={true} />
-      }
-    ></ChatDescription>
+      title={chat.name}
+      subtitle={chat.description}
+      pinned={chat.pinned}
+      coverPicture={<GroupPicture membersProfile={usersProfile} large={true} />}
+    >
+      <S.UserWrapper>
+        <S.MembersTitle>Members</S.MembersTitle>
+
+        {users.map((user, id) => {
+          return (
+            <S.UserRow key={id}>
+              <ProfilePicture
+                profile={user.profile}
+                profileAlt={`${user.name}'s profile picure`}
+              />
+              <S.NameWrapper>
+                <Username>{user.name}</Username>
+                <S.House>{user.house}</S.House>
+              </S.NameWrapper>
+            </S.UserRow>
+          )
+        })}
+      </S.UserWrapper>
+    </ChatDescription>
   )
 }
 
