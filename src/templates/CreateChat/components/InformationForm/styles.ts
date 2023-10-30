@@ -33,5 +33,9 @@ export const GroupInformation = styled.div`
     display: flex;
     gap: 1.5rem;
     width: 100%;
+
+    @media (max-width: 750px) {
+      flex-wrap: wrap;
+    }
   `}
 `

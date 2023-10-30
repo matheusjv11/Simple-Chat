@@ -41,6 +41,10 @@ export const FloatingButton = styled.button<{ show: boolean }>`
     > svg {
       height: 35px;
     }
+
+    @media (max-width: 750px) {
+      display: flex;
+    }
   `}
 
   @keyframes sliding-up {

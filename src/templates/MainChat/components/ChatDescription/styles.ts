@@ -46,6 +46,16 @@ export const DescriptionColumn = styled.aside`
         color: white;
       }
     }
+
+    @media (max-width: 1200px) {
+      transform: translate3d(35rem, 0, 0);
+      width: 35rem;
+    }
+
+    @media (max-width: 750px) {
+      transform: translate3d(100%, 0, 0);
+      width: 100%;
+    }
   `}
 `
 

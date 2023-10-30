@@ -8,10 +8,16 @@ export const Wrapper = styled.main`
     top: 50%;
     left: 50%;
     width: 35vw;
+    min-width: 540px;
     background-color: ${theme.boxColors.primaryBackground};
     color: ${theme.colors.heading};
     transform: translateY(-50%) translateX(-50%);
     position: absolute;
+
+    @media (max-width: 750px) {
+      width: 95vw;
+      min-width: unset;
+    }
   `}
 `
 

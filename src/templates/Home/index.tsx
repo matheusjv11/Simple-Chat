@@ -1,3 +1,4 @@
+import { createContext, useState } from 'react'
 import SideMessages from '@/templates/SideMessages'
 import * as S from './styles'
 import { useSelector } from 'react-redux'
@@ -10,17 +11,32 @@ type HomeProps = {
   children: React.ReactElement
 }
 
+export const MobileChatOpenContext = createContext({
+  isMobileChatOpen: true,
+  updateContextValue: () => {}
+})
+
 const Home = ({ children }: HomeProps) => {
   const isDarkTheme = useSelector((state: RootState) => {
     return state.customization.themeMode === 'dark'
   })
 
+  const [isMobileChatOpen, setIsMobileChatOpen] = useState(true)
+
+  const updateContextValue = () => {
+    setIsMobileChatOpen(!isMobileChatOpen)
+  }
+
   return (
     <ThemeProvider theme={isDarkTheme ? ThemeDark : ThemeLight}>
       <GlobalStyles />
       <S.Wrapper>
-        <SideMessages />
-        {children}
+        <MobileChatOpenContext.Provider
+          value={{ isMobileChatOpen, updateContextValue }}
+        >
+          <SideMessages />
+          {children}
+        </MobileChatOpenContext.Provider>
       </S.Wrapper>
     </ThemeProvider>
   )

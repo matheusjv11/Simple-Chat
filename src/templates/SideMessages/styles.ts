@@ -2,10 +2,15 @@ import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.main`
   ${({ theme }) => css`
-    min-width: 50rem;
+    min-width: 35rem;
+    width: 30vw;
     display: flex;
     flex-direction: column;
     border-right: 1px solid ${theme.colors.border};
+
+    @media (max-width: 750px) {
+      width: 100vw;
+    }
   `}
 `
 

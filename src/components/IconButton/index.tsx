@@ -6,8 +6,9 @@ import { SendPlane2 as SendLine } from '@styled-icons/remix-line/SendPlane2'
 import { Search as SearchIcon } from '@styled-icons/bootstrap/Search'
 import { CloseCircleOutline as CloseCircleOutlineIcon } from '@styled-icons/evaicons-outline/CloseCircleOutline'
 import { CloseCircle as CloseCircleIcon } from '@styled-icons/evaicons-solid/CloseCircle'
+import { AngleLeft as LeftArrowIcon } from '@styled-icons/fa-solid/AngleLeft'
 
-export type AvailabelIconsEnum = 'send' | 'search' | 'close'
+export type AvailabelIconsEnum = 'send' | 'search' | 'close' | 'leftArrow'
 
 type IconType = {
   outlined: React.ReactElement<{}, StyledIcon>
@@ -26,6 +27,10 @@ const IconsRecord: Record<AvailabelIconsEnum, IconType> = {
   close: {
     outlined: <CloseCircleOutlineIcon />,
     filled: <CloseCircleIcon />
+  },
+  leftArrow: {
+    outlined: <LeftArrowIcon />,
+    filled: <LeftArrowIcon />
   }
 }
 

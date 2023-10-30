@@ -62,9 +62,7 @@ export const chatsSlice = createSlice({
     },
     pinChat: (state, action: PayloadAction<{ id: string }>) => {
       if (action.payload.id in state.userChats) {
-        console.log(state.userChats[action.payload.id])
         state.userChats[action.payload.id].pinned = true
-        console.log(state.userChats[action.payload.id])
       }
     },
     unPinChat: (state, action: PayloadAction<{ id: string }>) => {

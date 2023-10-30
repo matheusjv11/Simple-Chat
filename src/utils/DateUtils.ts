@@ -35,7 +35,7 @@ export class DateUtils {
   }
 
   public static orderDates(dateA: Date, dateB: Date): number {
-    return dateA.getDate() - dateB.getDate()
+    return dateB.getDate() - dateA.getDate()
   }
 
   public getHoursAndMinutes(): string {

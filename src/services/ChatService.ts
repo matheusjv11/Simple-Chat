@@ -160,9 +160,7 @@ export class ChatService {
 
     if (chat.lastMessage.user === 'currentUser') {
       const randomQuote = UserService.randomQuote(chat.member)
-      setTimeout(() => {
-        this.insertMessageIntoChat(randomQuote, chat.id, chat.member)
-      }, 1500)
+      this.insertMessageIntoChat(randomQuote, chat.id, chat.member)
     }
   }
 

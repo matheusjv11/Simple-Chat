@@ -19,7 +19,7 @@ export const Wrapper = styled.main<WrapperProps>`
 
     &:hover {
       background-color: ${selectedchat
-        ? theme.boxColors.selectedChat
+        ? theme.boxColors.selDectedChat
         : theme.boxColors.secondaryBackground};
     }
 
@@ -49,6 +49,7 @@ export const FlexColumn = styled.div<{ end?: boolean }>`
     flex-direction: column;
     gap: 0.4rem;
     align-items: ${end ? 'end' : 'start'};
+    position: relative;
 
     &.preview-buttons {
     }
@@ -57,19 +58,26 @@ export const FlexColumn = styled.div<{ end?: boolean }>`
 
 export const Message = styled.p`
   ${({ theme }) => css`
+    position: absolute;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    max-width: 18vw;
+    max-width: 22vw;
     font-size: ${theme.sizes.small};
     color: ${theme.colors.secondaryText};
     font-weight: 600;
+    bottom: 0;
+
+    @media (max-width: 750px) {
+      max-width: 64vw;
+    }
   `}
 `
 export const SentDate = styled.p`
   ${({ theme }) => css`
     font-size: 1.1rem;
     color: ${theme.colors.secondaryText};
+    text-wrap: nowrap;
   `}
 `
 

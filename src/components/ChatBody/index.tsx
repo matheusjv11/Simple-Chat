@@ -12,15 +12,22 @@ const ChatBody = ({ messages }: ChatBodyType) => {
 
   useEffect(() => {
     if (chatBodyAsHtml.current) {
-      chatBodyAsHtml.current.scrollTop = chatBodyAsHtml.current.scrollHeight
+      if (
+        chatBodyAsHtml.current.scrollTop + chatBodyAsHtml.current.offsetHeight >
+        chatBodyAsHtml.current.scrollHeight
+      ) {
+        chatBodyAsHtml.current.scrollTop = chatBodyAsHtml.current.scrollHeight
+      }
     }
   }, [messages])
 
   return (
     <S.Wrapper ref={chatBodyAsHtml} className="custom-scroll">
-      {messages.map((message, i) => {
-        return <MessageBox message={message} key={i} />
-      })}
+      <S.MessageList>
+        {messages.map((message, i) => {
+          return <MessageBox message={message} key={i} />
+        })}
+      </S.MessageList>
     </S.Wrapper>
   )
 }

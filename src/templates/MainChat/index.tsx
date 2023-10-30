@@ -1,7 +1,8 @@
-import { useEffect, useState, createContext } from 'react'
+import { useEffect, useState, createContext, useContext } from 'react'
 import * as S from './styles'
 import MessageInput from '@/components/MessageInput'
 import ChatBody from '@/components/ChatBody'
+import { MobileChatOpenContext } from '@/templates/Home'
 import { ChatService } from '@/services/ChatService'
 import { TypeUtils } from '@/utils/TypeUtils'
 import SingleChatHeader from '@/components/SingleChatHeader'
@@ -27,6 +28,8 @@ const MainChat = ({ chat }: MainChatProps) => {
 
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false)
 
+  const { isMobileChatOpen } = useContext(MobileChatOpenContext)
+
   const updateContextValue = () => {
     setIsDescriptionOpen(!isDescriptionOpen)
   }
@@ -35,24 +38,18 @@ const MainChat = ({ chat }: MainChatProps) => {
 
   useEffect(() => {
     if (isSingleChatType) {
-      ChatService.singleChatObserver(chat)
-    }
-  }, [chat.messages])
-
-  useEffect(() => {
-    let intervalId: any
-
-    if (!isSingleChatType) {
-      intervalId = setInterval(() => {
+      setTimeout(() => {
+        ChatService.singleChatObserver(chat)
+      }, 1500)
+    } else {
+      setTimeout(() => {
         ChatService.groupChatObserver(chat)
       }, 3500)
     }
-
-    return () => clearInterval(intervalId)
-  }, [])
+  }, [chat.messages])
 
   return (
-    <S.Wrapper>
+    <S.Wrapper isOpen={isMobileChatOpen}>
       <DescriptionOpenContext.Provider
         value={{ isDescriptionOpen, updateContextValue }}
       >

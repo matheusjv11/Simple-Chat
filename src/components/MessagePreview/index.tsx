@@ -1,13 +1,7 @@
-import {
-  useEffect,
-  useState,
-  KeyboardEvent,
-  MouseEvent,
-  MouseEventHandler
-} from 'react'
+import { useEffect, useState, MouseEventHandler } from 'react'
 import { useRouter } from 'next/router'
-import { RootState } from '@/store'
-import { useSelector } from 'react-redux'
+import { RootState, store } from '@/store'
+import { createSelector } from '@reduxjs/toolkit'
 import * as S from './styles'
 
 import { Username } from '../MessageBox/styles'
@@ -59,9 +53,13 @@ const MessagePreview = ({
   const date =
     lastMessage && new DateUtils(lastMessage?.dtSend).chatPreviewDate()
 
-  const isChatPinned = useSelector((state: RootState) => {
-    return state.chats.userChats[chatId].pinned
+  /** Whether the chat is pinned or not configurations */
+  const stateChats = (state: RootState) => state.chats.userChats
+  const checkIfChatIsPinned = createSelector([stateChats], (chats) => {
+    console.log('optimize this call')
+    return chats[chatId].pinned
   })
+  const isChatPinned = checkIfChatIsPinned(store.getState())
 
   /** Hooks */
   useEffect(() => {

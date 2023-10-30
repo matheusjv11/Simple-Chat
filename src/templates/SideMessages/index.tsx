@@ -1,21 +1,28 @@
-import { useSelector } from 'react-redux'
+import { createSelector } from '@reduxjs/toolkit'
 import * as S from './styles'
 import SearchInput from '@/components/SearchInput'
 import { ChatService } from '@/services/ChatService'
-import { RootState } from '@/store'
+import { RootState, store } from '@/store'
 import DarkModeSwitch from '@/components/DarkModeSwitch'
 import ChatWrapper from './components/ChatWrapper'
 
 const SideMessages = () => {
-  const chats = useSelector((state: RootState) => {
-    const chatsValues = Object.values(state.chats.userChats)
-    const filteredChats = ChatService.filterChats(
-      chatsValues,
-      state.chats.chatFilter
-    )
+  const stateChats = (state: RootState) => state.chats.userChats
+  const stateFilter = (state: RootState) => state.chats.chatFilter
 
-    return ChatService.orderChats(filteredChats)
-  })
+  const sortAndFilterChats = createSelector(
+    [stateChats, stateFilter],
+    (chatObjects, filter) => {
+      const filteredChats = ChatService.filterChats(
+        Object.values(chatObjects),
+        filter
+      )
+
+      return ChatService.orderChats(filteredChats)
+    }
+  )
+
+  const chats = sortAndFilterChats(store.getState())
 
   return (
     <S.Wrapper>
