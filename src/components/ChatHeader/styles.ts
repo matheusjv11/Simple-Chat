@@ -12,6 +12,7 @@ export const Wrapper = styled.button`
     cursor: pointer;
     transition: background-color 0.1s ease-in-out;
     width: calc(100% + 2rem);
+    z-index: 1;
 
     &:hover {
       background-color: ${theme.boxColors.secondaryBackground};

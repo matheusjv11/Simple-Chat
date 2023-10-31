@@ -15,7 +15,7 @@ const GroupChatDescription = ({ chat }: GroupChatDescriptionProps) => {
     return UserService.getUser(member)
   })
 
-  const usersProfile = users.map((user) => user.profile)
+  const usersProfile = users.map((user) => user.banner)
 
   return (
     <ChatDescription

@@ -49,7 +49,7 @@ const MainChat = ({ chat }: MainChatProps) => {
   }, [chat.messages])
 
   return (
-    <S.Wrapper isOpen={isMobileChatOpen}>
+    <S.Wrapper isOpen={isMobileChatOpen} className="background-fancy-image">
       <DescriptionOpenContext.Provider
         value={{ isDescriptionOpen, updateContextValue }}
       >

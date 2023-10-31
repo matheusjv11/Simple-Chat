@@ -16,7 +16,7 @@ const SingleChatDescription = ({ chat }: SingleChatDescriptionProps) => {
     <ChatDescription
       coverPicture={
         <ProfilePicture
-          profile={user.profile}
+          profile={user.banner}
           profileAlt={`${user.name}'s profile picure`}
           size="large"
         />

@@ -4,8 +4,8 @@ import { StyledIcon } from '@styled-icons/styled-icon'
 import { SendPlane2 as SendFill } from '@styled-icons/remix-fill/SendPlane2'
 import { SendPlane2 as SendLine } from '@styled-icons/remix-line/SendPlane2'
 import { Search as SearchIcon } from '@styled-icons/bootstrap/Search'
-import { CloseCircleOutline as CloseCircleOutlineIcon } from '@styled-icons/evaicons-outline/CloseCircleOutline'
-import { CloseCircle as CloseCircleIcon } from '@styled-icons/evaicons-solid/CloseCircle'
+import { Close as CloseOutlineIcon } from '@styled-icons/ionicons-outline/Close'
+import { Close as CloseIcon } from '@styled-icons/evil/Close'
 import { AngleLeft as LeftArrowIcon } from '@styled-icons/fa-solid/AngleLeft'
 
 export type AvailabelIconsEnum = 'send' | 'search' | 'close' | 'leftArrow'
@@ -25,8 +25,8 @@ const IconsRecord: Record<AvailabelIconsEnum, IconType> = {
     filled: <SearchIcon />
   },
   close: {
-    outlined: <CloseCircleOutlineIcon />,
-    filled: <CloseCircleIcon />
+    outlined: <CloseIcon />,
+    filled: <CloseOutlineIcon />
   },
   leftArrow: {
     outlined: <LeftArrowIcon />,

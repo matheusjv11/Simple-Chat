@@ -12,7 +12,8 @@ export const Characters: Record<ExistingCharacters, UserType> = {
     name: 'Jon Snow',
     house: 'stark',
     profile: '/img/profiles/jon.png',
-    color: '#CDB4DB'
+    color: '#CDB4DB',
+    banner: '/img/banners/jon.png'
   },
   sansa: {
     name: 'Sansa Stark',
@@ -29,13 +30,19 @@ export const Characters: Record<ExistingCharacters, UserType> = {
   ned: {
     name: 'Eddard "Ned" Stark',
     house: 'stark',
-    profile: '/img/profiles/arya.png',
-    color: '#FFC8DD'
-  }
-  /*   catelyn: {
+    profile: '/img/profiles/ned.jpeg',
+    color: '#FFC8DD',
+    banner: '/img/banners/ned.jpeg'
+  },
+  catelyn: {
     name: 'Catelyn Stark',
     house: 'stark'
   },
+  jaime: {
+    name: 'Jaime Lannister',
+    house: 'lannister'
+  }
+  /*   
   jaime: {
     name: 'Jaime Lannister',
     house: 'lannister'

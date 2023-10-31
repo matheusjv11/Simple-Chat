@@ -92,5 +92,46 @@ const GlobalStyles = createGlobalStyle`
           background-color: ${theme.boxColors.scroll};
         `}
     }
+
+    .home-page {
+        ${({ theme }) => css`
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          position: relative;
+          height: 100%;
+          width: 100%;
+          background-color: pink;
+          background: ${theme.boxColors.chatBackground};
+          color: ${theme.colors.heading};
+          padding-top: 10vh;
+
+          .home-description-card {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            backdrop-filter: blur(30px);
+            border-radius: 15px;
+            background-color: ${theme.boxColors.optionsBackground};
+            max-width: 700px;
+
+            p {
+              line-height: 2.5rem;
+            }
+          }
+        `}
+    }
+
+    .background-fancy-image::before {
+      content: '';
+      background-image: url('../img/chat-background.png');
+      background-size: 190px 190px;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.15;
+      z-index: 1;
+    }
 `
 export default GlobalStyles

@@ -41,28 +41,18 @@ export const ChatWrapper = styled.main<{ isDescriptionOpen: boolean }>`
       width: calc(100% - 25vw);
     `}
 
-    &::before {
-      content: '';
-      background-image: url('/img/chat-background.png');
-      background-size: 190px 190px;
-      position: absolute;
-      top: 0px;
-      right: 0px;
-      bottom: 0px;
-      left: 0px;
-      opacity: 0.15;
-    }
-
     > * {
       width: 100%;
     }
 
     ${ChatBodyStyles.Wrapper} {
       flex: 1;
+      z-index: 2;
     }
 
     ${ChatBodyStyles.MessageList}, ${MessageInputStyles.Wrapper} {
       max-width: 950px;
+      z-index: 2;
     }
 
     @media (max-width: 1200px) {
