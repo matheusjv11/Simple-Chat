@@ -3,9 +3,12 @@ import { useContext } from 'react'
 import { DescriptionOpenContext } from '@/templates/MainChat'
 import IconButton from '@/components/IconButton'
 import TextButton from '@/components/TextButton'
+import { ChatService } from '@/services/ChatService'
+import { useRouter } from 'next/router'
 
 type ChatDescriptionProps = {
   coverPicture: React.ReactNode
+  chatId: string
   title: string
   subtitle: string
   pinned: boolean
@@ -14,17 +17,25 @@ type ChatDescriptionProps = {
 
 const ChatDescription = ({
   coverPicture,
+  chatId,
   title,
   subtitle,
   pinned,
   children
 }: ChatDescriptionProps) => {
+  const router = useRouter()
+
   const { isDescriptionOpen, updateContextValue } = useContext(
     DescriptionOpenContext
   )
 
   const closeDescription = () => {
     updateContextValue()
+  }
+
+  const deleteChat = () => {
+    router.push('/')
+    ChatService.removeChat(chatId, true)
   }
 
   return (
@@ -42,7 +53,11 @@ const ChatDescription = ({
           </S.InfoCard>
           {children}
           <S.Footer>
-            <TextButton label="Delete Chat" color="danger" />
+            <TextButton
+              label="Delete Chat"
+              color="danger"
+              onClick={deleteChat}
+            />
           </S.Footer>
         </S.FlexColumn>
       </S.DescriptionColumn>

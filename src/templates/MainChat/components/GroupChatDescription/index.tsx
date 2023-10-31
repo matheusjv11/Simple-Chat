@@ -20,6 +20,7 @@ const GroupChatDescription = ({ chat }: GroupChatDescriptionProps) => {
   return (
     <ChatDescription
       title={chat.name}
+      chatId={chat.id}
       subtitle={chat.description}
       pinned={chat.pinned}
       coverPicture={<GroupPicture membersProfile={usersProfile} large={true} />}

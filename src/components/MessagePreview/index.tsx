@@ -57,7 +57,7 @@ const MessagePreview = ({
   const stateChats = (state: RootState) => state.chats.userChats
   const checkIfChatIsPinned = createSelector([stateChats], (chats) => {
     console.log('optimize this call')
-    return chats[chatId].pinned
+    return chats[chatId]?.pinned
   })
   const isChatPinned = checkIfChatIsPinned(store.getState())
 

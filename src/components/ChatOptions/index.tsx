@@ -6,6 +6,7 @@ import { PinOff as UnpinIcon } from '@styled-icons/fluentui-system-regular/PinOf
 
 import * as S from './styles'
 import { ChatService } from '@/services/ChatService'
+import { useRouter } from 'next/router'
 
 export type ChatOptionsProps = {
   closeModal: () => void
@@ -23,7 +24,10 @@ const ChatOptions = ({
   chatId,
   position
 }: ChatOptionsProps) => {
+  const router = useRouter()
+
   const handleRemoveChat = () => {
+    router.push('/')
     ChatService.removeChat(chatId)
   }
 

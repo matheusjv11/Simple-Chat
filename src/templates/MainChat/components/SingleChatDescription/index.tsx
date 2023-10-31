@@ -21,6 +21,7 @@ const SingleChatDescription = ({ chat }: SingleChatDescriptionProps) => {
           size="large"
         />
       }
+      chatId={chat.id}
       title={user.name}
       subtitle={house}
       pinned={chat.pinned}

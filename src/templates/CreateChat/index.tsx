@@ -94,6 +94,7 @@ const CreateChat = ({ closeModal }: ChatOptionsProps) => {
             label="Create"
             disabled={createDisabled}
             color="primary"
+            onClick={createNewChat}
           />
         </S.Footer>
       </S.Wrapper>

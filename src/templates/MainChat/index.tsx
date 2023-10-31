@@ -13,6 +13,7 @@ import { GroupChatType } from '@/types/GroupChatType'
 import { SingleChatType } from '@/types/SingleChatType'
 import SingleChatDescription from './components/SingleChatDescription'
 import GroupChatDescription from './components/GroupChatDescription'
+import { useRouter } from 'next/router'
 
 export const DescriptionOpenContext = createContext({
   isDescriptionOpen: false,
@@ -24,6 +25,8 @@ type MainChatProps = {
 }
 
 const MainChat = ({ chat }: MainChatProps) => {
+  const router = useRouter()
+
   store.dispatch(cleanUnreadMessages({ id: chat.id }))
 
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false)
@@ -47,6 +50,10 @@ const MainChat = ({ chat }: MainChatProps) => {
       }, 3500)
     }
   }, [chat.messages])
+
+  useEffect(() => {
+    setIsDescriptionOpen(false)
+  }, [router])
 
   return (
     <S.Wrapper isOpen={isMobileChatOpen} className="background-fancy-image">
