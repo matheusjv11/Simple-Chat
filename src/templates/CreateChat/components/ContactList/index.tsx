@@ -20,7 +20,7 @@ const ContactList = ({ userList, updateUserList }: ContactListProps) => {
   }
 
   return (
-    <S.Wrapper>
+    <S.Wrapper className="custom-scroll">
       {Object.entries(Characters).map(([id, user]) => (
         <S.UserOption
           onClick={(e: MouseEventHandler<HTMLButtonElement> | undefined) =>

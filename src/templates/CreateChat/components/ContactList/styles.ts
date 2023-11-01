@@ -4,7 +4,8 @@ export const Wrapper = styled.main`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    overflow: auto;
+    max-height: 50vh;
   `}
 `
 
