@@ -77,6 +77,14 @@ export class ChatService {
     return chats[id]
   }
 
+  /**
+   * Inserts a message into a chat from the giver user
+   *
+   * @param content What goes on the message
+   * @param chatId The ID from the target chat
+   * @param user User who sent the message
+   *
+   */
   public static insertMessageIntoChat(
     content: string,
     chatId: string,
@@ -95,12 +103,15 @@ export class ChatService {
   }
 
   public static createSingleChat(member: string, initialMessage: string) {
-    const chatId = uuidv4()
-    const firstMessage: MessageType = {
-      content: initialMessage,
-      dtSend: new Date(),
-      user: 'currentUser'
+    const existingId = this.singleChatExistis(member)
+
+    if (!!existingId) {
+      this.insertMessageIntoChat(initialMessage, existingId, 'currentUser')
+      return
     }
+
+    const chatId = uuidv4()
+    const firstMessage = this.currentUserMessage(initialMessage)
 
     const singleChat: SingleChatType = {
       id: chatId,
@@ -121,11 +132,7 @@ export class ChatService {
     groupDescription: string
   ) {
     const chatId = uuidv4()
-    const firstMessage: MessageType = {
-      content: initialMessage,
-      dtSend: new Date(),
-      user: 'currentUser'
-    }
+    const firstMessage = this.currentUserMessage(initialMessage)
 
     const singleChat: GroupChatType = {
       id: chatId,
@@ -168,5 +175,25 @@ export class ChatService {
     const randomMember = ArrayUtils.randomItem(chat.members)
     const randomQuote = UserService.randomQuote(randomMember)
     this.insertMessageIntoChat(randomQuote, chat.id, randomMember)
+  }
+
+  private static currentUserMessage(content: string): MessageType {
+    return {
+      content,
+      dtSend: new Date(),
+      user: 'currentUser'
+    }
+  }
+
+  private static singleChatExistis(member: string): string {
+    const storeData = store.getState()
+
+    for (const chat in storeData.chats.userChats) {
+      if (storeData.chats.userChats[chat].member === member) {
+        return storeData.chats.userChats[chat].id
+      }
+    }
+
+    return ''
   }
 }

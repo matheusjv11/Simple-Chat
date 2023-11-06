@@ -1,5 +1,6 @@
-- Add remaining characters and its messages
+- Forbbid to create two single chat of same kind
 - Add some testing on files
 - Fix errors when start chating with a single person. After that, we're not able to use group chat
 - put today and the other day flag on chat body
 - Bug fix: When clicking on options, prevent do select the chat
+- For each character, select an unique color
