@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux'
+import Router from 'next/router'
 import { v4 as uuidv4 } from 'uuid'
 import { store } from '@/store'
 import { RootState } from '@/store'
@@ -107,6 +108,7 @@ export class ChatService {
 
     if (!!existingId) {
       this.insertMessageIntoChat(initialMessage, existingId, 'currentUser')
+      Router.push(`/chat/${existingId}`)
       return
     }
 

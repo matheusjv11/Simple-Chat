@@ -1,29 +1,8 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.div`
-  padding: 0.4rem;
-  flex: 1;
-  position: relative;
-
-  > main {
-    padding: 1rem;
-
-    &:not(:last-of-type) {
-      ${({ theme }) => css`
-        border-bottom: 1px solid ${theme.colors.border};
-      `}
-    }
-  }
-
-  > a {
-    text-decoration: none;
-    color: unset;
-  }
-`
-
-export const FloatingButton = styled.button<{ show: boolean }>`
-  ${({ theme, show }) => css`
-    display: ${show ? 'flex' : 'none'};
+export const FloatingButton = styled.button`
+  ${({ theme }) => css`
+    display: none;
     position: absolute;
     border: none;
     background-color: ${theme.colors.primary};
@@ -56,6 +35,33 @@ export const FloatingButton = styled.button<{ show: boolean }>`
     100% {
       transform: translateY(0);
       opacity: 1;
+    }
+  }
+`
+
+export const Wrapper = styled.div`
+  padding: 0.4rem;
+  flex: 1;
+  position: relative;
+
+  > main {
+    padding: 1rem;
+
+    &:not(:last-of-type) {
+      ${({ theme }) => css`
+        border-bottom: 1px solid ${theme.colors.border};
+      `}
+    }
+  }
+
+  > a {
+    text-decoration: none;
+    color: unset;
+  }
+
+  &:hover {
+    ${FloatingButton} {
+      display: flex;
     }
   }
 `

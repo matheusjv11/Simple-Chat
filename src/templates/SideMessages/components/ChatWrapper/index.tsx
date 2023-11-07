@@ -15,16 +15,12 @@ type ChatWrapperProps = {
 }
 
 const ChatWrapper = ({ chats }: ChatWrapperProps) => {
-  const [showAddButton, setShowAddButton] = useState(false)
   const [showCreateChat, setShowCreateChat] = useState(false)
 
   const { updateContextValue } = useContext(MobileChatOpenContext)
 
   return (
-    <S.Wrapper
-      onMouseEnter={() => setShowAddButton(true)}
-      onMouseLeave={() => setShowAddButton(false)}
-    >
+    <S.Wrapper>
       {chats.map((chat, i) => (
         <Link
           href={`/chat/${chat.id}`}
@@ -38,10 +34,7 @@ const ChatWrapper = ({ chats }: ChatWrapperProps) => {
           )}
         </Link>
       ))}
-      <S.FloatingButton
-        show={showAddButton}
-        onClick={() => setShowCreateChat(true)}
-      >
+      <S.FloatingButton onClick={() => setShowCreateChat(true)}>
         <AddIcon />
       </S.FloatingButton>
       {showCreateChat && (

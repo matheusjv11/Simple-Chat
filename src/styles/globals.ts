@@ -105,6 +105,8 @@ const GlobalStyles = createGlobalStyle`
           background: ${theme.boxColors.chatBackground};
           color: ${theme.colors.heading};
           padding-top: 10vh;
+          padding-left: 2rem;
+          padding-right: 2rem;
 
           .home-description-card {
             margin-top: 2rem;
