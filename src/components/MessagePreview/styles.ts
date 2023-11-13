@@ -62,7 +62,7 @@ export const Message = styled.p`
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    max-width: 22vw;
+    max-width: 19.5vw;
     font-size: ${theme.sizes.small};
     color: ${theme.colors.secondaryText};
     font-weight: 600;

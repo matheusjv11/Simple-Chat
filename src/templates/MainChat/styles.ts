@@ -24,7 +24,7 @@ export const Wrapper = styled.main<{ isOpen: boolean }>`
   }
 `
 
-export const ChatWrapper = styled.main<{ isDescriptionOpen: boolean }>`
+export const ChatWrapper = styled.main<{ isDescriptionOpen: number }>`
   ${({ theme, isDescriptionOpen }) => css`
     display: flex;
     padding: 0 1rem;
@@ -36,7 +36,7 @@ export const ChatWrapper = styled.main<{ isDescriptionOpen: boolean }>`
     height: 100%;
     transition: width 300ms cubic-bezier(0.33, 1, 0.68, 1);
 
-    ${isDescriptionOpen &&
+    ${!!isDescriptionOpen &&
     css`
       width: calc(100% - 25vw);
     `}

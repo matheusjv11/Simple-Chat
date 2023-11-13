@@ -22,7 +22,10 @@ export const chatsSlice = createSlice({
   initialState,
   reducers: {
     addChat: (state, action: PayloadAction<SingleChatType | GroupChatType>) => {
-      state.userChats[action.payload.id] = action.payload
+      const newObj = state.userChats
+      newObj[action.payload.id] = action.payload
+
+      state.userChats = { ...newObj }
     },
     addMessageIntoChat: (
       state,

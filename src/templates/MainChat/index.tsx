@@ -60,7 +60,7 @@ const MainChat = ({ chat }: MainChatProps) => {
       <DescriptionOpenContext.Provider
         value={{ isDescriptionOpen, updateContextValue }}
       >
-        <S.ChatWrapper isDescriptionOpen={isDescriptionOpen}>
+        <S.ChatWrapper isDescriptionOpen={Number(isDescriptionOpen)}>
           {isSingleChatType ? (
             <SingleChatHeader chat={chat} />
           ) : (

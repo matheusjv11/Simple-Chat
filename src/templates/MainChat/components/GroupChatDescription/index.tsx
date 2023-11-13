@@ -25,7 +25,7 @@ const GroupChatDescription = ({ chat }: GroupChatDescriptionProps) => {
       pinned={chat.pinned}
       coverPicture={<GroupPicture membersProfile={usersProfile} large={true} />}
     >
-      <S.UserWrapper>
+      <S.UserWrapper className="custom-scroll">
         <S.MembersTitle>Members</S.MembersTitle>
 
         {users.map((user, id) => {

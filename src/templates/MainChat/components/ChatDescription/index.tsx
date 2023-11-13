@@ -39,7 +39,7 @@ const ChatDescription = ({
   }
 
   return (
-    <S.Wrapper isOpen={isDescriptionOpen}>
+    <S.Wrapper isOpen={Number(isDescriptionOpen)}>
       <S.DescriptionColumn>
         <IconButton icon={'close'} onClick={closeDescription} />
         <S.CoverPicture>{coverPicture}</S.CoverPicture>

@@ -1,7 +1,5 @@
 - Add some testing on files
-- put today and the other day flag on chat body
 - Bug fix: When clicking on options, prevent do select the chat
-- For each character, select an unique color
 - Bug fix: Arrange better the group banner
 - Enhance group messaging
 - Sometimes, when opening a chat, it is taking really long

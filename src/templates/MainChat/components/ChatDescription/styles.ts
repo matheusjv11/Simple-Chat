@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { Wrapper as IconButton } from '@/components/IconButton/styles'
 
-export const Wrapper = styled.main<{ isOpen: boolean }>`
+export const Wrapper = styled.main<{ isOpen: number }>`
   ${({ theme, isOpen }) => css`
     position: absolute;
     top: 0;
@@ -12,7 +12,7 @@ export const Wrapper = styled.main<{ isOpen: boolean }>`
     visibility: visible;
     pointer-events: none;
 
-    ${isOpen &&
+    ${!!isOpen &&
     css`
       ${DescriptionColumn} {
         transform: translate3d(0, 0, 0);
