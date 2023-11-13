@@ -1,8 +1,6 @@
-import { useSelector } from 'react-redux'
 import Router from 'next/router'
 import { v4 as uuidv4 } from 'uuid'
 import { store } from '@/store'
-import { RootState } from '@/store'
 import { GroupChatType } from '@/types/GroupChatType'
 import { SingleChatType } from '@/types/SingleChatType'
 import { DateUtils } from '@/utils/DateUtils'
@@ -73,9 +71,8 @@ export class ChatService {
   public static getChatById(
     id: string
   ): SingleChatType | GroupChatType | undefined {
-    const chats = useSelector((state: RootState) => state.chats.userChats)
-
-    return chats[id]
+    const storeData = store.getState()
+    return storeData.chats.userChats[id]
   }
 
   /**
