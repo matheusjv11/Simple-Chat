@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react'
 
-import ChatBody from '.';
+import ChatBody from '.'
 
 const meta: Meta<typeof ChatBody> = {
-  component: ChatBody,
-};
+  component: ChatBody
+}
 
-export default meta;
-type Story = StoryObj<typeof ChatBody>;
+export default meta
+type Story = StoryObj<typeof ChatBody>
 
 export const Primary: Story = {
-  render: () => <ChatBody />,
-};
+  render: () => <ChatBody messages={[]} />
+}

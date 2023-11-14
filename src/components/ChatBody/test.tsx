@@ -4,7 +4,7 @@ import ChatBody from '.'
 
 describe('<ChatBody />', () => {
   it('should render the heading', () => {
-    const { container } = render(<ChatBody />)
+    const { container } = render(<ChatBody messages={[]} />)
 
     expect(
       screen.getByRole('heading', { name: /ChatBody/i })
