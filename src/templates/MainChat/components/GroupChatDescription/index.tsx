@@ -24,10 +24,10 @@ const GroupChatDescription = ({ chat }: GroupChatDescriptionProps) => {
       subtitle={chat.description}
       pinned={chat.pinned}
       coverPicture={<GroupPicture membersProfile={usersProfile} large={true} />}
+      isGroup={true}
     >
       <S.UserWrapper className="custom-scroll">
         <S.MembersTitle>Members</S.MembersTitle>
-
         {users.map((user, id) => {
           return (
             <S.UserRow key={id}>

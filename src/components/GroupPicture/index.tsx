@@ -10,7 +10,7 @@ const GroupPicture = ({
   large = false
 }: GroupPictureProps) => (
   <S.Wrapper imagesize={membersProfile.length} large={large}>
-    {membersProfile.map((profile, i) => {
+    {membersProfile.slice(0, 4).map((profile, i) => {
       return (
         <S.GroupImageSlice
           src={profile}

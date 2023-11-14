@@ -5,6 +5,11 @@ import IconButton from '@/components/IconButton'
 import TextButton from '@/components/TextButton'
 import { ChatService } from '@/services/ChatService'
 import { useRouter } from 'next/router'
+import { PinAngleFill as PinAngleFillIcon } from '@styled-icons/bootstrap/PinAngleFill'
+import { PeopleFill as PeopleFillIcon } from '@styled-icons/bootstrap/PeopleFill'
+import { PersonFill as PersonFillIcon } from '@styled-icons/bootstrap/PersonFill'
+import { HouseDoorFill as HouseDoorFillIcon } from '@styled-icons/bootstrap/HouseDoorFill'
+import { Info as InfoIcon } from '@styled-icons/evaicons-solid/Info'
 
 type ChatDescriptionProps = {
   coverPicture: React.ReactNode
@@ -12,6 +17,7 @@ type ChatDescriptionProps = {
   title: string
   subtitle: string
   pinned: boolean
+  isGroup?: boolean
   children?: React.ReactNode
 }
 
@@ -21,6 +27,7 @@ const ChatDescription = ({
   title,
   subtitle,
   pinned,
+  isGroup,
   children
 }: ChatDescriptionProps) => {
   const router = useRouter()
@@ -40,16 +47,25 @@ const ChatDescription = ({
 
   return (
     <S.Wrapper isOpen={Number(isDescriptionOpen)}>
-      <S.DescriptionColumn>
+      <S.DescriptionColumn className="custom-scroll">
         <IconButton icon={'close'} onClick={closeDescription} />
         <S.CoverPicture>{coverPicture}</S.CoverPicture>
         <S.FlexColumn>
           <S.InfoCard>
-            <h3>{title}</h3>
-            <p>{subtitle}</p>
-            <S.ChatPinned>
-              Is chat pinned? <strong>{pinned ? 'Yes' : 'No'}</strong>
-            </S.ChatPinned>
+            <S.TextAndIcon>
+              {isGroup ? <PeopleFillIcon /> : <PersonFillIcon />}
+              <p>{title}</p>
+            </S.TextAndIcon>
+            <S.TextAndIcon>
+              {isGroup ? <InfoIcon /> : <HouseDoorFillIcon />}
+              <p>{subtitle}</p>
+            </S.TextAndIcon>
+            <S.TextAndIcon>
+              <PinAngleFillIcon />
+              <p>
+                Is chat pinned? <strong>{pinned ? 'Yes' : 'No'}</strong>
+              </p>
+            </S.TextAndIcon>
           </S.InfoCard>
           {children}
           <S.Footer>

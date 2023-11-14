@@ -29,6 +29,7 @@ export const MessageCard = styled.div<MainProps>`
     width: fit-content;
     padding-right: 3.5rem;
     padding-top: 0.3rem;
+    max-width: 70%;
 
     &::after {
       content: '';
@@ -65,6 +66,11 @@ export const Username = styled.div<{ nameColor?: string }>`
 export const Box = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.heading};
+
+    p {
+      font-weight: 500;
+      line-height: 1.8rem;
+    }
   `}
 `
 

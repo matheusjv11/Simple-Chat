@@ -1,5 +1,5 @@
 - Add some testing on files
 - Bug fix: When clicking on options, prevent do select the chat
-- Bug fix: Arrange better the group banner
 - Enhance group messaging
 - Sometimes, when opening a chat, it is taking really long
+- Create more chats

@@ -24,6 +24,10 @@ export const Wrapper = styled.main<{ isOpen: number }>`
 export const DescriptionColumn = styled.aside`
   ${({ theme }) => css`
     position: absolute;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    pointer-events: fill;
     top: 0;
     right: 0;
     width: 25vw;
@@ -56,6 +60,15 @@ export const DescriptionColumn = styled.aside`
       transform: translate3d(100%, 0, 0);
       width: 100%;
     }
+
+    svg {
+      height: 24px;
+      min-width: 24px;
+    }
+
+    p {
+      line-height: 2.2rem;
+    }
   `}
 `
 
@@ -64,13 +77,13 @@ export const FlexColumn = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 70vh;
+    height: 100%;
   `}
 `
 
 export const CoverPicture = styled.div`
   ${({ theme }) => css`
-    height: 30vh;
+    height: 50vh;
   `}
 `
 
@@ -78,14 +91,8 @@ export const InfoCard = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
-
+    gap: 1.5rem;
     padding: 1rem;
-  `}
-`
-
-export const ChatPinned = styled.p`
-  ${({ theme }) => css`
-    margin-top: 1.2rem;
   `}
 `
 
@@ -96,5 +103,12 @@ export const Footer = styled.div`
     place-items: center;
     border-top: 1px solid ${theme.colors.border};
     pointer-events: auto;
+  `}
+`
+export const TextAndIcon = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
   `}
 `

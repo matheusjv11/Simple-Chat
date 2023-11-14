@@ -7,7 +7,6 @@ export const Wrapper = styled.main`
 export const UserWrapper = styled.main`
   ${({ theme }) => css`
     flex: 1;
-    overflow: auto;
     pointer-events: auto;
   `}
 `
@@ -48,10 +47,6 @@ export const House = styled.p`
 export const MembersTitle = styled.h4`
   ${({ theme }) => css`
     padding: 0.5rem 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: white;
     font-size: ${theme.sizes.small};
     color: ${theme.colors.heading};
   `}
