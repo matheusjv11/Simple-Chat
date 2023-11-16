@@ -6,6 +6,11 @@ export const Wrapper = styled.main`
     flex-direction: column;
     overflow: auto;
     max-height: 50vh;
+
+    @media (max-width: 750px) {
+      max-height: 40vh;
+      min-width: unset;
+    }
   `}
 `
 

@@ -47,6 +47,7 @@ const DarkModeSwitch = () => {
         isPaused={animationState.isPaused}
         isStopped={animationState.isStopped}
         speed={3}
+        height={'10rem'}
       />
       <S.Switch>
         <S.Checkbox

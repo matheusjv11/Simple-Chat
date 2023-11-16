@@ -47,11 +47,12 @@ export const FlexColumn = styled.div<{ end?: boolean }>`
   ${({ end }) => css`
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.5rem;
     align-items: ${end ? 'end' : 'start'};
     position: relative;
 
-    &.preview-buttons {
+    @media (max-width: 750px) {
+      gap: 1.5rem;
     }
   `}
 `

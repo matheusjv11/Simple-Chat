@@ -5,8 +5,16 @@ export const Wrapper = styled.main`
   align-items: center;
 
   div[aria-label='animation'] {
-    height: 80px !important;
+    height: 70px !important;
     width: fit-content;
+
+    @media (max-width: 750px) {
+      display: none;
+    }
+
+    svg {
+      max-inline-size: 100%;
+    }
   }
 `
 

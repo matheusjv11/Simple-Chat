@@ -25,6 +25,11 @@ export const SearchBox = styled.div`
       justify-content: space-between;
       width: 100%;
       align-items: center;
+
+      @media (max-width: 750px) {
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
     }
   `}
 `

@@ -15,7 +15,7 @@ export const Wrapper = styled.main`
     position: absolute;
 
     @media (max-width: 750px) {
-      width: 95vw;
+      width: 90vw;
       min-width: unset;
     }
   `}

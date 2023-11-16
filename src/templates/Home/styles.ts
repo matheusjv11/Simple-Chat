@@ -5,7 +5,7 @@ export const Wrapper = styled.main`
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: ${theme.boxColors.primaryBackground};
     overflow: hidden;
     position: relative;

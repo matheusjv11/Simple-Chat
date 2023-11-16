@@ -69,6 +69,12 @@ const GlobalStyles = createGlobalStyle`
         font-family: ${theme.font.family};
         font-size: ${theme.sizes.medium};
       }
+
+      html,
+      body,
+      #__next {
+        height: 100%;
+      }
     `}
     
     p {
