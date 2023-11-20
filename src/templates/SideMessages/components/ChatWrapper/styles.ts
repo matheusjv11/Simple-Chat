@@ -65,3 +65,12 @@ export const Wrapper = styled.div`
     }
   }
 `
+
+export const NoChatMessage = styled.p`
+  text-align: center;
+  margin-top: 2rem;
+
+  ${({ theme }) => css`
+    color: ${theme.colors.heading};
+  `}
+`

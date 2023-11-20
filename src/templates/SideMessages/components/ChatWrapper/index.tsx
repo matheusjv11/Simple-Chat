@@ -21,19 +21,23 @@ const ChatWrapper = ({ chats }: ChatWrapperProps) => {
 
   return (
     <S.Wrapper>
-      {chats.map((chat, i) => (
-        <Link
-          href={`/chat/${chat.id}`}
-          key={i}
-          onClick={() => updateContextValue()}
-        >
-          {TypeUtils.isSingleChatType(chat) ? (
-            <SingleChatPreview chat={chat} />
-          ) : (
-            <GroupChatPreview chat={chat} />
-          )}
-        </Link>
-      ))}
+      {!!chats.length ? (
+        chats.map((chat, i) => (
+          <Link
+            href={`/chat/${chat.id}`}
+            key={i}
+            onClick={() => updateContextValue()}
+          >
+            {TypeUtils.isSingleChatType(chat) ? (
+              <SingleChatPreview chat={chat} />
+            ) : (
+              <GroupChatPreview chat={chat} />
+            )}
+          </Link>
+        ))
+      ) : (
+        <S.NoChatMessage>No chat available.</S.NoChatMessage>
+      )}
       <S.FloatingButton onClick={() => setShowCreateChat(true)}>
         <AddIcon />
       </S.FloatingButton>

@@ -7,13 +7,14 @@ import { ChatService } from '@/services/ChatService'
 import { TypeUtils } from '@/utils/TypeUtils'
 import SingleChatHeader from '@/components/SingleChatHeader'
 import GroupChatHeader from '@/components/GroupChatHeader'
-import { store } from '@/store'
+import { RootState, store } from '@/store'
 import { cleanUnreadMessages } from '@/store/reducers/chatsReducer'
 import { GroupChatType } from '@/types/GroupChatType'
 import { SingleChatType } from '@/types/SingleChatType'
 import SingleChatDescription from './components/SingleChatDescription'
 import GroupChatDescription from './components/GroupChatDescription'
 import { useRouter } from 'next/router'
+import { shallowEqual, useSelector } from 'react-redux'
 
 export const DescriptionOpenContext = createContext({
   isDescriptionOpen: false,
@@ -26,6 +27,11 @@ type MainChatProps = {
 
 const MainChat = ({ chat }: MainChatProps) => {
   const router = useRouter()
+
+  const chatMessages = useSelector(
+    (state: RootState) => state.chats.userChats[chat.id]?.messages,
+    shallowEqual
+  )
 
   store.dispatch(cleanUnreadMessages({ id: chat.id }))
 
@@ -44,12 +50,16 @@ const MainChat = ({ chat }: MainChatProps) => {
       setTimeout(() => {
         ChatService.singleChatObserver(chat)
       }, 1500)
-    } else {
+    }
+  }, [chatMessages])
+
+  useEffect(() => {
+    if (!isSingleChatType) {
       setTimeout(() => {
         ChatService.groupChatObserver(chat)
       }, 3500)
     }
-  }, [chat.messages])
+  }, [])
 
   useEffect(() => {
     setIsDescriptionOpen(false)
@@ -66,7 +76,7 @@ const MainChat = ({ chat }: MainChatProps) => {
           ) : (
             <GroupChatHeader chat={chat} />
           )}
-          <ChatBody messages={chat.messages} />
+          <ChatBody messages={chatMessages} />
           <MessageInput />
         </S.ChatWrapper>
         {isSingleChatType ? (

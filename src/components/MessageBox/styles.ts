@@ -54,7 +54,7 @@ export const MessageCard = styled.div<MainProps>`
   `}
 `
 
-export const Username = styled.div<{ nameColor?: string }>`
+export const Username = styled.p<{ nameColor?: string }>`
   ${({ theme, nameColor }) => css`
     font-weight: 600;
     font-size: ${theme.sizes.small};

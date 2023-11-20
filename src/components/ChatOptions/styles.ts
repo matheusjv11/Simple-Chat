@@ -14,7 +14,7 @@ export const Wrapper = styled.main<WrapperProps>`
     box-shadow: 0 0.25rem 0.5rem 0.125rem ${theme.boxColors.optionsShadow};
     position: absolute;
     top: ${`${position.top}px`};
-    left: ${`${position.left}px`};
+    left: ${`${position.left - 150}px`};
     animation: chat-options-popup 0.15s ease-in-out;
 
     :first-child {

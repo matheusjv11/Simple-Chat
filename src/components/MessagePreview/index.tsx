@@ -13,7 +13,6 @@ import { PinAngle as PinAngleIcon } from '@styled-icons/bootstrap/PinAngle'
 type MessagePreviewProps = {
   name: string
   chatId: string
-  lastMessage?: MessageType
   children: React.ReactNode
   unreadMessages: number
 }
@@ -21,7 +20,6 @@ type MessagePreviewProps = {
 const MessagePreview = ({
   name,
   chatId,
-  lastMessage,
   children,
   unreadMessages
 }: MessagePreviewProps) => {
@@ -49,12 +47,18 @@ const MessagePreview = ({
   const [countUnreadMessage, setCountUnreadMessage] =
     useState<number>(unreadMessages)
 
+  /**Dinamically get the last messages */
+  const lastMessage = useSelector(
+    (state: RootState) => state.chats.userChats[chatId]?.lastMessage,
+    shallowEqual
+  )
+
   const date =
     lastMessage && new DateUtils(lastMessage?.dtSend).chatPreviewDate()
 
   /** Whether the chat is pinned or not configurations */
   const isChatPinned = useSelector(
-    (state: RootState) => state.chats.userChats[chatId].pinned,
+    (state: RootState) => state.chats.userChats[chatId]?.pinned,
     shallowEqual
   )
 

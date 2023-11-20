@@ -50,9 +50,10 @@ export const FlexColumn = styled.div<{ end?: boolean }>`
     gap: 0.5rem;
     align-items: ${end ? 'end' : 'start'};
     position: relative;
+    height: 35px;
 
     @media (max-width: 750px) {
-      gap: 1.5rem;
+      height: 45px;
     }
   `}
 `
@@ -88,7 +89,7 @@ export const UnreadMessage = styled.p`
     color: white;
     background-color: #00c73e;
     border-radius: 30px;
-    padding: 2px 8px;
+    padding: 1px 8px;
   `}
 `
 

@@ -5,8 +5,10 @@ import { ChatService } from '@/services/ChatService'
 import { RootState, store } from '@/store'
 import DarkModeSwitch from '@/components/DarkModeSwitch'
 import ChatWrapper from './components/ChatWrapper'
+import { useSelector } from 'react-redux'
 
 const SideMessages = () => {
+  const chatsKey = useSelector((state: RootState) => state.chats.userChatsKey)
   const stateChats = (state: RootState) => state.chats.userChats
   const stateFilter = (state: RootState) => state.chats.chatFilter
 
@@ -33,7 +35,7 @@ const SideMessages = () => {
         </div>
         <SearchInput />
       </S.SearchBox>
-      <ChatWrapper chats={chats} />
+      <ChatWrapper chats={chats} key={chatsKey} />
       <S.Author>
         <p>
           Made by{' '}

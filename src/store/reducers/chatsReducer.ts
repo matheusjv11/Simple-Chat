@@ -9,11 +9,13 @@ import { MessageType } from '@/types/MessageType'
 
 export interface ChatsInitialState {
   userChats: UserChatsType
+  userChatsKey: number
   chatFilter: string
 }
 
 const initialState: ChatsInitialState = {
   userChats: { ...InitialGroupChats, ...InitialSingleChats },
+  userChatsKey: 0,
   chatFilter: ''
 }
 
@@ -22,10 +24,8 @@ export const chatsSlice = createSlice({
   initialState,
   reducers: {
     addChat: (state, action: PayloadAction<SingleChatType | GroupChatType>) => {
-      const newObj = state.userChats
-      newObj[action.payload.id] = action.payload
-
-      state.userChats = { ...newObj }
+      state.userChats[action.payload.id] = action.payload
+      state.userChatsKey += 1
     },
     addMessageIntoChat: (
       state,
@@ -57,6 +57,7 @@ export const chatsSlice = createSlice({
     },
     updateChatFilter: (state, action: PayloadAction<string>) => {
       state.chatFilter = action.payload
+      state.userChatsKey += 1
     },
     removeChat: (state, action: PayloadAction<{ id: string }>) => {
       if (action.payload.id in state.userChats) {
