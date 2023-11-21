@@ -28,7 +28,7 @@ export const MessageCard = styled.div<MainProps>`
     padding: 0.8rem;
     width: fit-content;
     padding-right: 3.5rem;
-    padding-top: 0.3rem;
+    padding-top: 0.6rem;
     max-width: 70%;
 
     &::after {

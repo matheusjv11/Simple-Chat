@@ -4,7 +4,6 @@ import { RootState } from '@/store'
 import * as S from './styles'
 import { useSelector, shallowEqual } from 'react-redux'
 import { Username } from '../MessageBox/styles'
-import { MessageType } from '@/types/MessageType'
 import { DateUtils } from '@/utils/DateUtils'
 import ChatOptions from '../ChatOptions'
 import { ThreeDotsVertical as ThreeDotsVerticalIcon } from '@styled-icons/bootstrap/ThreeDotsVertical'
@@ -14,15 +13,9 @@ type MessagePreviewProps = {
   name: string
   chatId: string
   children: React.ReactNode
-  unreadMessages: number
 }
 
-const MessagePreview = ({
-  name,
-  chatId,
-  children,
-  unreadMessages
-}: MessagePreviewProps) => {
+const MessagePreview = ({ name, chatId, children }: MessagePreviewProps) => {
   const router = useRouter()
 
   /** State variables */
@@ -43,6 +36,12 @@ const MessagePreview = ({
     })
     setOptionsIsOpen(open)
   }
+
+  /**Dinamically get the unread messages */
+  const unreadMessages = useSelector(
+    (state: RootState) => state.chats.userChats[chatId]?.unreadMessages,
+    shallowEqual
+  )
 
   const [countUnreadMessage, setCountUnreadMessage] =
     useState<number>(unreadMessages)

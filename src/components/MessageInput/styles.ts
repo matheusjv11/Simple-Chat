@@ -16,6 +16,7 @@ export const Wrapper = styled.form`
 export const EditableDiv = styled.div`
   max-height: 7.35em;
   min-height: 1.47em;
+  line-height: 20px;
   overflow-y: auto;
   width: 95%;
 
@@ -29,6 +30,7 @@ export const EditableDiv = styled.div`
     overflow-y: auto;
     width: 95%;
     color: ${theme.colors.heading};
+    font-weight: 500;
 
     &:focus-visible {
       outline: none;
@@ -39,10 +41,12 @@ export const EditableDiv = styled.div`
 export const PlaceHolder = styled.div`
   ${({ theme }) => css`
     position: absolute;
-    top: 8px;
+    top: 50%;
     left: 15px;
     pointer-events: none;
     color: ${theme.colors.greyText};
+    font-weight: 500;
+    transform: translateY(-50%);
   `}
 `
 

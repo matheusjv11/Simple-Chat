@@ -23,15 +23,21 @@ export const Wrapper = styled.main<WrapperProps>`
         : theme.boxColors.secondaryBackground};
     }
 
+    @media (max-width: 750px) {
+      background-color: ${theme.boxColors.primaryBackground};
+    }
+
     ${selectedchat &&
     css`
-      ${SentDate}, ${Message}, ${Username}, ${Pinned} {
-        color: white;
-      }
+      @media (min-width: 750px) {
+        ${SentDate}, ${Message}, ${Username}, ${Pinned} {
+          color: white;
+        }
 
-      ${Button} {
-        border: 1px solid white;
-        color: white;
+        ${Button} {
+          border: 1px solid white;
+          color: white;
+        }
       }
     `}
   `}

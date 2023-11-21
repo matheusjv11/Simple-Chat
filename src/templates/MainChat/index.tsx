@@ -28,11 +28,6 @@ type MainChatProps = {
 const MainChat = ({ chat }: MainChatProps) => {
   const router = useRouter()
 
-  const chatMessages = useSelector(
-    (state: RootState) => state.chats.userChats[chat.id]?.messages,
-    shallowEqual
-  )
-
   store.dispatch(cleanUnreadMessages({ id: chat.id }))
 
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false)
@@ -51,13 +46,19 @@ const MainChat = ({ chat }: MainChatProps) => {
         ChatService.singleChatObserver(chat)
       }, 1500)
     }
-  }, [chatMessages])
+  }, [chat.lastMessage])
 
   useEffect(() => {
+    let intervalId: NodeJS.Timer | number = 0
+
     if (!isSingleChatType) {
-      setTimeout(() => {
+      intervalId = setInterval(() => {
         ChatService.groupChatObserver(chat)
-      }, 3500)
+      }, 3000)
+    }
+
+    return () => {
+      clearInterval(intervalId)
     }
   }, [])
 
@@ -76,7 +77,7 @@ const MainChat = ({ chat }: MainChatProps) => {
           ) : (
             <GroupChatHeader chat={chat} />
           )}
-          <ChatBody messages={chatMessages} />
+          <ChatBody messages={chat.messages} />
           <MessageInput />
         </S.ChatWrapper>
         {isSingleChatType ? (

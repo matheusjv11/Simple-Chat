@@ -1,6 +1,6 @@
 - Add some testing on files
+- Big fix: When opening single chat first, cant load messages from group
 - Bug fix: When clicking on options, prevent do select the chat
-- Enhance group messaging
 - Sometimes, when opening a chat, it is taking really long
 - Create more chats
 - available for pwa

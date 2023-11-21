@@ -48,6 +48,7 @@ export const ChatWrapper = styled.main<{ isDescriptionOpen: number }>`
     ${ChatBodyStyles.Wrapper} {
       flex: 1;
       z-index: 2;
+      margin-bottom: 1rem;
     }
 
     ${ChatBodyStyles.MessageList}, ${MessageInputStyles.Wrapper} {
