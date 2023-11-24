@@ -21,19 +21,22 @@ export class ChatService {
   /**
    * Orders a given list of chats by its last message's sent date
    *
-   * @param chats Given list of chats
+   * @param ids Given list of chat's ids
    * @returns Ordered list of chats
    */
-  public static orderChats(chats: (SingleChatType | GroupChatType)[]) {
-    return [...chats].sort((a, b) => {
-      if (a.pinned) {
+  public static orderChats(ids: string[]) {
+    return [...ids].sort((a, b) => {
+      const chatA = this.getChatById(a)
+      const chatB = this.getChatById(b)
+
+      if (chatA?.pinned) {
         return -1
       }
 
-      if (a.lastMessage && b.lastMessage) {
+      if (chatA?.lastMessage && chatB?.lastMessage) {
         return DateUtils.orderDates(
-          a.lastMessage?.dtSend || '',
-          b.lastMessage?.dtSend || ''
+          chatA?.lastMessage?.dtSend || '',
+          chatB?.lastMessage?.dtSend || ''
         )
       }
 
@@ -44,15 +47,18 @@ export class ChatService {
   /**
    * Given a target string, searches for compatible chats
    *
-   * @param chats Given list of chats
+   * @param chats Given list of chat's ids
    * @param filter String the chat must contain in its name
    * @returns Filtered list of chats
    */
-  public static filterChats(
-    chats: (SingleChatType | GroupChatType)[],
-    filter: string
-  ) {
-    return [...chats].filter((chat) => {
+  public static filterChats(ids: string[], filter: string) {
+    return [...ids].filter((id) => {
+      const chat = this.getChatById(id)
+
+      if (!chat) {
+        return 0
+      }
+
       if (TypeUtils.isSingleChatType(chat)) {
         const member = Characters[chat.member]
         return member.name.toLowerCase().includes(filter.toLocaleLowerCase())

@@ -3,12 +3,15 @@ import * as S from './styles'
 import MessagePreview from '../MessagePreview'
 import { UserService } from '@/services/UserService'
 import GroupPicture from '../GroupPicture'
+import { ChatService } from '@/services/ChatService'
 
 type GroupChatPreviewProps = {
-  chat: GroupChatType
+  chatId: string
 }
 
-const GroupChatPreview = ({ chat }: GroupChatPreviewProps) => {
+const GroupChatPreview = ({ chatId }: GroupChatPreviewProps) => {
+  const chat = ChatService.getChatById(chatId) as GroupChatType
+
   const membersProfile = chat.members.map((member) => {
     return UserService.getUser(member).profile
   })

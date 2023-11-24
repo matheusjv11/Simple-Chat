@@ -11,27 +11,27 @@ import CreateChat from '@/templates/CreateChat'
 import { Add as AddIcon } from '@styled-icons/fluentui-system-filled/Add'
 
 type ChatWrapperProps = {
-  chats: (SingleChatType | GroupChatType)[]
+  chatIds: string[]
 }
 
-const ChatWrapper = ({ chats }: ChatWrapperProps) => {
+const ChatWrapper = ({ chatIds }: ChatWrapperProps) => {
   const [showCreateChat, setShowCreateChat] = useState(false)
 
   const { updateContextValue } = useContext(MobileChatOpenContext)
 
   return (
     <S.Wrapper>
-      {!!chats.length ? (
-        chats.map((chat, i) => (
+      {!!chatIds.length ? (
+        chatIds.map((id) => (
           <Link
-            href={`/chat/${chat.id}`}
-            key={i}
+            href={`/chat/${id}`}
+            key={id}
             onClick={() => updateContextValue()}
           >
-            {TypeUtils.isSingleChatType(chat) ? (
-              <SingleChatPreview chat={chat} />
+            {TypeUtils.isSingleChatTypeById(id) ? (
+              <SingleChatPreview chatId={id} />
             ) : (
-              <GroupChatPreview chat={chat} />
+              <GroupChatPreview chatId={id} />
             )}
           </Link>
         ))

@@ -7,14 +7,19 @@ import { InitialSingleChats } from '@/mock/InitialSingleChats'
 import { UserChatsType } from '@/types/UserChatsType'
 import { MessageType } from '@/types/MessageType'
 
+const mockChats = { ...InitialGroupChats, ...InitialSingleChats }
+const mockChatsIds = Object.values(mockChats).map((chat) => chat.id)
+
 export interface ChatsInitialState {
   userChats: UserChatsType
+  userChatsId: string[]
   userChatsKey: number
   chatFilter: string
 }
 
 const initialState: ChatsInitialState = {
-  userChats: { ...InitialGroupChats, ...InitialSingleChats },
+  userChats: mockChats,
+  userChatsId: mockChatsIds,
   userChatsKey: 0,
   chatFilter: ''
 }
@@ -25,6 +30,7 @@ export const chatsSlice = createSlice({
   reducers: {
     addChat: (state, action: PayloadAction<SingleChatType | GroupChatType>) => {
       state.userChats[action.payload.id] = action.payload
+      state.userChatsId.push(action.payload.id)
       state.userChatsKey += 1
     },
     addMessageIntoChat: (
@@ -48,6 +54,7 @@ export const chatsSlice = createSlice({
         // Finally, inserts message into chat
         state.userChats[action.payload.id].lastMessage = action.payload.message
         state.userChats[action.payload.id].messages.push(action.payload.message)
+        state.userChatsKey += 1
       }
     },
     cleanUnreadMessages: (state, action: PayloadAction<{ id: string }>) => {
@@ -62,6 +69,9 @@ export const chatsSlice = createSlice({
     removeChat: (state, action: PayloadAction<{ id: string }>) => {
       if (action.payload.id in state.userChats) {
         delete state.userChats[action.payload.id]
+
+        const chatIndex = state.userChatsId.indexOf(action.payload.id)
+        state.userChatsId.splice(chatIndex, 1)
       }
     },
     pinChat: (state, action: PayloadAction<{ id: string }>) => {

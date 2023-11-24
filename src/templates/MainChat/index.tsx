@@ -22,13 +22,18 @@ export const DescriptionOpenContext = createContext({
 })
 
 type MainChatProps = {
-  chat: SingleChatType | GroupChatType
+  chatId: string
 }
 
-const MainChat = ({ chat }: MainChatProps) => {
+const MainChat = ({ chatId }: MainChatProps) => {
   const router = useRouter()
 
-  store.dispatch(cleanUnreadMessages({ id: chat.id }))
+  const chat = useSelector(
+    (state: RootState) => state.chats.userChats[chatId],
+    shallowEqual
+  )
+
+  store.dispatch(cleanUnreadMessages({ id: chatId }))
 
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false)
 
@@ -49,6 +54,8 @@ const MainChat = ({ chat }: MainChatProps) => {
   }, [chat.lastMessage])
 
   useEffect(() => {
+    setIsDescriptionOpen(false)
+
     let intervalId: NodeJS.Timer | number = 0
 
     if (!isSingleChatType) {
@@ -60,10 +67,6 @@ const MainChat = ({ chat }: MainChatProps) => {
     return () => {
       clearInterval(intervalId)
     }
-  }, [])
-
-  useEffect(() => {
-    setIsDescriptionOpen(false)
   }, [router])
 
   return (

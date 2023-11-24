@@ -3,12 +3,14 @@ import * as S from './styles'
 import MessagePreview from '../MessagePreview'
 import { UserService } from '@/services/UserService'
 import ProfilePicture from '../ProfilePicture'
+import { ChatService } from '@/services/ChatService'
 
 type SingleChatPreviewProps = {
-  chat: SingleChatType
+  chatId: string
 }
 
-const SingleChatPreview = ({ chat }: SingleChatPreviewProps) => {
+const SingleChatPreview = ({ chatId }: SingleChatPreviewProps) => {
+  const chat = ChatService.getChatById(chatId) as SingleChatType
   const user = UserService.getUser(chat.member)
 
   return (
