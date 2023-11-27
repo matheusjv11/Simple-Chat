@@ -51,7 +51,7 @@ const MainChat = ({ chatId }: MainChatProps) => {
         ChatService.singleChatObserver(chat)
       }, 1500)
     }
-  }, [chat.lastMessage])
+  }, [chat?.lastMessage])
 
   useEffect(() => {
     setIsDescriptionOpen(false)

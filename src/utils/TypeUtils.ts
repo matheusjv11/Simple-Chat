@@ -6,12 +6,12 @@ export class TypeUtils {
   public static isSingleChatType(
     type: SingleChatType | GroupChatType
   ): type is SingleChatType {
-    return (type as GroupChatType).name === undefined
+    return (type as GroupChatType)?.name === undefined
   }
 
   public static isSingleChatTypeById(id: string): boolean {
     const chat = ChatService.getChatById(id)
 
-    return (chat as GroupChatType).name === undefined
+    return (chat as GroupChatType)?.name === undefined
   }
 }

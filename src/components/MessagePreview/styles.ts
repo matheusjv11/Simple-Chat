@@ -89,13 +89,22 @@ export const SentDate = styled.p`
   `}
 `
 
-export const UnreadMessage = styled.p`
+export const UnreadMessage = styled.span`
   ${({ theme }) => css`
-    font-size: ${theme.sizes.xsmall};
-    color: white;
     background-color: #00c73e;
-    border-radius: 30px;
-    padding: 1px 8px;
+    border-radius: 50%;
+    position: relative;
+    height: 18px;
+    width: 20px;
+
+    p {
+      font-size: 10px;
+      color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
   `}
 `
 

@@ -33,6 +33,10 @@ export class ChatService {
         return -1
       }
 
+      if (chatB?.pinned) {
+        return 1
+      }
+
       if (chatA?.lastMessage && chatB?.lastMessage) {
         return DateUtils.orderDates(
           chatA?.lastMessage?.dtSend || '',

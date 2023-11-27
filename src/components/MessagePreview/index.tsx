@@ -8,6 +8,8 @@ import { DateUtils } from '@/utils/DateUtils'
 import ChatOptions from '../ChatOptions'
 import { ThreeDotsVertical as ThreeDotsVerticalIcon } from '@styled-icons/bootstrap/ThreeDotsVertical'
 import { PinAngle as PinAngleIcon } from '@styled-icons/bootstrap/PinAngle'
+import { UserService } from '@/services/UserService'
+import { ExistingCharacters } from '@/database/Characters'
 
 type MessagePreviewProps = {
   name: string
@@ -81,19 +83,33 @@ const MessagePreview = ({ name, chatId, children }: MessagePreviewProps) => {
     }
   }
 
+  const lastMessageUser = (userKey: string) => {
+    const user = UserService.getUser(userKey as ExistingCharacters)
+    return user.name.split(' ')[0]
+  }
+
   return (
     <S.Wrapper selectedchat={Number(selectedChat)} tabIndex={0}>
       {children}
       <S.MessageContent>
         <S.FlexColumn>
           <Username>{name}</Username>
-          <S.Message>{lastMessage?.content}</S.Message>
+          {lastMessage && (
+            <S.Message>
+              {lastMessage.user === 'currentUser'
+                ? 'You'
+                : lastMessageUser(lastMessage.user)}
+              : {lastMessage.content}
+            </S.Message>
+          )}
         </S.FlexColumn>
         <S.RightSide>
           <S.FlexColumn end={'true'}>
             <S.SentDate>{date}</S.SentDate>
             {!!countUnreadMessage && (
-              <S.UnreadMessage>{countUnreadMessage}</S.UnreadMessage>
+              <S.UnreadMessage>
+                <p>{countUnreadMessage}</p>
+              </S.UnreadMessage>
             )}
           </S.FlexColumn>
           <S.FlexColumn className="preview-buttons">

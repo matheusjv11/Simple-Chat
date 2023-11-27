@@ -1,6 +1,6 @@
 - Add some testing on files
-- Big fix: When opening single chat first, cant load messages from group
+- Big fix: Group chat stopping messaging when change page
+- Big fix: Delete not working anymore
 - Bug fix: When clicking on options, prevent do select the chat
 - Sometimes, when opening a chat, it is taking really long
-- Create more chats
 - available for pwa

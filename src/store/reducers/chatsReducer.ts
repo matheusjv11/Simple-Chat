@@ -68,10 +68,10 @@ export const chatsSlice = createSlice({
     },
     removeChat: (state, action: PayloadAction<{ id: string }>) => {
       if (action.payload.id in state.userChats) {
-        delete state.userChats[action.payload.id]
-
         const chatIndex = state.userChatsId.indexOf(action.payload.id)
         state.userChatsId.splice(chatIndex, 1)
+
+        delete state.userChats[action.payload.id]
       }
     },
     pinChat: (state, action: PayloadAction<{ id: string }>) => {
