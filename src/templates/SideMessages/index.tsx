@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { createSelector } from '@reduxjs/toolkit'
 import * as S from './styles'
 import SearchInput from '@/components/SearchInput'
@@ -32,7 +33,7 @@ const SideMessages = () => {
         </div>
         <SearchInput />
       </S.SearchBox>
-      <ChatWrapper chatIds={chats} key={chatsKey} />
+      <ChatWrapper chatIds={chats} />
       <S.Author>
         <p>
           Made by{' '}

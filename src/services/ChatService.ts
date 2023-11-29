@@ -16,6 +16,7 @@ import { Characters, ExistingCharacters } from '@/database/Characters'
 import { ArrayUtils } from '@/utils/ArrayUtils'
 import { TypeUtils } from '@/utils/TypeUtils'
 import { MessageType } from '@/types/MessageType'
+import { UserChatsType } from '@/types/UserChatsType'
 
 export class ChatService {
   /**
@@ -29,19 +30,8 @@ export class ChatService {
       const chatA = this.getChatById(a)
       const chatB = this.getChatById(b)
 
-      if (chatA?.pinned) {
-        return -1
-      }
-
-      if (chatB?.pinned) {
-        return 1
-      }
-
-      if (chatA?.lastMessage && chatB?.lastMessage) {
-        return DateUtils.orderDates(
-          chatA?.lastMessage?.dtSend || '',
-          chatB?.lastMessage?.dtSend || ''
-        )
+      if (chatA && chatB) {
+        return this.sortFunction(chatA, chatB)
       }
 
       return 0
@@ -108,6 +98,17 @@ export class ChatService {
         }
       })
     )
+  }
+
+  public static shouldReorderChats(chatsId: string[], chats: UserChatsType) {
+    const orderedChats = chatsId.sort((a, b) => {
+      const chatA = chats[a]
+      const chatB = chats[b]
+
+      return this.sortFunction(chatA, chatB)
+    })
+
+    return chatsId.toString() !== orderedChats.toString()
   }
 
   public static createSingleChat(member: string, initialMessage: string) {
@@ -184,6 +185,28 @@ export class ChatService {
     const randomMember = ArrayUtils.randomItem(chat.members)
     const randomQuote = UserService.randomQuote(randomMember)
     this.insertMessageIntoChat(randomQuote, chat.id, randomMember)
+  }
+
+  private static sortFunction(
+    chatA: SingleChatType | GroupChatType,
+    chatB: SingleChatType | GroupChatType
+  ): number {
+    if (chatA?.pinned) {
+      return -1
+    }
+
+    if (chatB?.pinned) {
+      return 1
+    }
+
+    if (chatA?.lastMessage && chatB?.lastMessage) {
+      return DateUtils.orderDates(
+        chatA?.lastMessage?.dtSend || '',
+        chatB?.lastMessage?.dtSend || ''
+      )
+    }
+
+    return 0
   }
 
   private static currentUserMessage(content: string): MessageType {
