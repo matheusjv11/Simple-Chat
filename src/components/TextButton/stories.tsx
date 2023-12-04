@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react'
 
-import TextButton from '.';
+import TextButton from '.'
 
 const meta: Meta<typeof TextButton> = {
-  component: TextButton,
-};
+  component: TextButton
+}
 
-export default meta;
-type Story = StoryObj<typeof TextButton>;
+export default meta
+type Story = StoryObj<typeof TextButton>
 
 export const Primary: Story = {
-  render: () => <TextButton />,
-};
+  render: () => <TextButton label="Test" color="primary" />
+}

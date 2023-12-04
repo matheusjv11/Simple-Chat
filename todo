@@ -3,6 +3,3 @@
 - Big fix: Delete not working anymore
 - Bug fix: When clicking on options, prevent do select the chat
 - Sometimes, when opening a chat, it is taking really long
-- available for pwa
-
-- try to update the actual key only on SideMessages

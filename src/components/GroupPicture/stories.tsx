@@ -2,9 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import GroupPicture from '.'
 
-import AryaImage from '../../../public/img/profiles/arya.png'
+import AryaImage from '../../../public/img/profiles/arya.jpg'
 import JonImage from '../../../public/img/profiles/jon.png'
-import SansaImage from '../../../public/img/profiles/sansa.png'
+import SansaImage from '../../../public/img/profiles/sansa.jpg'
 
 const meta: Meta<typeof GroupPicture> = {
   component: GroupPicture

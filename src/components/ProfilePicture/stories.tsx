@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import ProfilePicture, { ProfilePictureProps } from '.'
-import AryaImage from '../../../public/img/profiles/arya.png'
+import AryaImage from '../../../public/img/profiles/arya.jpg'
 
 const meta: Meta<typeof ProfilePicture> = {
   component: ProfilePicture,
