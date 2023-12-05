@@ -30,7 +30,11 @@ const ChatHeader = ({
   return (
     <S.Wrapper onClick={() => updateContextValue()}>
       <S.InformationWrapper>
-        <IconButton icon="leftArrow" onClick={mobileArrowClick} />
+        <IconButton
+          icon="leftArrow"
+          description="Toggle the side menu"
+          onClick={mobileArrowClick}
+        />
         {children}
         <div>
           <h3>{chatName}</h3>

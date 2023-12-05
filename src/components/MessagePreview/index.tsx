@@ -114,7 +114,10 @@ const MessagePreview = ({ name, chatId, children }: MessagePreviewProps) => {
             )}
           </S.FlexColumn>
           <S.FlexColumn className="preview-buttons">
-            <S.Button onClick={handleOptionsClick}>
+            <S.Button
+              onClick={handleOptionsClick}
+              aria-label="Button that opens the chat options modal"
+            >
               <ThreeDotsVerticalIcon />
             </S.Button>
             <S.Pinned>{isChatPinned && <PinAngleIcon />}</S.Pinned>

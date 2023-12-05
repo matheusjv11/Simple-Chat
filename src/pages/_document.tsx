@@ -6,6 +6,7 @@ export default function Document() {
       <Head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#7209b7" />
+        <title>Got Simple Chat</title>
       </Head>
       <body>
         <Main />

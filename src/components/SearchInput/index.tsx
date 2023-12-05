@@ -19,7 +19,10 @@ const SearchInput = () => {
   return (
     <S.Wrapper>
       <S.SendWrapper>
-        <IconButton icon={'search'} />
+        <IconButton
+          icon={'search'}
+          description="Indicative do search the chat. Not clickable"
+        />
       </S.SendWrapper>
       <S.EditableDiv
         role="textbox"

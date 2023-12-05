@@ -62,7 +62,7 @@ export const ThemeLight: Theme = {
   colors: {
     primary: '#7209b7',
     heading: '#353535',
-    greyText: '#919093',
+    greyText: '#555456',
     lightGrey: '#cfcfcf',
     border: '#ebebeb',
     chatHover: '#f4f4f5',
@@ -86,7 +86,7 @@ export const ThemeDark: Theme = {
   colors: {
     primary: '#7209b7',
     heading: '#e3e3e3',
-    greyText: '#919093',
+    greyText: '#e2e2e2',
     lightGrey: '#cfcfcf',
     border: '#3f3f3f',
     chatHover: '#f4f4f5',

@@ -5,7 +5,7 @@ import IconButton from '.'
 
 describe('<IconButton />', () => {
   it('should render the icon button', () => {
-    renderWithTheme(<IconButton icon="send" />)
+    renderWithTheme(<IconButton icon="send" description="Send button" />)
 
     expect(screen.getByRole('button')).toBeInTheDocument()
   })

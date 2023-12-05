@@ -91,7 +91,11 @@ const CreateChat = ({ closeModal }: ChatOptionsProps) => {
       <S.Wrapper>
         <S.Header>
           <h3>Create a chat</h3>
-          <IconButton icon={'close'} onClick={closeModal} />
+          <IconButton
+            icon={'close'}
+            onClick={closeModal}
+            description="Closes the create chat modal"
+          />
         </S.Header>
         <ContactList updateUserList={updateUserList} userList={selectedUsers} />
         <InformationForm

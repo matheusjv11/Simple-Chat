@@ -36,11 +36,17 @@ const IconsRecord: Record<AvailabelIconsEnum, IconType> = {
 
 export type IconButtonProps = {
   icon: AvailabelIconsEnum
+  description: string
   color?: 'primary' | 'default'
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined
 }
 
-const IconButton = ({ icon, onClick, color = 'default' }: IconButtonProps) => {
+const IconButton = ({
+  icon,
+  description,
+  onClick,
+  color = 'default'
+}: IconButtonProps) => {
   const [isHovering, setIsHovering] = useState(false)
 
   return (
@@ -48,6 +54,7 @@ const IconButton = ({ icon, onClick, color = 'default' }: IconButtonProps) => {
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       onClick={onClick}
+      aria-label={description}
     >
       {isHovering ? IconsRecord[icon].filled : IconsRecord[icon].outlined}
     </S.Wrapper>

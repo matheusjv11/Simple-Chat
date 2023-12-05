@@ -17,6 +17,7 @@ const GroupPicture = ({
           imagesize={membersProfile.length}
           currentindex={i}
           key={i}
+          alt="Character illustrative image"
         />
       )
     })}

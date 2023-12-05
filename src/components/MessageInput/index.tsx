@@ -75,7 +75,11 @@ const MessageInput = () => {
       {!message && <S.PlaceHolder>{inputTitle}</S.PlaceHolder>}
       {!!message && (
         <S.SendWrapper>
-          <IconButton icon={'send'} onClick={sendMessage} />
+          <IconButton
+            icon={'send'}
+            description="Send the message to the chat"
+            onClick={sendMessage}
+          />
         </S.SendWrapper>
       )}
     </S.Wrapper>

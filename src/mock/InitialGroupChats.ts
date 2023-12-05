@@ -58,24 +58,24 @@ export const InitialGroupChats: UserChatsType = {
     messages: [
       {
         content: 'I hate everyone here',
-        dtSend: new Date('2023-11-10 15:25:20'),
+        dtSend: new Date('2023-11-02 15:25:20'),
         user: ExistingCharacters.JOFFREY
       },
       {
         content: 'What a surprise',
-        dtSend: new Date('2023-11-10 15:26:50'),
+        dtSend: new Date('2023-11-02 15:26:50'),
         user: ExistingCharacters.TYRION
       },
       {
         content: 'Can you bahave just once?',
-        dtSend: new Date('2023-11-10 15:28:00'),
+        dtSend: new Date('2023-11-02 15:28:00'),
         user: ExistingCharacters.CERSEI
       }
     ],
     pinned: false,
     lastMessage: {
       content: 'Can you bahave just once?',
-      dtSend: new Date('2023-12-10 15:28:00'),
+      dtSend: new Date('2023-12-02 15:28:00'),
       user: ExistingCharacters.CERSEI
     },
     unreadMessages: 3

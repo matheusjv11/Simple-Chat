@@ -48,7 +48,11 @@ const ChatDescription = ({
   return (
     <S.Wrapper isOpen={Number(isDescriptionOpen)}>
       <S.DescriptionColumn className="custom-scroll">
-        <IconButton icon={'close'} onClick={closeDescription} />
+        <IconButton
+          icon={'close'}
+          description="Closes the chat description overlay"
+          onClick={closeDescription}
+        />
         <S.CoverPicture>{coverPicture}</S.CoverPicture>
         <S.FlexColumn>
           <S.InfoCard>
