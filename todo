@@ -1,1 +1,2 @@
-- Bug fix: Mobile screen not workin when opening group message (maybe is something with the scroll)
+- Bug fix: Melissandre is getting an erro for not having a house
+- Bug fix: the Darkmode switch automaticaly to light when we are on dark mode and deletes the chat

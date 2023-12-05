@@ -20,6 +20,6 @@ export class UserService {
   }
 
   public static getHouseDescription(house: string): string {
-    return Houses[house].name || 'No house'
+    return Houses[house]?.name || 'No house'
   }
 }
