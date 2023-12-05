@@ -1,5 +1,3 @@
-- Add some testing on files
 - Big fix: Group chat stopping messaging when change page
-- Big fix: Delete not working anymore
 - Bug fix: When clicking on options, prevent do select the chat
 - Sometimes, when opening a chat, it is taking really long

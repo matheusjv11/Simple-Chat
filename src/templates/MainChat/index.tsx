@@ -71,24 +71,26 @@ const MainChat = ({ chatId }: MainChatProps) => {
 
   return (
     <S.Wrapper isOpen={isMobileChatOpen} className="background-fancy-image">
-      <DescriptionOpenContext.Provider
-        value={{ isDescriptionOpen, updateContextValue }}
-      >
-        <S.ChatWrapper isDescriptionOpen={Number(isDescriptionOpen)}>
+      {chat && (
+        <DescriptionOpenContext.Provider
+          value={{ isDescriptionOpen, updateContextValue }}
+        >
+          <S.ChatWrapper isDescriptionOpen={Number(isDescriptionOpen)}>
+            {isSingleChatType ? (
+              <SingleChatHeader chat={chat} />
+            ) : (
+              <GroupChatHeader chat={chat} />
+            )}
+            <ChatBody messages={chat.messages} />
+            <MessageInput />
+          </S.ChatWrapper>
           {isSingleChatType ? (
-            <SingleChatHeader chat={chat} />
+            <SingleChatDescription chat={chat} />
           ) : (
-            <GroupChatHeader chat={chat} />
+            <GroupChatDescription chat={chat} />
           )}
-          <ChatBody messages={chat.messages} />
-          <MessageInput />
-        </S.ChatWrapper>
-        {isSingleChatType ? (
-          <SingleChatDescription chat={chat} />
-        ) : (
-          <GroupChatDescription chat={chat} />
-        )}
-      </DescriptionOpenContext.Provider>
+        </DescriptionOpenContext.Provider>
+      )}
     </S.Wrapper>
   )
 }

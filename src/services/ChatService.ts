@@ -171,7 +171,7 @@ export class ChatService {
   }
 
   public static singleChatObserver(chat: SingleChatType): void {
-    if (!chat.lastMessage) {
+    if (!chat?.lastMessage) {
       return
     }
 

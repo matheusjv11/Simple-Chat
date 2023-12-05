@@ -9,21 +9,37 @@ type ChatBodyType = {
 
 const ChatBody = ({ messages }: ChatBodyType) => {
   const chatBodyAsHtml = useRef<HTMLDivElement | null>(null)
+  const messageListAsHtml = useRef<HTMLDivElement | null>(null)
+
+  const scrollBottom = () => {
+    const newMessage = messageListAsHtml.current?.lastElementChild
+    newMessage?.scrollIntoView({
+      inline: 'nearest',
+      block: 'end',
+      behavior: 'smooth'
+    })
+  }
+
+  const userIsOnBottom = (): boolean => {
+    if (chatBodyAsHtml.current) {
+      const howMuchUserScrolled =
+        chatBodyAsHtml.current.scrollTop + chatBodyAsHtml.current.clientHeight
+
+      return chatBodyAsHtml.current.scrollHeight - howMuchUserScrolled < 10
+    }
+
+    return false
+  }
 
   useEffect(() => {
-    if (chatBodyAsHtml.current) {
-      if (
-        chatBodyAsHtml.current.scrollTop + chatBodyAsHtml.current.offsetHeight >
-        chatBodyAsHtml.current.scrollHeight
-      ) {
-        chatBodyAsHtml.current.scrollTop = chatBodyAsHtml.current.scrollHeight
-      }
+    if (userIsOnBottom()) {
+      scrollBottom()
     }
   }, [messages])
 
   return (
     <S.Wrapper ref={chatBodyAsHtml} className="custom-scroll">
-      <S.MessageList>
+      <S.MessageList ref={messageListAsHtml}>
         {messages.map((message, i) => {
           return <MessageBox message={message} key={i} />
         })}
