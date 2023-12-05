@@ -77,6 +77,7 @@ const MessagePreview = ({ name, chatId, children }: MessagePreviewProps) => {
     e: MouseEventHandler<HTMLButtonElement> | undefined
   ) => {
     if (e) {
+      e.stopPropagation()
       e.preventDefault()
       const { top, left, right, bottom } = e.target.getBoundingClientRect()
       openOptions(true, top, left)

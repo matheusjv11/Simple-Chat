@@ -16,6 +16,8 @@ const Modal = ({
   const clickOutside = (e: MouseEventHandler<HTMLDivElement> | undefined) => {
     if (e) {
       if (e.target.id === 'modal-main') {
+        e.preventDefault()
+        e.stopPropagation()
         onClickOutside()
       }
     }

@@ -26,30 +26,35 @@ const ChatOptions = ({
 }: ChatOptionsProps) => {
   const router = useRouter()
 
-  const handleRemoveChat = () => {
+  const handleRemoveChat = (): void => {
     router.push('/')
     ChatService.removeChat(chatId)
   }
 
-  const handlePinChat = () => {
+  const handlePinChat = (): void => {
     ChatService.pinChat(chatId)
     closeModal()
   }
 
-  const handleUnPinChat = () => {
+  const handleUnPinChat = (): void => {
     ChatService.unPinChat(chatId)
     closeModal()
   }
 
-  const stopClickPropagation = (e: MouseEvent) => {
+  const stopClickPropagation = (e: MouseEvent): void => {
     if (e) {
       e.stopPropagation()
       e.stopPropagation()
     }
   }
 
+  const clickOutside = (e: MouseEvent): void => {
+    stopClickPropagation(e)
+    closeModal()
+  }
+
   return (
-    <Modal onClickOutside={closeModal}>
+    <Modal onClickOutside={clickOutside}>
       <S.Wrapper onClick={stopClickPropagation} position={position}>
         {isChatPinned ? (
           <S.Option onClick={handleUnPinChat}>
