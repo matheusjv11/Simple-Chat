@@ -12,7 +12,7 @@ export default function Index() {
               are stored on redux, without an API connection. This way, every
               new chat or message sent will be only available on your page.
               <br></br> It was built solely to practice the react state
-              management in a advanced approach. I hope you enjoy it! And don't
+              management in a advanced approach. I hope you enjoy it! And do not
               forget to be careful when talking to Daenerys; the last time
               someone saw her, she was destroying an entire land.
               <br></br>
