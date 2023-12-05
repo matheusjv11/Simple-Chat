@@ -68,7 +68,7 @@ export const Box = styled.div`
     color: ${theme.colors.heading};
 
     p {
-      font-weight: 500;
+      font-weight: 400;
       line-height: 1.8rem;
     }
   `}

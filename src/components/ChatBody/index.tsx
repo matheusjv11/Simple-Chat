@@ -12,12 +12,19 @@ const ChatBody = ({ messages }: ChatBodyType) => {
   const messageListAsHtml = useRef<HTMLDivElement | null>(null)
 
   const scrollBottom = () => {
-    const newMessage = messageListAsHtml.current?.lastElementChild
-    newMessage?.scrollIntoView({
-      inline: 'nearest',
-      block: 'end',
-      behavior: 'smooth'
-    })
+    if (messageListAsHtml.current) {
+      const newMessage = messageListAsHtml.current?.lastElementChild
+      const elementPositioning =
+        messageListAsHtml.current.getBoundingClientRect()
+
+      if (elementPositioning.width > 750) {
+        newMessage?.scrollIntoView({
+          inline: 'nearest',
+          block: 'end',
+          behavior: 'smooth'
+        })
+      }
+    }
   }
 
   const userIsOnBottom = (): boolean => {
@@ -25,7 +32,7 @@ const ChatBody = ({ messages }: ChatBodyType) => {
       const howMuchUserScrolled =
         chatBodyAsHtml.current.scrollTop + chatBodyAsHtml.current.clientHeight
 
-      return chatBodyAsHtml.current.scrollHeight - howMuchUserScrolled < 10
+      return chatBodyAsHtml.current.scrollHeight - howMuchUserScrolled < 150
     }
 
     return false

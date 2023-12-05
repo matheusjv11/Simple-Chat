@@ -111,13 +111,15 @@ export class ChatService {
     return chatsId.toString() !== orderedChats.toString()
   }
 
-  public static createSingleChat(member: string, initialMessage: string) {
+  public static createSingleChat(
+    member: string,
+    initialMessage: string
+  ): string {
     const existingId = this.singleChatExistis(member)
 
     if (!!existingId) {
       this.insertMessageIntoChat(initialMessage, existingId, 'currentUser')
-      Router.push(`/chat/${existingId}`)
-      return
+      return existingId
     }
 
     const chatId = uuidv4()
@@ -133,6 +135,8 @@ export class ChatService {
     }
 
     store.dispatch(addChat(singleChat))
+
+    return chatId
   }
 
   public static createGroupChat(
@@ -156,6 +160,8 @@ export class ChatService {
     }
 
     store.dispatch(addChat(singleChat))
+
+    return chatId
   }
 
   public static removeChat(id: string): void {

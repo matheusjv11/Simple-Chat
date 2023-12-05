@@ -3,7 +3,8 @@ import {
   isSameWeek,
   isToday,
   differenceInMinutes,
-  isYesterday
+  isYesterday,
+  compareDesc
 } from 'date-fns'
 
 export class DateUtils {
@@ -35,7 +36,7 @@ export class DateUtils {
   }
 
   public static orderDates(dateA: Date, dateB: Date): number {
-    return dateB.getUTCMilliseconds() - dateA.getUTCMilliseconds()
+    return compareDesc(dateA, dateB)
   }
 
   public getHoursAndMinutes(): string {

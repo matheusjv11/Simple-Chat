@@ -1,5 +1,1 @@
-- Big fix (options): Group chat stopping messaging when change page
-- Bug fix: Ordering not working with hours
-- Bug fix: Create a middlewrare that redirects to the main page if the chat id does not exist
-- Bug fix: Sometimes the font is being reloaded. Which could lead to rerender
 - Bug fix: Mobile screen not workin when opening group message (maybe is something with the scroll)

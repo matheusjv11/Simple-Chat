@@ -6,6 +6,7 @@ import ContactList from './components/ContactList'
 import InformationForm from './components/InformationForm'
 import { ChatService } from '@/services/ChatService'
 import TextButton from '@/components/TextButton'
+import { useRouter } from 'next/router'
 
 export type ChatOptionsProps = {
   closeModal: () => void
@@ -18,6 +19,8 @@ export type ChatSettingsType = {
 }
 
 const CreateChat = ({ closeModal }: ChatOptionsProps) => {
+  const router = useRouter()
+
   const [selectedUsers, setSelectedUsers] = useState<string[]>([])
   const [createDisabled, setCreateDisabled] = useState(true)
   const [chatSettings, setChatSettings] = useState<ChatSettingsType>({
@@ -36,10 +39,15 @@ const CreateChat = ({ closeModal }: ChatOptionsProps) => {
   }
 
   const createNewChat = () => {
+    let chatId = ''
+
     if (selectedUsers.length === 1) {
-      ChatService.createSingleChat(selectedUsers[0], chatSettings.message)
+      chatId = ChatService.createSingleChat(
+        selectedUsers[0],
+        chatSettings.message
+      )
     } else {
-      ChatService.createGroupChat(
+      chatId = ChatService.createGroupChat(
         selectedUsers,
         chatSettings.message,
         chatSettings.groupName,
@@ -47,6 +55,7 @@ const CreateChat = ({ closeModal }: ChatOptionsProps) => {
       )
     }
 
+    router.push('/chat/' + chatId)
     closeModal()
   }
 
