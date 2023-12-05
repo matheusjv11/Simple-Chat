@@ -1,15 +1,14 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithTheme } from '../../utils/RenderUtils'
 
 import MessageInput from '.'
 
 describe('<MessageInput />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<MessageInput />)
+  it('should render the message input', () => {
+    renderWithTheme(<MessageInput />)
 
     expect(
-      screen.getByRole('heading', { name: /MessageInput/i })
+      screen.getByRole('form', { name: /MessageInput/i })
     ).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
   })
 })

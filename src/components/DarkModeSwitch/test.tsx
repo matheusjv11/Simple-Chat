@@ -1,15 +1,14 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithTheme } from '../../utils/RenderUtils'
 
 import DarkModeSwitch from '.'
 
 describe('<DarkModeSwitch />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<DarkModeSwitch />)
+  it('should render the dark mode switch', () => {
+    renderWithTheme(<DarkModeSwitch />)
 
     expect(
-      screen.getByRole('heading', { name: /DarkModeSwitch/i })
+      screen.getByRole('main', { name: /DarkModeSwitch/i })
     ).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
   })
 })

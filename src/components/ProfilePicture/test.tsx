@@ -1,15 +1,20 @@
-import { render, screen } from '@testing-library/react'
-
+import { screen } from '@testing-library/react'
+import { renderWithTheme } from '../../utils/RenderUtils'
 import ProfilePicture from '.'
 
-describe('<ProfilePicture />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<ProfilePicture />)
-    
-    expect(
-      screen.getByRole('heading', { name: /ProfilePicture/i })
-    ).toBeInTheDocument()
+import AryaImage from 'public/img/profiles/arya.jpg'
 
-    expect(container.firstChild).toMatchSnapshot()
+describe('<ProfilePicture />', () => {
+  it('should render a profile picture with the aria-label', () => {
+    renderWithTheme(
+      <ProfilePicture
+        profile={AryaImage.src}
+        profileAlt="Arya's profile picture"
+      />
+    )
+
+    expect(
+      screen.getByRole('main', { name: /ProfilePicture/i })
+    ).toHaveAttribute('aria-label', "Arya's profile picture")
   })
 })

@@ -1,5 +1,5 @@
 import * as S from './styles'
-import { DateUtils } from '@/utils/DateUtils'
+import { DateUtils } from '../../utils/DateUtils'
 
 export type ProfilePictureProps = {
   profile: string

@@ -1,15 +1,20 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithTheme } from '../../utils/RenderUtils'
 
 import TextButton from '.'
 
 describe('<TextButton />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<TextButton />)
+  it('should render TextButton with the right label', () => {
+    renderWithTheme(<TextButton color="primary" label="Testing file" />)
 
-    expect(
-      screen.getByRole('heading', { name: /TextButton/i })
-    ).toBeInTheDocument()
+    expect(screen.getByRole('button')).toHaveTextContent('Testing file')
+  })
 
-    expect(container.firstChild).toMatchSnapshot()
+  it('should render TextButton with the right color', () => {
+    renderWithTheme(<TextButton color="primary" label="Testing file" />)
+
+    expect(screen.getByRole('button')).toHaveStyle({
+      backgroundColor: '#7209b7'
+    })
   })
 })
